@@ -18,7 +18,7 @@ Router.map(function() {
     this.route('personen', function() {});
   });
 
-//  this.route('administratieve-gegevens', function() {});
+  //  this.route('administratieve-gegevens', function() {});
 
   this.route('bbcdr', function() {
     this.route('rapporten', function() {
@@ -42,6 +42,9 @@ Router.map(function() {
   this.route('legaal', function() {
     this.route('disclaimer');
     this.route('cookieverklaring');
+  });
+  this.route('leidinggevendenbeheer', function() {
+    this.route('leidinggevenden');
   });
 });
 
