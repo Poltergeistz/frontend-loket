@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import session from '../../../helpers/session';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import EmberObject from '@ember/object';
 
@@ -10,7 +9,7 @@ module('Integration | Component | berichtencentrum/conversatie-view', function(h
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
-  test('it renders', async function(assert) {
+  hooks.beforeEach(function() {
     const classificatieCode = this.server.create('bestuurseenheid-classificatie-code', {
       label: "Gemeente",
       scopeNote: undefined,
@@ -92,9 +91,19 @@ module('Integration | Component | berichtencentrum/conversatie-view', function(h
     };
 
     this.set('model', model);
+  });
 
+  test('the component renders a header, a conversatie and a button', async function(assert) {
     await render(hbs `{{berichtencentrum/conversatie-view model=model data-test-loket="berichtencentrum-conversatie"}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(`[data-test-loket=berichtencentrum-conversatie-header]`).exists();
+    assert.dom(`[data-test-loket=berichtencentrum-conversatie]`).exists();
+    assert.dom(`[data-test-loket=berichtencentrum-conversatie-button]`).exists();
+  });
+
+  test('the conversatie has exactly one message', async function(assert){
+    await render(hbs `{{berichtencentrum/conversatie-view model=model data-test-loket="berichtencentrum-conversatie"}}`);
+
+    assert.dom(`[data-test-loket=berichtencentrum-bericht-view]`).exists({ count: 1 });
   });
 });
