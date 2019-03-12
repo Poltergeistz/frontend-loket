@@ -7,9 +7,6 @@ module('Integration | Component | bbcdr/report-table', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it displays each report as a row in the table', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
     const reports = [
       {
         created: new Date(),

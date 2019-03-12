@@ -25,6 +25,7 @@ export default function() {
   this.get('/bestuurseenheden/:id');
   this.get('/accounts/:id');
   this.get('/conversaties');
-  this.get('/header');
-  this.get('/footer');
+  this.get('/bbcdr-reports');
+  this.get('/bbcdr-reports/:id');
+  this.get('/document-statuses');
 }
