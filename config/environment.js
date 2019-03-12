@@ -70,6 +70,8 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
     ENV['torii']['providers']['acmidm-oauth2']['logoutUrl'] = '/logout';
+    ENV['vo-webuniversum']['header'] = '/header';
+    ENV['vo-webuniversum']['footer'] = '/footer';
   }
 
   if (environment === 'production') {
