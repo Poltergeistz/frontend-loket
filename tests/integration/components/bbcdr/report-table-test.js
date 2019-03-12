@@ -13,14 +13,5 @@ module('Integration | Component | bbcdr/report-table', function(hooks) {
     await render(hbs`{{bbcdr/report-table}}`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      {{#bbcdr/report-table}}
-        template block text
-      {{/bbcdr/report-table}}
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });
