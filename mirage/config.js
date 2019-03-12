@@ -14,7 +14,7 @@ export default function() {
 
   /*
     Shorthand cheatsheet:
-   
+
     this.get('/accounts/:id/gebruiker');
     this.get('/bestuurseenheden/:id');
 
@@ -24,4 +24,7 @@ export default function() {
   this.get('/accounts/:id/gebruiker');
   this.get('/bestuurseenheden/:id');
   this.get('/accounts/:id');
+  this.get('/conversaties');
+  this.get('/header');
+  this.get('/footer');
 }
