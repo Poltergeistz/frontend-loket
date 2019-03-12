@@ -1,10 +1,10 @@
 import { module, test } from 'qunit';
 import { visit, currentURL, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import session from '../../helpers/session';
+import session from '../../../helpers/session';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
-module('Acceptance | berichtencentrum/berichten', function(hooks) {
+module('Acceptance | berichtencentrum/berichten/conversatie', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
@@ -70,67 +70,12 @@ module('Acceptance | berichtencentrum/berichten', function(hooks) {
     });
   });
 
-  test('visiting /berichtencentrum/ without login redirects to /login', async function(assert){
-    await visit('/berichtencentrum');
-
-    assert.equal(currentURL(), '/login');
-  });
-
-  test('visiting /berichtencentrum/ with login shows berichtencentrum', async function(assert){
-    await session( this.server );
-
-    await visit('/berichtencentrum/');
-
-    assert.ok(currentURL().startsWith("/berichtencentrum"));
-  });
-
-  test('visiting /berichtencentrum/ with only berichten access shows berichtencentrum', async function(assert){
-    await session( this.server, { roles: ["LoketLB-berichtenGebruiker"] } );
-
-    await visit('/berichtencentrum/');
-
-    assert.ok(currentURL().startsWith("/berichtencentrum"));
-  });
-
-  test('visiting /berichtencentrum/ with incorrect access rights does not show berichtencentrum', async function(assert){
-    await session( this.server, { roles: ["LoketLB-bbcdrGebruiker"] } );
-
-    await visit('/berichtencentrum/');
-
-    assert.notOk(currentURL().startsWith("/berichtencentrum"));
-  });
-
-  test('clicking on the button to set a receiver email shows the bericht-notificatie-voorkeuren component', async function(assert){
-    await session( this.server );
-
-    await visit('/berichtencentrum/berichten');
-    await click('[data-test-loket=berichtencentrum-setting-email-button]');
-
-    assert.dom(`[data-test-loket=setting-email-component]`).exists();
-  });
-
-  test('visiting /berichtencentrum/ shows an ember-data-table', async function(assert){
-    await session( this.server );
-
-    await visit('/berichtencentrum/berichten');
-
-    assert.dom(`[data-test-loket=berichtencentrum-table]`).exists();
-  });
-
-  test('the table at visiting /berichtencentrum/ has exactly one row', async function(assert){
-    await session( this.server );
-
-    await visit('/berichtencentrum/berichten');
-
-    assert.dom(`[data-test-loket=berichtencentrum-body]>tr`).exists({ count: 1 });
-  });
-
-  test('clicking on "bekijk" shows a conversatie', async function(assert){
+  test('visiting /berichtencentrum/berichten/1', async function(assert) {
     await session( this.server );
 
     await visit('/berichtencentrum/berichten');
     await click('[data-test-loket=berichtencentrum-bekijk]:first-of-type');
 
-    assert.dom(`[data-test-loket=berichtencentrum-conversatie]`).exists();
+    assert.equal(currentURL(), '/berichtencentrum/berichten/1');
   });
 });
