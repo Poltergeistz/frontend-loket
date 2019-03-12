@@ -99,7 +99,7 @@ module('Acceptance | berichtencentrum/berichten/conversatie', function(hooks) {
 
     assert.dom(`[data-test-loket=berichtencentrum-conversatie]`).exists();
 
-    await click('[data-test-loket=berichtencentrum-conversatie-cross]');
+    await click('[data-test-loket=berichtencentrum-header-cross]');
     assert.dom(`[data-test-loket=berichtencentrum-conversatie]`).doesNotExist();
   });
 });

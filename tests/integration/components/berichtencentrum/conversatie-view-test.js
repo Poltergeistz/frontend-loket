@@ -2,19 +2,17 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import EmberObject from '@ember/object';
 
 module('Integration | Component | berichtencentrum/conversatie-view', function(hooks) {
   setupRenderingTest(hooks);
-  setupMirage(hooks);
 
   hooks.beforeEach(function() {
-    const classificatieCode = this.server.create('bestuurseenheid-classificatie-code', {
+    const classificatieCode = {
       label: "Gemeente",
       scopeNote: undefined,
       uri: "http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001"
-    });
+    };
 
     const bestuurseenheidAalst = {
       classificatie: classificatieCode,
