@@ -1,4 +1,4 @@
-import { currentSession, authenticateSession, invalidateSession} from 'ember-simple-auth/test-support';
+import { authenticateSession } from 'ember-simple-auth/test-support';
 
 const session = async function(server, options = {}) {
   const defaultOptions = {
@@ -31,12 +31,12 @@ const session = async function(server, options = {}) {
     voornaam: 'John',
     achternaam: 'Doe'
   });
-  const acc = server.create('account', {
+  server.create('account', {
     provider: 'https://github.com/lblod/mock-login-service',
     id: '9b875bc387960fd6efa0065bdff32877',
     gebruiker: user
   });
-  const bestuurseenheid = server.create('bestuurseenheid', {
+  server.create('bestuurseenheid', {
     id: '974816591f269bb7d74aa1720922651529f3d3b2a787f5c60b73e5a0384950a4'
   });
 }

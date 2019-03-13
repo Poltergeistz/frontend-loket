@@ -54,15 +54,15 @@ module('Acceptance | berichtencentrum/berichten/conversatie', function(hooks) {
       verzonden: "2019-02-08T00:00:00.000Z"
     });
 
-    const conversatie = this.server.create('conversatie', {
+    this.server.create('conversatie', {
       betreft: "KLACHT2019.000053 tegen Stad  Aalst: antwoord aan bestuur",
       dossiernummer: "KLACHT2019.000053",
       laatsteBericht: bericht,
       reactietermijn: "P31D",
-      typeCommunicatie: "Kennisname toezichtsbeslissing",
+      typeCommunicatie: "Kennisname toezichtsbeslissing"
     });
 
-    const gebruiker = this.server.create('gebruiker', {
+    this.server.create('gebruiker', {
       achternaam: "Aalst",
       bestuurseenheden: [ bestuurseenheidAalst ],
       rijksregisterNummer: undefined,
