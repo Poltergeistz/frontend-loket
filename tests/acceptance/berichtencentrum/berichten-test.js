@@ -125,7 +125,7 @@ module('Acceptance | berichtencentrum/berichten', function(hooks) {
     assert.dom(`[data-test-loket=berichtencentrum-body]>tr`).exists({ count: 1 });
   });
 
-  test('clicking on "bekijk" shows a conversatie', async function(assert){
+  test('clicking on "Bekijk" shows a conversatie', async function(assert){
     await session( this.server );
 
     await visit('/berichtencentrum/berichten');

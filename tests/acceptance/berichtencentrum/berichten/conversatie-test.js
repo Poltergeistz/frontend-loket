@@ -78,4 +78,28 @@ module('Acceptance | berichtencentrum/berichten/conversatie', function(hooks) {
 
     assert.equal(currentURL(), '/berichtencentrum/berichten/1');
   });
+
+  test('clicking on "Sluit venster" closes a conversatie', async function(assert) {
+    await session(this.server);
+
+    await visit('/berichtencentrum/berichten');
+    await click('[data-test-loket=berichtencentrum-bekijk]:first-of-type');
+
+    assert.dom(`[data-test-loket=berichtencentrum-conversatie]`).exists();
+
+    await click('[data-test-loket=berichtencentrum-conversatie-button]');
+    assert.dom(`[data-test-loket=berichtencentrum-conversatie]`).doesNotExist();
+  });
+
+  test('clicking on the closing cross closes a conversatie', async function(assert) {
+    await session(this.server);
+
+    await visit('/berichtencentrum/berichten');
+    await click('[data-test-loket=berichtencentrum-bekijk]:first-of-type');
+
+    assert.dom(`[data-test-loket=berichtencentrum-conversatie]`).exists();
+
+    await click('[data-test-loket=berichtencentrum-header-cross]');
+    assert.dom(`[data-test-loket=berichtencentrum-conversatie]`).doesNotExist();
+  });
 });
