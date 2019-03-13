@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, currentURL, pauseTest, click } from '@ember/test-helpers';
+import { visit, currentURL, pauseTest, click, triggerEvent } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import setupSession, { CLASSIFICATION_LABEL } from '../helpers/session';
@@ -30,14 +30,8 @@ module('Acceptance | toezicht index', function(hooks) {
     this.server.logging = true
     await setupSession(this.server);
     await visit('/toezicht/inzendingen');
-    //await this.pauseTest();
-    //const sectionTitle = 'Toezicht'
-    //assert.dom(`[data-test-loket=inzendingen-page-title]`).includesText(sectionTitle, "Title is correct");
-    
-    //const classification = this.bestuurseenheid.classificatie.label;
+    const sectionTitle = 'Toezicht'
+    assert.dom(`[data-test-loket=inzendingen-page-title]`).includesText(sectionTitle, "Title is correct");
     assert.dom(`[data-test-loket=inzendingen-page-title]`).includesText(CLASSIFICATION_LABEL, "Classification is correct");
-    
-    //const name = this.bestuurseenheid.naam
-    //assert.dom(`[data-test-loket=inzendingen-page-title]`).includesText(name, "Name is correct");
   });
 });

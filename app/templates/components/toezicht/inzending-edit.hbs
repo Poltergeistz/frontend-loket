@@ -3,7 +3,7 @@
 
 {{#if deleteModal}}{{toezicht/inzending-delete-modal onCancel=(action "cancelDelete") onConfirm=(action "confirmDelete")}} {{/if}}
 {{#if hasError}}
-  {{wu-alert message=errorMsg isError=true}}
+  {{wu-alert message=errorMsg isError=true data-test-loket="warning-message"}}
 {{/if}}
 
 <div class="u-padding--round--small container-flex--scroll">
@@ -52,6 +52,7 @@
 			{{/unless}}
 		  <div class={{if isSent "" "is-required"}}>
 			  <div class="u-background--gray-lightest u-padding--round--small">
+					<p>Url box</p>
 					{{#if needsUrlBox}}
 						<div class="form__row u-spacer">
 							{{toezicht/url-box urls=fileAddresses disabled=isSent onDelete=(action "deleteFileAddress")}}
@@ -84,7 +85,11 @@
 				    <div class="alert__message">Gelieve per besluit of besluitenlijst één dossier aan te maken.</div>
 				  </div>
 				</div>
-	      {{#wu-link-button class="button u-spacer--tiny" onClick=(action "send")}}Verstuur
+	      {{#wu-link-button
+					class="button u-spacer--tiny"
+					onClick=(action "send")
+					data-test-loket="submit-button"
+				}}Verstuur
 	        <span class="button__info button__info--below">naar Vlaamse Overheid</span>
 	      {{/wu-link-button}}
 	    {{else}}
