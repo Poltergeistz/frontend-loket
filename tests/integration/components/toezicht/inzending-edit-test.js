@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, pauseTest } from '@ember/test-helpers';
+import { render, click, pauseTest, currentURL } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import EmberObject from '@ember/object';
 
@@ -22,8 +22,8 @@ module('Integration | Component | toezicht/inzending-edit', function(hooks) {
     }}`);
     await click('[data-test-loket="submit-button"]');
     assert
-    .dom('[data-test-loket="warning-message"]')
-    .exists('Aandacht wordt getoond als de gebruiker wil een nul vormuleer versturen.');
+      .dom('[data-test-loket="warning-message"]')
+      .exists('Aandacht wordt getoond als de gebruiker wil een nul vormuleer versturen.');
   });
 
   test('Verwijder button is shown/hidden correctly', async function(assert){
@@ -178,5 +178,42 @@ module('Integration | Component | toezicht/inzending-edit', function(hooks) {
     assert
       .dom('[data-test-loket=close-button]')
       .exists('There is at least one close button even when no model is provided.');
+  });
+
+  test('Close buttons are functional', async function(assert){
+    this.set('model', EmberObject.create({
+      formNode: true,
+      isNew: true,
+      inzendingVoorToezicht: EmberObject.create({
+        besluitType:EmberObject.create({id:1})
+      }),
+    }));
+    await render(hbs`
+    {{toezicht/inzending-edit
+      model=model
+      canSend=true
+    }}`);
+    let buttons = document.querySelectorAll('[data-test-loket="bewaar-button"]');
+    let i = 0;
+    for (let button of buttons) {
+      await click(button);
+      assert
+        .dom('[data-test-loket=inzending-edit-panel]')
+        .doesNotExist(`Toezicht edit panel is removed after clicking on button ${i} from ${buttons.length}`);
+      i++;
+    }
+    
+    this.set('model', EmberObject.create({ formNode: true }));
+    await render(hbs`
+    {{toezicht/inzending-edit model=model}}`);
+    buttons = document.querySelectorAll('[data-test-loket="bewaar-button"]');
+    i = 0;
+    for (let button of buttons) {
+      await click(button);
+      assert
+        .dom('[data-test-loket=inzending-edit-panel]')
+        .doesNotExist(`Toezicht edit panel is removed after clicking on button ${i} from ${buttons.length}`);
+      i++;
+    }
   });
 });
