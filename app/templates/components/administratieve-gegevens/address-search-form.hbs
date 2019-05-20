@@ -1,0 +1,10 @@
+{{#power-select
+     placeholder="1 Meistraat, Aalst"
+     search=(perform search)
+     searchPlaceholder="Typ om te zoeken..."
+     selected=address
+     onchange=(action "select")
+     allowClear=true
+     as |address|}}
+     {{address.FormattedAddress}}
+{{/power-select}}
