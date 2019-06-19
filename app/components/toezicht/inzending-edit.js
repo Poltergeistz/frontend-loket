@@ -4,6 +4,7 @@ import { A } from '@ember/array';
 import { computed } from '@ember/object';
 import { gte } from '@ember/object/computed';
 import { task } from 'ember-concurrency';
+import { and, getBy, gt, not, or } from 'ember-awesome-macros';
 
 export default Component.extend({
   classNames: ['col--10-12 col--9-12--m col--12-12--s container-flex--contain'],
@@ -22,25 +23,11 @@ export default Component.extend({
     this.set('errorMsg', '');
   },
 
-  isSent: computed('model.inzendingVoorToezicht.status.id', function(){
-    return this.model.get('inzendingVoorToezicht.status.isVerstuurd');
-  }),
-
-  canSave: computed('isSent', function(){
-    return !this.isSent;
-  }),
-
-  canDelete: computed('model.isNew', 'model.inzendingVoorToezicht.status.id', function(){
-    return !this.get('model.isNew') && !this.model.get('inzendingVoorToezicht.status.isVerstuurd');
-  }),
-
-  canSend: computed('model.inzendingVoorToezicht.status.id', 'files.[]', 'allEmptyFileAddresses', function(){
-    return !this.isSent && (this.get('files.length') || !this.allEmptyFileAddresses);
-  }),
-
-  isWorking: computed('save.isRunning','delete.isRunning','send.isRunning', function(){
-    return this.save.isRunning || this.delete.isRunning || this.send.isRunning || false;
-  }),
+  isSent: getBy('model', 'inzendingVoorToezicht.status.isVerstuurd'),
+  canSave: not('isSent'),
+  canDelete: and('model.isNew', 'canSave'),
+  canSend: and('canSave', or('files.length', not('allEmptyFileAddresses'))),
+  isWorking: or('save.isRunning', 'delete.isRunning', 'send.isRunning'),
 
   allEmptyFileAddresses: computed('fileAddresses', 'fileAddresses.{[],@each.address}', function(){
     return !(this.fileAddresses || []).any(a => a.address && a.address.length > 0);
@@ -52,11 +39,7 @@ export default Component.extend({
    *  1. The inzending is not yet finalized/sent: !isSent
    *  2. The inzending has been sent and it contains at least one url: fileAddress.length > 0
    */
-  needsUrlBox: computed('isSent', 'fileAddresses.length', function() {
-    const notSent = !this.isSent;
-    const hasFileAddresses = this.get('fileAddresses.length') > 0;
-    return notSent || hasFileAddresses;
-  }),
+  needsUrlBox: or('canSave', gt('fileAddresses.length', '0')),
 
   async validate(){
     let errors = [];
@@ -155,19 +138,23 @@ export default Component.extend({
     initDynamicForm(dForm){
       this.set('dynamicForm', dForm);
     },
+
     close(){
       this.router.transitionTo('toezicht.inzendingen.index');
     },
+
     async save(){
       this.flushErrors();
       await this.save.perform();
     },
+
     async create(){
       this.flushErrors();
       await this.save.perform();
       if(this.hasError) return;
       this.router.transitionTo('toezicht.inzendingen.edit', this.model.get('inzendingVoorToezicht.id'));
     },
+
     async send(){
       this.flushErrors();
       await this.validate();
@@ -176,22 +163,27 @@ export default Component.extend({
       if(this.hasError) return;
       this.router.transitionTo('toezicht.inzendingen.index');
     },
+
     deleteInzending(){
       this.flushErrors();
       this.set('deleteModal', true);
     },
+
     async confirmDelete(){
       this.set('deleteModal', false);
       await this.delete.perform();
       if(this.hasError) return;
       this.router.transitionTo('toezicht.inzendingen.index');
     },
+
     cancelDelete(){
       this.set('deleteModal', false);
     },
+
     addFile(file) {
       this.files.pushObject(file);
     },
+
     deleteFile(file) {
       this.files.removeObject(file);
     },
