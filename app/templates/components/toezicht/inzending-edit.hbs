@@ -107,14 +107,14 @@
         {{wu-link-button label="Bewaar" isNarrow=true isAlt=true onClick=(action "create") class="button button--narrow button--alt" data-test-loket="bewaar-button"}}
       {{else}}
         {{#if canSave}}
-          {{wu-link-button label="Bewaar" isNarrow=true isAlt=true onClick=(action "save") class="button button--narrow button--alt" data-test-loket="bewaar-button"}}
+          {{wu-link-button label="Bewaar" isNarrow=true isAlt=true onClick=(perform "save") class="button button--narrow button--alt" data-test-loket="bewaar-button"}}
         {{/if}}
       {{/if}}
 
       {{#if canDelete}}
         {{#wu-link-button
            class="button button--narrow button--alt button--alt--warning"
-           isNarrow=true isAlt=true onClick=(action "deleteInzending")
+           isNarrow=true isAlt=true onClick=(action (mut deleteModal) true)
            data-test-loket="dismiss-button"
         }}
           Verwijder

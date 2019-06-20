@@ -4,7 +4,7 @@ import { A } from '@ember/array';
 import { computed } from '@ember/object';
 import { alias } from '@ember/object/computed';
 import { task } from 'ember-concurrency';
-import { and, gt, gte, not, or } from 'ember-awesome-macros';
+import { and, gte, not, or } from 'ember-awesome-macros';
 
 export default Component.extend({
   classNames: ['col--10-12 col--9-12--m col--12-12--s container-flex--contain'],
@@ -19,10 +19,6 @@ export default Component.extend({
   hasError: gte('errorMsg.length', 1),
   deleteModal: false,
 
-  flushErrors(){
-    this.set('errorMsg', '');
-  },
-
   inzending: alias('model.inzendingVoorToezicht'),
   isSent: alias('model.inzendingVoorToezicht.status.isVerstuurd'),
   canSave: not('isSent'),
@@ -30,7 +26,7 @@ export default Component.extend({
   canSend: and('canSave', or('files.length', not('allEmptyFileAddresses'))),
   isWorking: or('save.isRunning', 'delete.isRunning', 'send.isRunning'),
 
-  allEmptyFileAddresses: computed('fileAddresses', 'fileAddresses.{[],@each.address}', function(){
+  allEmptyFileAddresses: computed('fileAddresses', 'fileAddresses.{[],@each.address}', function() {
     return !(this.fileAddresses || []).any(a => a.address && a.address.length > 0);
   }),
 
@@ -40,7 +36,15 @@ export default Component.extend({
    *  1. The inzending is not yet finalized/sent: !isSent
    *  2. The inzending has been sent and it contains at least one url: fileAddress.length > 0
    */
-  needsUrlBox: or('canSave', gt('fileAddresses.length', '0')),
+  needsUrlBox: computed('isSent', 'fileAddresses.length', function() {
+    const notSent = !this.isSent;
+    const hasFileAddresses = this.get('fileAddresses.length') > 0;
+    return notSent || hasFileAddresses;
+  }),
+
+  flushErrors() {
+    this.set('errorMsg', '');
+  },
 
   init() {
     this._super(...arguments);
@@ -48,22 +52,21 @@ export default Component.extend({
     this.set('fileAddresses', A([]));
   },
 
-  async didReceiveAttrs(){
+  async didReceiveAttrs() {
     try {
       this._super(...arguments);
       let files = await this.inzending.get('files');
-      if(files)
+      if (files)
         this.files.setObjects(files.toArray());
       let fileAddresses = await this.inzending.get('fileAddresses');
-      if(fileAddresses)
+      if (fileAddresses)
         this.fileAddresses.setObjects(fileAddresses.toArray());
-    }
-    catch(e){
+    } catch (e) {
       this.set('errorMsg', `Fout bij het inladen: ${e.message}. Gelieve opnieuw te proberen.`);
     }
   },
 
-  updateInzending: task(function* (){
+  updateInzending: task(function*() {
     const inzending = yield this.inzending;
     inzending.set('modified', new Date());
     (yield inzending.get('files')).setObjects(this.files);
@@ -77,7 +80,8 @@ export default Component.extend({
     return inzending.save();
   }),
 
-  validate: task(function* (){
+  validate: task(function*() {
+    this.flushErrors();
     let errors = [];
     let states = yield this.get('dynamicForm.formNode.unionStates');
     if (states.filter((s) => {
@@ -91,85 +95,70 @@ export default Component.extend({
     this.set('errorMsg', errors.join(' '));
   }),
 
-  save: task(function* (){
+  save: task(function*() {
+    this.flushErrors();
     try {
       yield this.dynamicForm.save();
       yield this.updateInzending.perform();
-    }
-    catch(e){
+    } catch (e) {
       this.set('errorMsg', `Fout bij het opslaan: ${e.message}`);
     }
   }).drop(),
 
-  sendInzending: task(function* (){
+  sendInzending: task(function*() {
     try {
       yield this.save.perform();
       const statusSent = (yield this.store.query('document-status', {
-          filter: { ':uri:': 'http://data.lblod.info/document-statuses/verstuurd' }
+        filter: {
+          ':uri:': 'http://data.lblod.info/document-statuses/verstuurd'
+        }
       })).firstObject;
       const inzending = yield this.inzending;
       inzending.set('status', statusSent);
       inzending.set('sentDate', new Date());
       yield inzending.save();
-    }
-    catch(e){
+    } catch (e) {
       this.set('errorMsg', `Fout bij het verzenden: ${e.message}`);
     }
   }).drop(),
 
-  delete: task(function* (){
+  delete: task(function*() {
     try {
       let files = yield this.model.get('inzendingVoorToezicht.files');
-      yield (yield this.model.get('inzendingVoorToezicht')).destroyRecord();
+      yield(yield this.model.get('inzendingVoorToezicht')).destroyRecord();
       yield Promise.all(files.map(f => f.destroyRecord()));
       yield this.model.destroyRecord();
-    }
-    catch(e){
+    } catch (e) {
       this.set('errorMsg', `Fout bij het verwijderen: ${e.message}`);
     }
   }).drop(),
 
   actions: {
-    async setFormVersion(formVersion){
+    async setFormVersion(formVersion) {
       const formNode = await formVersion.get('formNode');
       this.set('model.formNode', formNode);
       this.formVersionTracker.updateFormVersion(formVersion);
     },
 
-    close(){
-      this.router.transitionTo('toezicht.inzendingen.index');
-    },
-
-    async save(){
-      this.flushErrors();
+    async create() {
       await this.save.perform();
-    },
-
-    async create(){
-      this.flushErrors();
-      await this.save.perform();
-      if(this.hasError) return;
+      if (this.hasError) return;
       this.router.transitionTo('toezicht.inzendingen.edit', this.model.get('inzendingVoorToezicht.id'));
     },
 
-    async send(){
-      this.flushErrors();
+    async send() {
       await this.validate.perform();
-      if(this.hasError) return;
+      if (this.hasError) return;
       await this.sendInzending.perform();
-      if(this.hasError) return;
+      if (this.hasError) return;
       this.router.transitionTo('toezicht.inzendingen.index');
     },
 
-    deleteInzending(){
+    async confirmDelete() {
       this.flushErrors();
-      this.set('deleteModal', true);
-    },
-
-    async confirmDelete(){
       this.set('deleteModal', false);
       await this.delete.perform();
-      if(this.hasError) return;
+      if (this.hasError) return;
       this.router.transitionTo('toezicht.inzendingen.index');
     },
 
@@ -181,8 +170,12 @@ export default Component.extend({
       this.files.removeObject(file);
     },
 
-    deleteFileAddress(fileAddress){
+    deleteFileAddress(fileAddress) {
       this.fileAddresses.removeObject(fileAddress);
+    },
+
+    close() {
+      this.router.transitionTo('toezicht.inzendingen.index');
     }
   }
 });
