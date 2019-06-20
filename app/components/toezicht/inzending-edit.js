@@ -2,9 +2,9 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { A } from '@ember/array';
 import { computed } from '@ember/object';
-import { gte } from '@ember/object/computed';
+import { alias } from '@ember/object/computed';
 import { task } from 'ember-concurrency';
-import { and, getBy, gt, not, or } from 'ember-awesome-macros';
+import { and, gt, gte, not, or } from 'ember-awesome-macros';
 
 export default Component.extend({
   classNames: ['col--10-12 col--9-12--m col--12-12--s container-flex--contain'],
@@ -23,9 +23,10 @@ export default Component.extend({
     this.set('errorMsg', '');
   },
 
-  isSent: getBy('model', 'inzendingVoorToezicht.status.isVerstuurd'),
+  inzending: alias('model.inzendingVoorToezicht'),
+  isSent: alias('model.inzendingVoorToezicht.status.isVerstuurd'),
   canSave: not('isSent'),
-  canDelete: and('model.isNew', 'canSave'),
+  canDelete: and(not('model.isNew'), 'canSave'),
   canSend: and('canSave', or('files.length', not('allEmptyFileAddresses'))),
   isWorking: or('save.isRunning', 'delete.isRunning', 'send.isRunning'),
 
@@ -41,32 +42,6 @@ export default Component.extend({
    */
   needsUrlBox: or('canSave', gt('fileAddresses.length', '0')),
 
-  async validate(){
-    let errors = [];
-    let states = await this.get('dynamicForm.formNode.unionStates');
-    if(states.filter((s) => { return s == 'noSend'; }).length > 0)
-      errors.push('Gelieve alle verplichte velden in te vullen.');
-
-    if((await this.files).length == 0 && this.allEmptyFileAddresses)
-      errors.push('Gelieve minstens één bestand of link naar document op te laden.');
-
-    this.set('errorMsg', errors.join(' '));
-  },
-
-  async updateInzending(){
-    let inzending = await this.model.get('inzendingVoorToezicht');
-    inzending.set('modified', new Date());
-    (await inzending.get('files')).setObjects(this.files);
-
-    // TODO add stricter validation on URLs
-    this.fileAddresses.forEach(a => a.set('address', a.address && a.address.trim()));
-    await Promise.all(this.fileAddresses.map(a => a.save()));
-    (await inzending.get('fileAddresses')).setObjects(this.fileAddresses);
-
-    inzending.set('lastModifier', await this.currentSession.get('user'));
-    return inzending.save();
-  },
-
   init() {
     this._super(...arguments);
     this.set('files', A());
@@ -76,12 +51,10 @@ export default Component.extend({
   async didReceiveAttrs(){
     try {
       this._super(...arguments);
-      let inzending = await this.model.get('inzendingVoorToezicht');
-      this.set('inzending', inzending);
-      let files = await inzending.get('files');
+      let files = await this.inzending.get('files');
       if(files)
         this.files.setObjects(files.toArray());
-      let fileAddresses = await inzending.get('fileAddresses');
+      let fileAddresses = await this.inzending.get('fileAddresses');
       if(fileAddresses)
         this.fileAddresses.setObjects(fileAddresses.toArray());
     }
@@ -90,23 +63,51 @@ export default Component.extend({
     }
   },
 
+  updateInzending: task(function* (){
+    const inzending = yield this.inzending;
+    inzending.set('modified', new Date());
+    (yield inzending.get('files')).setObjects(this.files);
+
+    // TODO add stricter validation on URLs
+    this.fileAddresses.forEach(a => a.set('address', a.address && a.address.trim()));
+    yield Promise.all(this.fileAddresses.map(a => a.save()));
+    (yield inzending.get('fileAddresses')).setObjects(this.fileAddresses);
+
+    inzending.set('lastModifier', yield this.currentSession.get('user'));
+    return inzending.save();
+  }),
+
+  validate: task(function* (){
+    let errors = [];
+    let states = yield this.get('dynamicForm.formNode.unionStates');
+    if (states.filter((s) => {
+        return s == 'noSend';
+      }).length > 0)
+      errors.push('Gelieve alle verplichte velden in te vullen.');
+
+    if ((yield this.files).length == 0 && this.allEmptyFileAddresses)
+      errors.push('Gelieve minstens één bestand of link naar document op te laden.');
+
+    this.set('errorMsg', errors.join(' '));
+  }),
+
   save: task(function* (){
     try {
       yield this.dynamicForm.save();
-      yield this.updateInzending();
+      yield this.updateInzending.perform();
     }
     catch(e){
       this.set('errorMsg', `Fout bij het opslaan: ${e.message}`);
     }
   }).drop(),
 
-  send: task(function* (){
+  sendInzending: task(function* (){
     try {
       yield this.save.perform();
       const statusSent = (yield this.store.query('document-status', {
           filter: { ':uri:': 'http://data.lblod.info/document-statuses/verstuurd' }
       })).firstObject;
-      const inzending = yield this.model.get('inzendingVoorToezicht');
+      const inzending = yield this.inzending;
       inzending.set('status', statusSent);
       inzending.set('sentDate', new Date());
       yield inzending.save();
@@ -135,10 +136,6 @@ export default Component.extend({
       this.formVersionTracker.updateFormVersion(formVersion);
     },
 
-    initDynamicForm(dForm){
-      this.set('dynamicForm', dForm);
-    },
-
     close(){
       this.router.transitionTo('toezicht.inzendingen.index');
     },
@@ -157,9 +154,9 @@ export default Component.extend({
 
     async send(){
       this.flushErrors();
-      await this.validate();
+      await this.validate.perform();
       if(this.hasError) return;
-      await this.send.perform();
+      await this.sendInzending.perform();
       if(this.hasError) return;
       this.router.transitionTo('toezicht.inzendingen.index');
     },
@@ -174,10 +171,6 @@ export default Component.extend({
       await this.delete.perform();
       if(this.hasError) return;
       this.router.transitionTo('toezicht.inzendingen.index');
-    },
-
-    cancelDelete(){
-      this.set('deleteModal', false);
     },
 
     addFile(file) {

@@ -1,6 +1,6 @@
 {{toezicht/inzending-edit-header inzending=inzending isNew=isNew onClose=(action "close")}}
 
-{{#if deleteModal}}{{toezicht/inzending-delete-modal onCancel=(action "cancelDelete") onConfirm=(action "confirmDelete")}} {{/if}}
+{{#if deleteModal}}{{toezicht/inzending-delete-modal onCancel=(action (mut deleteModal) false) onConfirm=(action "confirmDelete")}} {{/if}}
 {{#if hasError}}
   {{wu-alert message=errorMsg isError=true data-test-loket="warning-message"}}
 {{/if}}
@@ -45,7 +45,7 @@
 
     <div class="grid">
     	<div class="col--8-12 col--10-12--m col--1-1--s">
-		    {{root-form-node solution=model onDynamicFormInit=(action "initDynamicForm") show=isSent class="u-spacer"}}
+		    {{root-form-node solution=model onDynamicFormInit=(action (mut dynamicForm)) show=isSent class="u-spacer"}}
 
 		    {{#if model.inzendingVoorToezicht.besluitType.id}}
 		      {{#unless isSent}}
