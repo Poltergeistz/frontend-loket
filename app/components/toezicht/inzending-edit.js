@@ -30,16 +30,8 @@ export default Component.extend({
     return !(this.fileAddresses || []).any(a => a.address && a.address.length > 0);
   }),
 
-  /**
-   * url-box is used to either show existing urls or enter new ones
-   * It is needed in two cases
-   *  1. The inzending is not yet finalized/sent: !isSent
-   *  2. The inzending has been sent and it contains at least one url: fileAddress.length > 0
-   */
   needsUrlBox: computed('isSent', 'fileAddresses.length', function() {
-    const notSent = !this.isSent;
-    const hasFileAddresses = this.get('fileAddresses.length') > 0;
-    return notSent || hasFileAddresses;
+    return !this.isSent || this.get('fileAddresses.length') > 0;
   }),
 
   flushErrors() {
@@ -55,10 +47,10 @@ export default Component.extend({
   async didReceiveAttrs() {
     try {
       this._super(...arguments);
-      let files = await this.inzending.get('files');
+      const files = await this.inzending.get('files');
       if (files)
         this.files.setObjects(files.toArray());
-      let fileAddresses = await this.inzending.get('fileAddresses');
+      const fileAddresses = await this.inzending.get('fileAddresses');
       if (fileAddresses)
         this.fileAddresses.setObjects(fileAddresses.toArray());
     } catch (e) {
@@ -66,7 +58,7 @@ export default Component.extend({
     }
   },
 
-  updateInzending: task(function*() {
+  updateInzendingAttachments: task(function*() {
     const inzending = yield this.inzending;
     inzending.set('modified', new Date());
     (yield inzending.get('files')).setObjects(this.files);
@@ -76,17 +68,16 @@ export default Component.extend({
     yield Promise.all(this.fileAddresses.map(a => a.save()));
     (yield inzending.get('fileAddresses')).setObjects(this.fileAddresses);
 
-    inzending.set('lastModifier', yield this.currentSession.get('user'));
+    const lastModifier = yield this.currentSession.get('user');
+    inzending.set('lastModifier', lastModifier);
     return inzending.save();
   }),
 
   validate: task(function*() {
     this.flushErrors();
-    let errors = [];
-    let states = yield this.get('dynamicForm.formNode.unionStates');
-    if (states.filter((s) => {
-        return s == 'noSend';
-      }).length > 0)
+    const errors = [];
+    const states = yield this.get('dynamicForm.formNode.unionStates');
+    if (states.filter((s) => s == 'noSend').length)
       errors.push('Gelieve alle verplichte velden in te vullen.');
 
     if ((yield this.files).length == 0 && this.allEmptyFileAddresses)
@@ -99,7 +90,7 @@ export default Component.extend({
     this.flushErrors();
     try {
       yield this.dynamicForm.save();
-      yield this.updateInzending.perform();
+      yield this.updateInzendingAttachments.perform();
     } catch (e) {
       this.set('errorMsg', `Fout bij het opslaan: ${e.message}`);
     }
@@ -124,7 +115,7 @@ export default Component.extend({
 
   delete: task(function*() {
     try {
-      let files = yield this.model.get('inzendingVoorToezicht.files');
+      const files = yield this.model.get('inzendingVoorToezicht.files');
       yield(yield this.model.get('inzendingVoorToezicht')).destroyRecord();
       yield Promise.all(files.map(f => f.destroyRecord()));
       yield this.model.destroyRecord();
