@@ -59,7 +59,9 @@ Router.map(function() {
     });
   });
   this.route('switch-login');
-  this.route('release-notes');
+  this.route('release-notes', function() {
+    this.route('notes');
+  });
 });
 
 export default Router;
