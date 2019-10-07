@@ -2,7 +2,7 @@
   <div class="u-padding--round loket-onderdeel__header">
   	<div class="grid">
   		<div class="col--8-12 col--1-1--m">
-		    <h1 class="h3 u-spacer">{{currentSession._group.classificatie.label}} {{currentSession._group.naam}}</h1>
+		    <h1 class="h3 u-spacer">Overzicht applicaties van {{currentSession._user.voornaam}} {{currentSession._user.achternaam}}<br>voor {{currentSession._group.classificatie.label}} {{currentSession._group.naam}}</h1>
 		    <p class="small u-spacer">Mist u toegang tot een onderdeel? Neem contact op met uw <strong>interne beheerder</strong>.<br>
 		    	Werkt het nog steeds niet? Neem contact op met het <a href="https://overheid.vlaanderen.be/ict/ict-diensten/gebruikersbeheer">gebruikersbeheer Vlaanderen</a>.</p>
 	    </div>
@@ -161,9 +161,37 @@
           </div>
         </div>
       </div>
-
-
+      <div class="col--6-12 col--6-12--l col--6-12--m col--6-12--s col--1-1--xs">
+        <div class="info-tile info-tile--m info-tile--center">
+          <div>
+            <div class="info-tile__header">
+              <div class="info-tile__header__icon badge badge--accent badge--l badge--icon">
+                <i class="badge__icon vi vi-addressbook" aria-hidden="true"></i>
+              </div>
+              <div class="info-tile__header__wrapper">
+                <h3 class="info-tile__header__title">Subsidiebeheer</h3>
+              </div>
+            </div>
+            <div class="info-tile__content">
+              <p>Beheer hier uw subsidieaanvragen.</p>
+            </div>
+            <footer class="info-tile__footer">
+	            <p class="u-spacer--tiny">
+					      {{!-- {{#if currentSession.canAccessSubsidies}} --}}
+		              {{wu-button isNarrow=true label="Ga naar subsidiebeheer" onClick=(action "goToSubsidiebeheer")}}
+					      {{!-- {{else}} --}}
+		              {{wu-button isNarrow=true class="button--disabled" label="Geen toegang" onClick=(action "goToSubsidiebeheer")}}
+					      {{!-- {{/if}} --}}
+					    </p>
+					    <p>
+                <a class="button button--small button--link button--link--dark" href="https://loket.lokaalbestuur.vlaanderen.be/handleiding/#subsidies" target="_blank">Handleiding</a>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="grid">
       <div class="col--10-12 col--6-12--xl col--8-12--l col--10-12--m col--10-12--s col--1-1--xs">
         <p>Indien u toegang mist tot een van de onderdelen in het loket, neem contact op met uw interne beheerder. Indien u toegang heeft gekregen, maar er zich een probleem voordoet, neem contact op met het <a href="https://overheid.vlaanderen.be/ict/ict-diensten/gebruikersbeheer">gebruikersbeheer Vlaanderen</a>.</p>
