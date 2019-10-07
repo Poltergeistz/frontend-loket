@@ -1,0 +1,120 @@
+{{title "Subsidies"}}
+<div class="col--12-12--s u-border--light--right col--12-12">
+  <div class="container-flex--contain">
+		<div class="u-border--light--bottom">
+      <ul class="inline-list inline-list--bordered smaller u-background--gray-lightest u-padding--rl--small u-padding--tb--tiny">
+        <li>{{#link-to "subsidiebeheer.subsidies" class="active"}}Subsidies{{/link-to}}</li>
+        <li>Nieuwe subsidieaanvraag</li>
+      </ul>
+    </div>
+    <div class="u-border--light--bottom loket-onderdeel__header">
+      <div class="u-padding--round--small">
+      	<h1 class="h4 u-spacer--none">Beschikbare subsidies</h1>
+      	<p class="smaller u-spacer--tiny">Kies een van de subsidies om een nieuwe subsidieaanvraag te starten.</p>
+        <div class="grid">
+          <div class="col--6-12 col--1-1--s">
+            <div class="input-field-icon-container--right">
+              {{input
+                  type="text"
+                  placeholder="Zoek subsidie"
+                  key-up=(perform search)
+                  value=searchData
+                  class="input-field input-field--block"
+              }}
+              <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="col--6-12 col--1-1--s u-align-right--tablet-portrait-up">
+          	<div class="button-group">
+          		{{#link-to "subsidiebeheer.subsidies" class="button button--narrow button--alt u-spacer--none"}}Terug naar overzicht{{/link-to}}
+	          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-flex--scroll">
+      <table class="data-table data-table--nowrap">
+        <thead>
+          <tr class="data-table__header">
+            <th><a class="data-table__header-title--sortable">Subsidiemaatregel</a> <i class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi"></i></th>
+            <th><a class="data-table__header-title--sortable">Projectinformatie</a></th>
+            <th><a class="data-table__header-title--sortable">Start termijn</a></th>
+            <th><a class="data-table__header-title--sortable">Einde termijn</a></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        	<tr>
+        		<td class="u-align-center u-padding--round--small" colspan="5">
+        			<p class="text-fade u-spacer--tiny">Geen beschikbare subsidies.</p>
+        			<p class="text-fade">Subsidies waarvan u al gestart bent met de aanvraag, kan u vinden in het {{#link-to "subsidiebeheer.subsidies"}}overzicht{{/link-to}}.</p>
+						</td>
+        	</tr>
+        	<tr>
+        		<td>Gesubs Infra - Investeringssubsidie gebouwen erediensten en niet confessionele dienstverlening</td>
+        		<td>
+        			<a href="https://lokaalbestuur.vlaanderen.be/node/1891" target="_blank">https://lokaalbestuur.vlaanderen.be/node/1891</a>
+        			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>
+        		</td>
+        		<td>27-12-2019</td>
+        		<td>23-11-2020</td>
+        		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
+        	</tr>
+        	<tr>
+        		<td>GK - Projectsubsidie Gelijke kansen</td>
+        		<td>
+        			<a href="http://www.gelijkekansen.be/Portals/Gelijke Kansen/subsidies/Subsidiegids2015-2019.pdf" target="_blank">http://www.gelijkekansen.be/Portals/Gelijke Kansen/subsidies/Subsidiegids2015-2019.pdf</a>
+        			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>
+        		</td>
+        		<td>27-12-2019</td>
+        		<td>23-11-2020</td>
+        		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
+        	</tr>
+        	<tr>
+        		<td>Brussel - Subsidie Projecten voor Brussel (Subsidiegids)</td>
+        		<td>
+        			<a href="http://brussel.vlaanderen.be/subsidiegids.html" target="_blank">http://brussel.vlaanderen.be/subsidiegids.html</a>
+        			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>
+        		</td>
+        		<td>27-12-2019</td>
+        		<td>23-11-2020</td>
+        		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
+        	</tr>
+        	<tr>
+        		<td>Brussel - Ad nominatim subsidie Brussel</td>
+        		<td>
+        			<a href="http://brussel.vlaanderen.be/subsidies-info.html" target="_blank">http://brussel.vlaanderen.be/subsidies-info.html</a>
+        			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>
+        		</td>
+        		<td>27-12-2019</td>
+        		<td>23-11-2020</td>
+        		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
+        	</tr>
+        	<tr>
+        		<td>Vlaamse Rand - Facultatieve subsidie faciliteitengemeenten</td>
+        		<td>
+        			<a href="http://vlaamserand.be/subsidies/subsidie-faciliteitengemeente" target="_blank">http://vlaamserand.be/subsidies/subsidie-faciliteitengemeente</a>
+        			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>
+        		</td>
+        		<td>27-12-2019</td>
+        		<td>23-11-2020</td>
+        		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
+        	</tr>
+        </tbody>
+      </table>
+    </div>
+		<div class="data-table__actions data-table__actions--bottom">
+			<div class="data-table-pagination">
+				<div class="pager">
+					<ul class="pager__list">
+						<li class="pager__element u-hidden-mobile">
+							<span class="u-visually-hidden">Rij </span><strong>1 - 4</strong> van 4
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>
+
+{{outlet}}

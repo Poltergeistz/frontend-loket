@@ -1,0 +1,122 @@
+<div class="col--10-12 col--9-12--m col--12-12--s">
+	<div class="container-flex--contain">
+		<div class="u-border--light--bottom u-padding--tb--small u-padding--rl--tiny">
+			<div class="grid u-spacer--tiny">
+				<div class="col--6-12">
+					{{#link-to "subsidiebeheer.subsidies" class="link--dark smaller"}}<i class="fa fa-angle-left"></i> Terug naar overzicht{{/link-to}}
+				</div>
+				<div class="col--6-12 u-align-right">
+					<p class="smaller">Bewaard vandaag om 11:26 <span class="pill pill--small">Concept</span></p>
+				</div>
+			</div>
+			<div class="grid">
+				<div class="col--6-12">
+					<h1>Subsidieaanvraag </h1>
+					<h2 class="h6">Gesubs Infra - Investeringssubsidie gebouwen erediensten en niet confessionele dienstverlening 2019</h2>
+				</div>
+				<div class="col--6-12 u-align-right">
+					<div class="button-group">
+						<div class="popover js-popover" id="popover-0"> <!--  js-popover--open-->
+							<button class="button button--link button--link--dark" type="button" aria-expanded="true" aria-controls="popover-0">Meer</button>
+							<ul class="popover__content">
+								<li>
+									<a class="popover__link" href="#"><i class="fa fa-print"></i> Print</a>
+								</li>
+								<li>
+									<a class="popover__link" href="#"><i class="fa fa-plug"></i> Trek aanvraag in</a>
+								</li>
+							</ul>
+						</div>
+						<button class="button button--alt button--narrow">Bewaar concept</button>
+						<button class="button button--narrow">Aanvraag indienen</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-flex--contain">
+			<div class="grid grid--collapse">
+				<div class="col--2-12 col--3-12--m u-hidden--s">
+					<div class="container-flex--contain">
+						<div class="sidebar">
+							<div class="sidebar__content">
+								<nav class="side-navigation">
+									<div class="side-navigation__content">
+										<ul class="side-navigation__group">
+											<li class="side-navigation__item">
+												{{#link-to "subsidiebeheer.subsidies.new"}}Overzicht aanvraag{{/link-to}}
+											</li>
+											<li class="side-navigation__item">
+												{{#link-to "subsidiebeheer.subsidies.new-dossier" class="active"}}Subsidiedossier{{/link-to}}
+											</li>
+											<li class="side-navigation__item">
+												{{#link-to "subsidiebeheer.subsidies.new-timing-financials"}}Timing en  financiële details{{/link-to}}
+											</li>
+											<li class="side-navigation__item">
+												{{#link-to "subsidiebeheer.subsidies.new-vision-planning"}}Visie en planning{{/link-to}}
+											</li>
+											<li class="side-navigation__item">
+												{{#link-to "subsidiebeheer.subsidies.new-decision"}}Beslissing College  Burgemeester en schepenen{{/link-to}}
+											</li>
+										</ul>
+									</div>
+								</nav>
+							</div>
+							<div class="sidebar__footer u-align-center">
+								<button href="#" class="button button--alt button--small button--block u-align-left">Contacteer<br>dossierbehandelaar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col--10-12 col--9-12--m u-hidden--s">
+					<div class="container-flex--scroll u-padding--round">
+
+						<div class="grid grid--collapse">
+							<div class="col--10-12">
+								<div class="form__row">
+									<label class="form__label">Titel project</label>
+		              {{input
+		                type="text"
+		                key-up=(perform search)
+		                value=searchData
+		                class="input-field input-field--block u-spacer--tiny"
+		              }}
+			            <p class="smaller text-fade">0/75 karakters</p>
+				        </div>
+
+								<div class="form__row">
+									<label class="form__label">Kernboodschap</label>
+		              {{textarea
+		                class="textarea textarea--block u-spacer--tiny"
+		                rows="4"
+		              }}
+			            <p class="smaller text-fade">0/280 karakters</p>
+				        </div>
+
+								<div class="form__row">
+									<label class="form__label">Beschrijving</label>
+		              {{textarea
+		                class="textarea textarea--block u-spacer--tiny"
+		                rows="20"
+		              }}
+			            <p class="smaller text-fade">Maximum 4000 karakters. 0/4000 karakters gebruikt.</p>
+				        </div>
+
+								<div class="form__row">
+									<label class="form__label">Wat als het project minder of geen subsidie ontvangt?</label>
+		              {{textarea
+		                class="textarea textarea--block u-spacer--tiny"
+		                rows="20"
+		              }}
+			            <p class="smaller text-fade">Maximum 4000 karakters. 0/4000 karakters gebruikt.</p>
+				        </div>
+				      </div>
+				    </div>
+
+		      </div>
+				</div>
+			</div>
+	  </div>
+	</div>
+</div>
+
+{{outlet}}
