@@ -21,6 +21,9 @@ export default Controller.extend({
 		},
 		goToLeidinggevendenbeheer() {
 			this.transitionToRoute('leidinggevendenbeheer.bestuursfuncties');
+		},
+		goToSubsidiebeheer() {
+			this.transitionToRoute('subsidiebeheer.subsidies');
 		}
 	}
 });
