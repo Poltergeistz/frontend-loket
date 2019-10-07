@@ -168,3 +168,18 @@
 .form__row--file-addresses .data-table {
 	background-color: #F3F5F6 !important;
 }
+
+.datepicker.datepicker--block {
+	width: auto;
+
+	.datepicker,
+	.input-field {
+		display: block;
+		width: auto;
+
+		.input-field {
+			display: block;
+			width: 100%;
+		}
+	}
+}
