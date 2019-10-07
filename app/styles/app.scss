@@ -19,3 +19,9 @@ sup {
 	vertical-align: text-top;
 	font-size: smaller;
 }
+
+.sidebar__footer button {
+	overflow: visible;
+	height: auto !important;
+	line-height: 1.4 !important;
+}
