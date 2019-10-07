@@ -1,5 +1,13 @@
-<div class="col--10-12 col--9-12--m col--12-12--s">
+{{title "Subsidies archief - bekijk subsidie"}}
+<div class="col--12-12 col--9-12--m col--12-12--s">
 	<div class="container-flex--contain">
+		<div class="u-border--light--bottom">
+      <ul class="inline-list inline-list--bordered smaller u-background--gray-lightest u-padding--rl--small u-padding--tb--tiny">
+        <li>{{#link-to "subsidiebeheer.subsidies" class="active"}}Overzicht subsidieaanvragen{{/link-to}}</li>
+        <li>{{#link-to "subsidiebeheer.subsidies-archief"}}Archief{{/link-to}}</li>
+        <li>Bekijk gearchiveerde subsidie</li>
+      </ul>
+    </div>
 		<div class="u-border--light--bottom u-padding--tb--small u-padding--rl--tiny">
 			<div class="grid u-spacer--tiny">
 				<div class="col--6-12">
@@ -43,7 +51,7 @@
 												{{#link-to "subsidiebeheer.subsidies-archief" disabled}}Visie en planning{{/link-to}}
 											</li>
 											<li class="side-navigation__item">
-												{{#link-to "subsidiebeheer.subsidies-archief" disabled}}Beslissing College  Burgemeester en schepenen{{/link-to}}
+												{{#link-to "subsidiebeheer.subsidies-archief" disabled}}Beslissing{{/link-to}}
 											</li>
 										</ul>
 									</div>
@@ -54,33 +62,6 @@
 				</div>
 				<div class="col--10-12 col--9-12--m u-hidden--s">
 					<div class="container-flex--scroll u-padding--round">
-
-						<div class="alert alert--small">
-					    <div class="alert__title">Ingediend op 23-12-2019</div>
-							<div class="alert__message">
-								<p>U kan het dossier niet aanpassen in deze status voor vragen, <a href="#" class="link--dark">neem contact op met de dossierbehandelaar</a>.</p>
-							</div>
-						</div>
-
-						<div class="alert alert--small alert--warning">
-					    <div class="alert__title">Aanvraag aanvaard, mits aanpassingen.</div>
-							<div class="alert__message">
-								<p>Volgende aanpassingen zijn vereist:
-									<ul class="bullet-list">
-										<li>toevoegen van beslissing college burgemeester en schepenen</li>
-										<li>nog iets</li>
-									</ul>
-									Pas uw subsidieaanvraag aan binnen de X dagen, en dien het opnieuw in met de knop rechtsboven. Voor vragen, <a href="#" class="link--dark"> neem contact op met de dossierbehandelaar</a>.
-								</p>
-							</div>
-						</div>
-
-						<div class="alert alert--small alert--error">
-					    <div class="alert__title">Aanvraag niet aanvaard.</div>
-							<div class="alert__message">
-								<p>U kan het dossier niet aanpassen in deze status voor vragen, <a href="#" class="link--dark">neem contact op met de dossierbehandelaar</a>.</p>
-							</div>
-						</div>
 
 						<div class="alert alert--small alert--success">
 					    <div class="alert__title">Aanvraag aanvaard.</div>

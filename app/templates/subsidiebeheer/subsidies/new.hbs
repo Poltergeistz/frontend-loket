@@ -1,9 +1,17 @@
-<div class="col--10-12 col--9-12--m col--12-12--s">
+{{title "Beschikbare subsidies - Nieuwe subsidieaavraag"}}
+<div class="col--12-12 col--9-12--m col--12-12--s">
 	<div class="container-flex--contain">
+		<div class="u-border--light--bottom">
+      <ul class="inline-list inline-list--bordered smaller u-background--gray-lightest u-padding--rl--small u-padding--tb--tiny">
+        <li>{{#link-to "subsidiebeheer.subsidies" class="active"}}Overzicht subsidieaanvragen{{/link-to}}</li>
+        <li>{{#link-to "subsidiebeheer.subsidies-beschikbaar"}}Beschikbare subsidies{{/link-to}}</li>
+        <li>Nieuwe subsidieaanvraag</li>
+      </ul>
+    </div>
 		<div class="u-border--light--bottom u-padding--tb--small u-padding--rl--tiny">
 			<div class="grid u-spacer--tiny">
 				<div class="col--6-12">
-					{{#link-to "subsidiebeheer.subsidies" class="link--dark smaller"}}<i class="fa fa-angle-left"></i> Terug naar overzicht{{/link-to}}
+					{{#link-to "subsidiebeheer.subsidies" class="link--dark smaller"}}<i class="fa fa-angle-left"></i> Terug naar overzicht beschikbare subsidieaanvragen{{/link-to}}
 				</div>
 				<div class="col--6-12 u-align-right">
 					<p class="smaller">Bewaard vandaag om 11:26 <span class="pill pill--small">Concept</span></p>
@@ -17,7 +25,7 @@
 				<div class="col--6-12 u-align-right">
 					<div class="button-group">
 						<div class="popover js-popover" id="popover-0"> <!--  js-popover--open-->
-							<button class="button button--link button--link--dark" type="button" aria-expanded="true" aria-controls="popover-0">Meer</button>
+							<button class="button button--link button--link--dark button--narrow" type="button" aria-expanded="true" aria-controls="popover-0">Meer</button>
 							<ul class="popover__content">
 								<li>
 									<a class="popover__link" href="#"><i class="fa fa-print"></i> Print</a>
@@ -28,8 +36,8 @@
 							</ul>
 						</div>
 						<button class="button button--alt button--narrow">Bewaar concept</button>
-						<button class="button button--narrow">Aanvraag indienen</button>
-						<button class="button button--narrow button--disabled">Aanvraag indienen</button>
+						{{!-- <button class="button button--narrow">Aanvraag indienen</button> --}}
+						<button class="button button--narrow button--disabled">Aanvraag indienen <span class="button__info button__info--below">Mogelijk vanaf 12.11.2019</span></button>
 					</div>
 				</div>
 			</div>
@@ -56,21 +64,21 @@
 												{{#link-to "subsidiebeheer.subsidies.new-vision-planning"}}Visie en planning{{/link-to}}
 											</li>
 											<li class="side-navigation__item">
-												{{#link-to "subsidiebeheer.subsidies.new-decision"}}Beslissing College  Burgemeester en schepenen{{/link-to}}
+												{{#link-to "subsidiebeheer.subsidies.new-decision"}}Beslissing{{/link-to}}
 											</li>
 										</ul>
 									</div>
 								</nav>
 							</div>
-							<div class="sidebar__footer u-align-center">
+{{!-- 							<div class="sidebar__footer u-align-center">
 								<button href="#" class="button button--alt button--small button--block u-align-left">Contacteer<br>dossierbehandelaar</button>
-							</div>
+							</div> --}}
 						</div>
 					</div>
 				</div>
 				<div class="col--10-12 col--9-12--m u-hidden--s">
 					<div class="container-flex--scroll u-padding--round">
-
+{{!--
 						<div class="alert alert--small">
 					    <div class="alert__title">Ingediend op 23-12-2019</div>
 							<div class="alert__message">
@@ -103,8 +111,7 @@
 							<div class="alert__message">
 								<p>U kan het dossier niet meer aanpassen. Voor vragen, <a href="#" class="link--dark">neem contact op met de dossierbehandelaar</a>. Een officiële brief wordt opgestuurd. (? extra info nodig over boodschap)</p>
 							</div>
-						</div>
-
+						</div> --}}
 
 						<label class="form__label u-spacer--tiny">Details subsidiereeks</label>
 						<div class="u-padding--round--small u-background--gray-lightest u-spacer">

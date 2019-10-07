@@ -1,4 +1,4 @@
-<div class="col--10-12 col--9-12--m col--12-12--s">
+<div class="col--12-12 col--9-12--m col--12-12--s">
 	<div class="container-flex--contain">
 		<div class="u-border--light--bottom u-padding--tb--small u-padding--rl--tiny">
 			<div class="grid u-spacer--tiny">
@@ -6,7 +6,7 @@
 					{{#link-to "subsidiebeheer.subsidies" class="link--dark smaller"}}<i class="fa fa-angle-left"></i> Terug naar overzicht{{/link-to}}
 				</div>
 				<div class="col--6-12 u-align-right">
-					<p class="smaller">Bewaard vandaag om 11:26 <span class="pill pill--small">Concept</span></p>
+					<p class="smaller">Ingediend op 23.12.2019 &mdash; Bewaard vandaag om 11:26 <span class="pill pill--small pill--primary-yellow">Aanvraag aanvaard &mdash; mits aanpassingen</span></p>
 				</div>
 			</div>
 			<div class="grid">
@@ -17,7 +17,7 @@
 				<div class="col--6-12 u-align-right">
 					<div class="button-group">
 						<div class="popover js-popover" id="popover-0"> <!--  js-popover--open-->
-							<button class="button button--link button--link--dark" type="button" aria-expanded="true" aria-controls="popover-0">Meer</button>
+							<button class="button button--link button--link--dark button--narrow" type="button" aria-expanded="true" aria-controls="popover-0">Meer</button>
 							<ul class="popover__content">
 								<li>
 									<a class="popover__link" href="#"><i class="fa fa-print"></i> Print</a>
@@ -28,14 +28,14 @@
 							</ul>
 						</div>
 						<button class="button button--alt button--narrow">Bewaar concept</button>
-						<button class="button button--narrow">Aanvraag indienen</button>
+						<button class="button button--narrow">Dien aanpassingen in <span class="button__info button__info--below">Laatste indiening</span></button>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container-flex--contain">
 			<div class="grid grid--collapse">
-				<div class="col--2-12 col--3-12--m u-hidden--s">
+				<div class="col--3-12 col--4-12--m u-hidden--s">
 					<div class="container-flex--contain">
 						<div class="sidebar">
 							<div class="sidebar__content">
@@ -43,19 +43,54 @@
 									<div class="side-navigation__content">
 										<ul class="side-navigation__group">
 											<li class="side-navigation__item">
-												{{#link-to "subsidiebeheer.subsidies.subsidie"}}Overzicht aanvraag{{/link-to}}
+												{{#link-to "subsidiebeheer.subsidies.edit"}}
+													<div class="grid">
+														<div class="col--8-12">Overzicht aanvraag</div>
+														<div class="col--4-12 u-align-right">
+															<i class="fa fa-check u-padding--right--tiny"></i>
+														</div>
+													</div>
+												{{/link-to}}
 											</li>
 											<li class="side-navigation__item">
-												<a href="#">Subsidiedossier</a>
+												{{#link-to "subsidiebeheer.subsidies.new"}}
+													<div class="grid">
+														<div class="col--8-12">Subsidiedossier</div>
+														<div class="col--4-12 u-align-right">
+															<i class="fa fa-check u-padding--right--tiny"></i>
+														</div>
+													</div>
+												{{/link-to}}
 											</li>
 											<li class="side-navigation__item">
-												<a href="#">Timing en  financiële details</a>
+												{{#link-to "subsidiebeheer.subsidies.new"}}
+													<div class="grid">
+														<div class="col--8-12">Timing en  financiële details</div>
+														<div class="col--4-12 u-align-right">
+															<i class="fa fa-check u-padding--right--tiny"></i>
+														</div>
+													</div>
+												{{/link-to}}
 											</li>
 											<li class="side-navigation__item">
-												<a href="#">Visie en planning</a>
+												{{#link-to "subsidiebeheer.subsidies.new"}}
+													<div class="grid">
+														<div class="col--8-12">Visie en planning</div>
+														<div class="col--4-12 u-align-right">
+															<i class="fa fa-check u-padding--right--tiny"></i>
+														</div>
+													</div>
+												{{/link-to}}
 											</li>
 											<li class="side-navigation__item">
-												<a href="#">Beslissing College  Burgemeester en schepenen</a>
+												{{#link-to "subsidiebeheer.subsidies.new"}}
+													<div class="grid">
+														<div class="col--8-12">Beslissing</div>
+														<div class="col--4-12 u-align-right">
+															<i class="fa fa-circle-o fa-xs u-padding--right--tiny"></i>
+														</div>
+													</div>
+												{{/link-to}}
 											</li>
 										</ul>
 									</div>
@@ -67,7 +102,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col--10-12 col--9-12--m u-hidden--s">
+				<div class="col--9-12 col--8-12--m u-hidden--s">
 					<div class="container-flex--scroll u-padding--round">
 
 						<div class="alert alert--small">
