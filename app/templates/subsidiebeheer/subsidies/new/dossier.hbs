@@ -1,0 +1,42 @@
+<div class="grid grid--collapse">
+	<div class="col--10-12">
+		<div class="form__row">
+			<label class="form__label">Titel project</label>
+      {{input
+        type="text"
+        key-up=(perform search)
+        value=searchData
+        class="input-field input-field--block u-spacer--tiny"
+      }}
+      <p class="smaller text-fade">0/75 karakters</p>
+    </div>
+
+		<div class="form__row">
+			<label class="form__label">Kernboodschap</label>
+      {{textarea
+        class="textarea textarea--block u-spacer--tiny"
+        rows="4"
+      }}
+      <p class="smaller text-fade">0/280 karakters</p>
+    </div>
+
+		<div class="form__row">
+			<label class="form__label">Beschrijving</label>
+      {{textarea
+        class="textarea textarea--block u-spacer--tiny"
+        rows="20"
+      }}
+      <p class="smaller text-fade">Maximum 4000 karakters. 0/4000 karakters gebruikt.</p>
+    </div>
+
+		<div class="form__row">
+			<label class="form__label">Wat als het project minder of geen subsidie ontvangt?</label>
+      {{textarea
+        class="textarea textarea--block u-spacer--tiny"
+        rows="20"
+      }}
+      <p class="smaller text-fade">Maximum 4000 karakters. 0/4000 karakters gebruikt.</p>
+    </div>
+  </div>
+</div>
+{{outlet}}

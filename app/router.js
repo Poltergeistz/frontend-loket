@@ -61,12 +61,14 @@ Router.map(function() {
   this.route('switch-login');
   this.route('subsidiebeheer', function() {
     this.route('subsidies', function() {
-      this.route('new');
+      this.route('new', function() {
+        this.route('dossier');
+        this.route('decision');
+        this.route('timing-financials');
+        this.route('vision-planning');
+      });
       this.route('edit');
-      this.route('new-timing-financials');
-      this.route('new-vision-planning');
       this.route('new-dossier');
-      this.route('new-decision');
     });
     this.route('subsidies-beschikbaar', function() {
       this.route('view');

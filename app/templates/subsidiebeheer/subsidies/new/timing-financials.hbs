@@ -1,0 +1,113 @@
+<h2 class="u-spacer--tinier">Timing</h2>
+
+<label class="form__label u-spacer--tiniest">Begin- en einddatum van het project</label>
+<div class="grid u-spacer">
+	<div class="col--4-12">
+		<div class="form__row">
+			{{wu-datepicker
+			  placeholder=placeholder
+			  class="date-range__datepicker datepicker datepicker--block"
+			  value=internalValue
+			  dateFormat=dateFormat
+			  disabled=disabled
+			}}
+		</div>
+	</div>
+	<div class="col--4-12 u-align-right">
+			<div class="form__row">
+			{{wu-datepicker
+			  placeholder=placeholder
+			  class="date-range__datepicker datepicker datepicker--block is-optional"
+			  value=internalValue
+			  dateFormat=dateFormat
+			  disabled=disabled
+			}}
+		</div>
+	</div>
+</div>
+
+<h2 class="u-spacer--tinier">Financiële details</h2>
+<div class="grid u-spacer">
+	<div class="col--4-12">
+		<label class="form__label">Geraamde totale kostprijs in Euro</label>
+		<div class="form__row">
+      {{input
+        type="text"
+        key-up=(perform search)
+        value=searchData
+        class="input-field input-field--block u-spacer--tiny"
+      }}
+		</div>
+	</div>
+	<div class="col--4-12">
+		<div class="form__row">
+			<label class="form__label">Aanvraag subsidiebedrag in % (?)</label>
+      {{input
+        type="text"
+        key-up=(perform search)
+        value=searchData
+        class="input-field input-field--block u-spacer--tiny"
+      }}
+		</div>
+	</div>
+</div>
+
+<div class="grid grid--collapse">
+	<div class="col--10-12">
+		<div class="form__row">
+
+			<label class="form__label u-spacer--tiny">Projectchronologie met financiële details</label>
+			<div class="u-padding--round--small u-background--gray-lightest u-spacer">
+
+				<div class="form__row">
+					<label class="form__label">Project stap 1</label>
+          {{textarea
+            class="textarea textarea--block u-spacer--tiny"
+            rows="10"
+          }}
+
+					<label class="form__label">Kostprijs stap in Euro</label>
+          {{input
+            type="text"
+            key-up=(perform search)
+            value=searchData
+            class="input-field input-field--block u-spacer--tiny"
+          }}
+          <p class="smaller text-fade">Belgische notatie: zonder spaties of punten. Voorbeeld: €1239,05</p>
+        </div>
+
+        <div class="u-hr u-spacer--tb"></div>
+
+				<div class="form__row">
+					<div class="grid grid--collapse">
+						<div class="col--6-12">
+							<label class="form__label">Project stap 2</label>
+						</div>
+						<div class="col--6-12 u-align-right">
+              <a class="link link--dark smaller" href="#">Verwijder projectstap 2</a>
+            </div>
+          </div>
+          {{textarea
+            class="textarea textarea--block u-spacer--tiny"
+            rows="10"
+          }}
+
+					<label class="form__label">Kostprijs stap in Euro</label>
+          {{input
+            type="text"
+            key-up=(perform search)
+            value=searchData
+            class="input-field input-field--block u-spacer--tiny"
+          }}
+          <p class="smaller text-fade">Belgische notatie: zonder spaties of punten. Voorbeeld: €1239,05</p>
+
+        </div>
+
+        <div class="u-hr u-spacer--tb"></div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{{outlet}}

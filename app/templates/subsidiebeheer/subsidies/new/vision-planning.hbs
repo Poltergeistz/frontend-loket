@@ -1,0 +1,60 @@
+<div class="grid">
+	<div class="col--10-12">
+		<div class="form__row">
+			<label class="form__label u-spacer--tiny">Doelgroepen</label>
+			<div aria-owns="ember-basic-dropdown-content-ember878" tabindex="0" role="button" class="ember-power-select-trigger ember-basic-dropdown-trigger ember-view">
+				<span class="ember-power-select-status-icon"></span>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label">Nagestreefde effecten</label>
+      {{textarea
+        class="textarea textarea--block u-spacer--tiny"
+        rows="7"
+      }}
+      <p class="smaller text-fade">Beschrijf de impact van het project, bijvoorbeeld op de doelgroepen.</p>
+    </div>
+
+		<div class="form__row">
+			<label class="form__label">Promotie- en implementatieplan</label>
+
+			<div class="form__row u-spacer--tb--tiny">
+				<div data-upload-allow-drop="" class="upload js-upload js-upload-bound ember-view">
+					<div class="upload__element ember-view">
+						<label class="upload__element__label">
+							<i class="vi vi-paperclip"></i> <span>Bestanden toevoegen</span>
+							<small>Sleep de bestanden naar hier om toe te voegen</small>
+							<label for="file-input-98771" class="file-upload ember-view">
+								<input id="file-input-98771" multiple="" hidden="" type="file"></label>
+							</label>
+					</div>
+				</div>
+			</div>
+
+      <p class="smaller text-fade">Maximaal 1024 MB. Best geen .zip, .exe of .rar bestanden opladen.</p>
+    </div>
+
+		<div class="form__row">
+			<label class="form__label">Extra relevante bestanden</label>
+
+			<div class="form__row u-spacer--tb--tiny">
+				<div data-upload-allow-drop="" class="upload js-upload js-upload-bound ember-view">
+					<div class="upload__element ember-view">
+						<label class="upload__element__label">
+							<i class="vi vi-paperclip"></i> <span>Bestanden toevoegen</span>
+							<small>Sleep de bestanden naar hier om toe te voegen</small>
+							<label for="file-input-98771" class="file-upload ember-view">
+								<input id="file-input-98771" multiple="" hidden="" type="file"></label>
+							</label>
+					</div>
+				</div>
+			</div>
+
+      <p class="smaller text-fade">Maximaal 1024 MB. Best geen .zip, .exe of .rar bestanden opladen.</p>
+    </div>
+
+	</div>
+</div>
+
+{{outlet}}
