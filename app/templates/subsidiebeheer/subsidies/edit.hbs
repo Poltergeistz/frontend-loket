@@ -139,7 +139,6 @@
 							</div>
 						</div>
 
-
 						<label class="form__label u-spacer--tiny">Details subsidiereeks</label>
 						<div class="u-padding--round--small u-background--gray-lightest u-spacer">
 							<div class="u-spacer">
@@ -148,15 +147,23 @@
 									<div class="col--8-12 description-data__value"><a href="https://lokaalbestuur.vlaanderen.be/node/1891" target="_blank">https://lokaalbestuur.vlaanderen.be/node/1891</a></div>
 								</div>
 								<div class="grid description-data u-spacer--tiny">
-									<div class="col--4-12 description-data__label">Maatregel <span class="text-fade">(? hoe belangrijk is dit? Krijg ik die data nog? Zat niet in de lijst)</span></div>
-									<div class="col--8-12 description-data__value">Slim in de stad</div>
+									<div class="col--4-12 description-data__label">Startdatum indienen</div>
+									<div class="col--8-12 description-data__value">12.11.2019</div>
 								</div>
 								<div class="grid description-data u-spacer--tiny">
-									<div class="col--4-12 description-data__label">Reeks <span class="text-fade">(? hoe belangrijk is dit? Krijg ik die data nog? Zat niet in de lijst)</span></div>
+									<div class="col--4-12 description-data__label">Einddatum indienen</div>
+									<div class="col--8-12 description-data__value">12.11.2020</div>
+								</div>
+								<div class="grid description-data u-spacer--tiny">
+									<div class="col--4-12 description-data__label">Reeks <span class="text-fade">(duidelijker in lijst)</span></div>
 									<div class="col--8-12 description-data__value">Kwartaal 1 2019</div>
 								</div>
 								<div class="grid description-data u-spacer--tiny">
-									<div class="col--4-12 description-data__label">Wettelijk kader <span class="text-fade">(? hoe formuleer ik dit?)</span></div>
+									<div class="col--4-12 description-data__label">Maatregel <span class="text-fade">(duidelijker in lijst)</span></div>
+									<div class="col--8-12 description-data__value">Slim in de stad</div>
+								</div>
+								<div class="grid description-data u-spacer--tiny">
+									<div class="col--4-12 description-data__label">Wettelijk kader <span class="text-fade">(regelgeving URI)</span></div>
 									<div class="col--8-12 description-data__value">Decreet, beslissing Minister, subsidiegids</div>
 								</div>
 							</div>
@@ -238,36 +245,30 @@
 											<span class="pill pill--small u-spacer--tiny">Projectleider en contactpersoon</span>
 										</div>
 									</div>
+									<p class="smaller text-fade">Met deze persoon zal per mail en/of per brief contact opgenomen worden.</p>
 								</div>
 
 								<div class="grid u-spacer">
 									<div class="col--6-12">
+
 										<label class="form__label">Voornaam</label>
-				            <div class="input-field-icon-container--block input-field-icon-container--right">
-				              {{input
-				                  type="text"
-				                  placeholder=""
-				                  key-up=(perform search)
-				                  value=searchData
-				                  class="input-field input-field--block"
-				              }}
-				              <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
-				            </div>
-				            <p class="smaller text-fade">Typ om te zoeken</p>
+						        {{input
+						            type="text"
+						            placeholder=""
+						            key-up=(perform search)
+						            value=searchData
+						            class="input-field input-field--block"
+						        }}
 				          </div>
 									<div class="col--6-12">
 										<label class="form__label">Familienaam</label>
-				            <div class="input-field-icon-container--block input-field-icon-container--right">
-				              {{input
-				                  type="text"
-				                  placeholder=""
-				                  key-up=(perform search)
-				                  value=searchData
-				                  class="input-field input-field--block"
-				              }}
-				              <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
-				            </div>
-				            <p class="smaller text-fade">Typ om te zoeken</p>
+						        {{input
+						            type="text"
+						            placeholder=""
+						            key-up=(perform search)
+						            value=searchData
+						            class="input-field input-field--block"
+						        }}
 				          </div>
 				        </div>
 
@@ -293,7 +294,8 @@
 		                  value=searchData
 		                  class="input-field input-field--block u-spacer--tiny"
 			              }}
-				            <p class="smaller text-fade">IBAN: BE00 0000 0000 0000</p>
+
+						        <p class="smaller text-fade">Formaat: +32 11 21 14 30</p>
 			            </div>
 			          </div>
 
@@ -313,32 +315,25 @@
 
 								<div class="grid u-spacer">
 									<div class="col--6-12">
+
 										<label class="form__label">Voornaam</label>
-				            <div class="input-field-icon-container--block input-field-icon-container--right">
-				              {{input
-				                  type="text"
-				                  placeholder=""
-				                  key-up=(perform search)
-				                  value=searchData
-				                  class="input-field input-field--block"
-				              }}
-				              <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
-				            </div>
-				            <p class="smaller text-fade">Typ om te zoeken</p>
+						        {{input
+						            type="text"
+						            placeholder=""
+						            key-up=(perform search)
+						            value=searchData
+						            class="input-field input-field--block"
+						        }}
 				          </div>
 									<div class="col--6-12">
 										<label class="form__label">Familienaam</label>
-				            <div class="input-field-icon-container--block input-field-icon-container--right">
-				              {{input
-				                  type="text"
-				                  placeholder=""
-				                  key-up=(perform search)
-				                  value=searchData
-				                  class="input-field input-field--block"
-				              }}
-				              <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
-				            </div>
-				            <p class="smaller text-fade">Typ om te zoeken</p>
+						        {{input
+						            type="text"
+						            placeholder=""
+						            key-up=(perform search)
+						            value=searchData
+						            class="input-field input-field--block"
+						        }}
 				          </div>
 				        </div>
 
@@ -351,7 +346,6 @@
 		                  value=searchData
 		                  class="input-field input-field--block u-spacer--tiny"
 			              }}
-				            <p class="form__error">Gelieve een valide mailadres op te geven.</p>
 			            </div>
 			          </div>
 
@@ -364,7 +358,7 @@
 		                  value=searchData
 		                  class="input-field input-field--block u-spacer--tiny"
 			              }}
-				            <p class="smaller text-fade">IBAN: BE00 0000 0000 0000</p>
+						        <p class="smaller text-fade">Formaat: +32 11 21 14 30</p>
 			            </div>
 			          </div>
 
