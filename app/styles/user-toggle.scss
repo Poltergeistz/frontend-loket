@@ -12,25 +12,20 @@
 
 /* style username and label */
 
-	.user-toggle__name--label {
-		display: block;
-		font-size: 1.3rem;
-		line-height: 1.2;
-		color: $gray;
-		margin: 0.5rem 0;
-		padding-right: 1.9rem;
-	}
-
 	.user-toggle__name {
 		flex: 1;
-		margin-bottom: 0.5rem;
-
-		line-height: 1.2;
-		font-size: 1.5rem;
-		// font-weight: 400;
+		font-size: 1.7rem;
+		font-weight: 400;
+		line-height: 1.5;
 		font-family: flanders-sans, sans-serif;
-
 		transition: all 200ms;
+	}
+
+	.user-toggle__name button.vi.vi-u-badge--xsmall {
+		line-height: 1.8;
+		top: -0.3rem;
+		left: 0.3rem;
+		position: relative;
 	}
 
 	/* truncate username hover animation */
