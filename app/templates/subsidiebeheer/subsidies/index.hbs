@@ -32,6 +32,7 @@
           <tr class="data-table__header">
             <th><a class="data-table__header-title--sortable">Subsidiemaatregel</a> <i id="ember649" class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi ember-view"></i></th>
             <th><a class="data-table__header-title--sortable">Status</a></th>
+            <th><a class="data-table__header-title--sortable">Beslissing</a></th>
             <th><a class="data-table__header-title--sortable">Gewijzigd door</a></th>
             <th><a class="data-table__header-title--sortable">Laatst bewerkt op</a></th>
             <th></th>
@@ -39,7 +40,7 @@
         </thead>
         <tbody>
         	<tr>
-        		<td class="u-align-center u-padding--round--small" colspan="5">
+        		<td class="u-align-center u-padding--round--small" colspan="6">
         			<p class="text-fade u-spacer--tinier">U heeft nog geen subsidie aangevraagd.</p>
 							<a href="#">Bekijk de verschillende beschikbare subsidies</a>
 						</td>
@@ -47,19 +48,22 @@
         	<tr>
         		<td>Gesubs Infra - Investeringssubsidie gebouwen erediensten en niet confessionele dienstverlening</td>
         		<td><span class="pill pill--gray-light">Concept</span></td>
+        		<td><span class="text-fade">Nog niet ingediend</span></td>
         		<td>Barbara Putseys</td>
         		<td>27-12-2019</td>
         		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
         	</tr>
         	<tr>
         		<td>GK - Projectsubsidie Gelijke kansen</td>
-        		<td><span class="pill pill--primary-yellow">Ingediend</span></td>
+        		<td><span class="pill pill--primary-yellow">In&nbsp;behandeling</span></td>
+        		<td><span class="text-fade">In beraad</span></td>
         		<td>Barbara Putseys</td>
         		<td>27-12-2019</td>
         		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
         	</tr>
         	<tr>
         		<td>Brussel - Subsidie Projecten voor Brussel (Subsidiegids)</td>
+        		<td><span class="pill pill--primary-blue">Behandeld</span></td>
         		<td><span class="pill pill--primary-blue">Ontvankelijk</span></td>
         		<td>Barbara Putseys</td>
         		<td>27-12-2019</td>
@@ -67,13 +71,15 @@
         	</tr>
         	<tr>
         		<td>Brussel - Ad nominatim subsidie Brussel</td>
-        		<td><span class="pill pill--gray-dark">Niet ontvankelijk</span></td>
+        		<td><span class="pill pill--primary-blue">Behandeld</span></td>
+        		<td><span class="pill pill--gray-dark">Niet&nbsp;ontvankelijk</span></td>
         		<td>Barbara Putseys</td>
         		<td>27-12-2019</td>
         		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
         	</tr>
         	<tr>
         		<td>Vlaamse Rand - Facultatieve subsidie faciliteitengemeenten</td>
+        		<td><span class="pill pill--primary-blue">Behandeld</span></td>
         		<td><span class="pill pill--primary-yellow">Ontvankelijk&nbsp;mits&nbsp;opmerkingen</span></td>
         		<td>Barbara Putseys</td>
         		<td>27-12-2019</td>
