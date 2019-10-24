@@ -1,1 +1,80 @@
-{{outlet}}
+<div class="container-flex--contain">
+	<div class="u-padding--round--tinier u-background--gray-lightest u-border--light--bottom">
+		<div class="grid">
+			<div class="col--8-12">
+		    <ul class="inline-list inline-list--bordered u-padding--top--tinier smaller">
+		      <li>
+		      	{{#link-to 'index' class="link link--dark"}}Overzicht modules{{/link-to}}
+				  	<span class="user-toggle">
+							{{#wu-popover as |p|}}
+							  {{#p.toggle}}
+							    <button class="vi vi-arrow vi-u-90deg vi-u-badge vi-u-badge--xsmall vi-u-badge--neutral"></button>
+							  {{/p.toggle}}
+							  {{#p.content tagName="ul"}}
+						      <li>
+						      	{{#link-to "berichtencentrum.berichten" tagName="a" class="popover__link u-padding--tb--tiny"}}<i class="fa fa-envelope-o"></i> Berichtencentrum{{/link-to}}
+						      </li>
+						      <li>
+						      	{{#link-to "bbcdr.rapporten" tagName="a" class="popover__link u-padding--tb--tiny"}}<i class="vi vi-paperclip"></i> BBC-DR{{/link-to}}
+						      </li>
+						      <li>
+						      	{{#link-to "leidinggevendenbeheer.bestuursfuncties" tagName="a" class="popover__link u-padding--tb--tiny"}}<i class="vi vi-id"></i> Leidinggevenden{{/link-to}}
+						      </li>
+						      <li>
+						      	{{#link-to "mandatenbeheer.mandatarissen" tagName="a" class="popover__link u-padding--tb--tiny"}}<i class="vi vi-diagram"></i> Mandaten{{/link-to}}
+						      </li>
+						      <li>
+						      	{{#link-to "subsidiebeheer.subsidies" tagName="a" class="popover__link u-padding--tb--tiny"}}<i class="vi vi-news"></i> Subsidies{{/link-to}}
+						      </li>
+						      <li>
+						      	{{#link-to "toezicht.inzendingen" tagName="a" class="popover__link u-padding--tb--tiny"}}<i class="vi vi-vlaanderen"></i> Toezicht{{/link-to}}
+						      </li>
+						      <li class="u-border--light--top u-padding--top--tiny">
+						      	{{#link-to "index" tagName="a" class="popover__link u-padding--tb--tiny"}}Alle modules en handleidingen{{/link-to}}
+						      </li>
+							  {{/p.content}}
+							{{/wu-popover}}
+						</span>
+		      </li>
+		      <li>
+		      	{{#link-to "subsidiebeheer.subsidies" tagName="a" class="link link--dark"}}Subsidiebeheer{{/link-to}}
+		      </li>
+		      <li>
+		      	Archief
+		      </li>
+		    </ul>
+			</div>
+			<div class="col--4-12 u-align-right">
+				<div class="user-toggle">
+				  <nav>
+		        {{#wu-popover as |p|}}
+		          {{#p.toggle}}
+		            <div class="user-toggle__name">
+		            	{{currentSession._user.voornaam}} {{currentSession._user.achternaam}} &mdash; <strong>{{currentSession._group.classificatie.label}} {{currentSession._group.naam}}</strong>
+			            <button class="vi vi-arrow vi-u-90deg vi-u-badge vi-u-badge--xsmall u-align-left"></button>
+		            </div>
+		          {{/p.toggle}}
+		          {{#p.content tagName="ul"}}
+		              <li>
+		                {{#acmidm-switch tagName="a" class="popover__link"}}
+		                  <i class="fa fa-retweet button__icon"></i>
+		                  <span>Wissel van bestuurseenheid</span>
+		                {{/acmidm-switch}}
+		              </li>
+		              <li>
+		                {{#acmidm-logout tagName="a" class="popover__link"}}
+		                  <i class="button__icon fa fa-power-off"></i>
+		                	<span>Meld u af</span>
+		                {{/acmidm-logout}}
+		              </li>
+		          {{/p.content}}
+		        {{/wu-popover}}
+				  </nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-flex--scroll">
+		{{outlet}}
+	</div>
+</div>

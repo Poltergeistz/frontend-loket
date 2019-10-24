@@ -4,43 +4,7 @@
   {{#if session.isAuthenticated}}
     <div class="container-flex--contain">
 
-    	<div class="u-padding--round--tiny u-background--gray-lightest u-border--light--bottom">
-    		<div class="grid">
-    			<div class="col--4-12">
-						<div class="user-toggle">
-						  <nav>
-				        {{#wu-popover as |p|}}
-				          {{#p.toggle}}
-				            <div class="user-toggle__name">
-				            	{{currentSession._user.voornaam}} {{currentSession._user.achternaam}} &mdash; <strong>{{currentSession._group.classificatie.label}} {{currentSession._group.naam}}</strong>
-					            <button class="vi vi-arrow vi-u-90deg vi-u-badge vi-u-badge--xsmall u-align-left"></button>
-				            </div>
-				          {{/p.toggle}}
-				          {{#p.content tagName="ul"}}
-				              <li>
-				                {{#acmidm-switch tagName="a" class="popover__link"}}
-				                  <i class="fa fa-retweet button__icon"></i>
-				                  <span>Wissel van bestuurseenheid</span>
-				                {{/acmidm-switch}}
-				              </li>
-				              <li>
-				                {{#acmidm-logout tagName="a" class="popover__link"}}
-				                  <i class="button__icon fa fa-power-off"></i>
-				                	<span>Meld u af</span>
-				                {{/acmidm-logout}}
-				              </li>
-				          {{/p.content}}
-				        {{/wu-popover}}
-						  </nav>
-						</div>
-					</div>
-    			<div class="col--8-12 u-align-right">
-		        <p>{{#link-to 'index' class="link link--dark smaller"}}Overzicht applicaties{{/link-to}}</p>
-    			</div>
-				</div>
-			</div>
-
-      <div class="grid grid--collapse">
+      {{!-- <div class="grid grid--collapse"> --}}
 {{!--         <div class="col--2-12 col--3-12--m u-hidden--s">
           <div class="container-flex--contain">
             <div class="sidebar">
@@ -118,7 +82,7 @@
           </div>
         </div> --}}
         {{outlet}}
-      </div>
+      {{!-- </div> --}}
     </div>
   {{else}}
     {{outlet}}
