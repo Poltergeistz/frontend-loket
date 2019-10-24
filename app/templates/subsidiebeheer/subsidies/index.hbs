@@ -1,105 +1,101 @@
 {{title "Subsidies"}}
-<div class="col--12-12--s u-border--light--right col--12-12">
-  <div class="container-flex--contain">
-    <div class="u-border--light--bottom loket-onderdeel__header">
-      <div class="u-padding--round--small">
-      	<h1 class="h4 u-spacer--tiny">Lopende subsidieaanvragen</h1>
-        <div class="grid">
-          <div class="col--6-12 col--1-1--s">
-            <div class="input-field-icon-container--right">
-              {{input
-                  type="text"
-                  placeholder="Zoek subsidie"
-                  key-up=(perform search)
-                  value=searchData
-                  class="input-field input-field--block"
-              }}
-              <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="col--6-12 col--1-1--s u-align-right--tablet-portrait-up">
-          	<div class="button-group">
-          		{{#link-to "subsidiebeheer.subsidies-archief" class="button button--narrow button--alt u-spacer--none"}}Archief{{/link-to}}
-          		{{#link-to "subsidiebeheer.subsidies-beschikbaar" class="button button--narrow u-spacer--none"}}Nieuwe subsidieaanvraag{{/link-to}}
-	          </div>
-          </div>
+<div class="u-border--light--bottom loket-onderdeel__header">
+  <div class="u-padding--round--small">
+  	<h1 class="h4 u-spacer--tiny">Lopende subsidieaanvragen</h1>
+    <div class="grid">
+      <div class="col--6-12 col--1-1--s">
+        <div class="input-field-icon-container--right">
+          {{input
+              type="text"
+              placeholder="Zoek subsidie"
+              key-up=(perform search)
+              value=searchData
+              class="input-field input-field--block"
+          }}
+          <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="col--6-12 col--1-1--s u-align-right--tablet-portrait-up">
+      	<div class="button-group">
+      		{{#link-to "subsidiebeheer.subsidies-archief" class="button button--narrow button--alt u-spacer--none"}}Archief{{/link-to}}
+      		{{#link-to "subsidiebeheer.subsidies-beschikbaar" class="button button--narrow u-spacer--none"}}Nieuwe subsidieaanvraag{{/link-to}}
         </div>
       </div>
     </div>
-    <div class="container-flex--scroll">
-      <table class="data-table data-table--nowrap">
-        <thead>
-          <tr class="data-table__header">
-            <th><a class="data-table__header-title--sortable">Subsidiemaatregel</a> <i id="ember649" class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi ember-view"></i></th>
-            <th><a class="data-table__header-title--sortable">Status</a></th>
-            <th><a class="data-table__header-title--sortable">Beslissing</a></th>
-            <th><a class="data-table__header-title--sortable">Gewijzigd door</a></th>
-            <th><a class="data-table__header-title--sortable">Laatst bewerkt op</a></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-        	<tr>
-        		<td class="u-align-center u-padding--round--small" colspan="6">
-        			<p class="text-fade u-spacer--tinier">U heeft nog geen subsidie aangevraagd.</p>
-							<a href="#">Bekijk de verschillende beschikbare subsidies</a>
-						</td>
-        	</tr>
-        	<tr>
-        		<td>Gesubs Infra - Investeringssubsidie gebouwen erediensten en niet confessionele dienstverlening</td>
-        		<td><span class="pill pill--gray-light">Concept</span></td>
-        		<td><span class="text-fade">Nog niet ingediend</span></td>
-        		<td>Barbara Putseys</td>
-        		<td>27-12-2019</td>
-        		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
-        	</tr>
-        	<tr>
-        		<td>GK - Projectsubsidie Gelijke kansen</td>
-        		<td><span class="pill pill--primary-yellow">In&nbsp;behandeling</span></td>
-        		<td><span class="text-fade">In beraad</span></td>
-        		<td>Barbara Putseys</td>
-        		<td>27-12-2019</td>
-        		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
-        	</tr>
-        	<tr>
-        		<td>Brussel - Subsidie Projecten voor Brussel (Subsidiegids)</td>
-        		<td><span class="pill pill--primary-blue">Behandeld</span></td>
-        		<td><span class="pill pill--primary-blue">Ontvankelijk</span></td>
-        		<td>Barbara Putseys</td>
-        		<td>27-12-2019</td>
-        		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
-        	</tr>
-        	<tr>
-        		<td>Brussel - Ad nominatim subsidie Brussel</td>
-        		<td><span class="pill pill--primary-blue">Behandeld</span></td>
-        		<td><span class="pill pill--gray-dark">Niet&nbsp;ontvankelijk</span></td>
-        		<td>Barbara Putseys</td>
-        		<td>27-12-2019</td>
-        		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
-        	</tr>
-        	<tr>
-        		<td>Vlaamse Rand - Facultatieve subsidie faciliteitengemeenten</td>
-        		<td><span class="pill pill--primary-blue">Behandeld</span></td>
-        		<td><span class="pill pill--primary-yellow">Ontvankelijk&nbsp;mits&nbsp;opmerkingen</span></td>
-        		<td>Barbara Putseys</td>
-        		<td>27-12-2019</td>
-        		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
-        	</tr>
-        </tbody>
-      </table>
-    </div>
-		<div class="data-table__actions data-table__actions--bottom">
-			<div id="ember601" class="data-table-pagination ember-view">
-				<div class="pager">
-					<ul class="pager__list">
-						<li class="pager__element u-hidden-mobile">
-							<span class="u-visually-hidden">Rij </span><strong>1 - 4</strong> van 4
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
   </div>
+</div>
+<div class="container-flex--scroll">
+  <table class="data-table data-table--nowrap">
+    <thead>
+      <tr class="data-table__header">
+        <th><a class="data-table__header-title--sortable">Subsidiemaatregel</a> <i id="ember649" class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi ember-view"></i></th>
+        <th><a class="data-table__header-title--sortable">Status</a></th>
+        <th><a class="data-table__header-title--sortable">Beslissing</a></th>
+        <th><a class="data-table__header-title--sortable">Gewijzigd door</a></th>
+        <th><a class="data-table__header-title--sortable">Laatst bewerkt op</a></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    	<tr>
+    		<td class="u-align-center u-padding--round--small" colspan="6">
+    			<p class="text-fade u-spacer--tinier">U heeft nog geen subsidie aangevraagd.</p>
+					<a href="#">Bekijk de verschillende beschikbare subsidies</a>
+				</td>
+    	</tr>
+    	<tr>
+    		<td>Gesubs Infra - Investeringssubsidie gebouwen erediensten en niet confessionele dienstverlening</td>
+    		<td><span class="pill pill--gray-light">Concept</span></td>
+    		<td><span class="text-fade">Nog niet ingediend</span></td>
+    		<td>Barbara Putseys</td>
+    		<td>27-12-2019</td>
+    		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
+    	</tr>
+    	<tr>
+    		<td>GK - Projectsubsidie Gelijke kansen</td>
+    		<td><span class="pill pill--primary-yellow">In&nbsp;behandeling</span></td>
+    		<td><span class="text-fade">In beraad</span></td>
+    		<td>Barbara Putseys</td>
+    		<td>27-12-2019</td>
+    		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
+    	</tr>
+    	<tr>
+    		<td>Brussel - Subsidie Projecten voor Brussel (Subsidiegids)</td>
+    		<td><span class="pill pill--primary-blue">Behandeld</span></td>
+    		<td><span class="pill pill--primary-blue">Ontvankelijk</span></td>
+    		<td>Barbara Putseys</td>
+    		<td>27-12-2019</td>
+    		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
+    	</tr>
+    	<tr>
+    		<td>Brussel - Ad nominatim subsidie Brussel</td>
+    		<td><span class="pill pill--primary-blue">Behandeld</span></td>
+    		<td><span class="pill pill--gray-dark">Niet&nbsp;ontvankelijk</span></td>
+    		<td>Barbara Putseys</td>
+    		<td>27-12-2019</td>
+    		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
+    	</tr>
+    	<tr>
+    		<td>Vlaamse Rand - Facultatieve subsidie faciliteitengemeenten</td>
+    		<td><span class="pill pill--primary-blue">Behandeld</span></td>
+    		<td><span class="pill pill--primary-yellow">Ontvankelijk&nbsp;mits&nbsp;opmerkingen</span></td>
+    		<td>Barbara Putseys</td>
+    		<td>27-12-2019</td>
+    		<td>{{#link-to "subsidiebeheer.subsidies.edit"}}Bewerk{{/link-to}}</td>
+    	</tr>
+    </tbody>
+  </table>
+</div>
+<div class="data-table__actions data-table__actions--bottom">
+	<div id="ember601" class="data-table-pagination ember-view">
+		<div class="pager">
+			<ul class="pager__list">
+				<li class="pager__element u-hidden-mobile">
+					<span class="u-visually-hidden">Rij </span><strong>1 - 4</strong> van 4
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>
 
 {{outlet}}
