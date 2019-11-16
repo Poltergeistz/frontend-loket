@@ -94,7 +94,7 @@
 					</nav>
 				</div>
 				<div class="sidebar__footer u-align-center">
-					<button href="#" class="button button--alt button--small button--block u-align-left">Contacteer<br>dossierbehandelaar</button>
+					<button href="mailto:abb@vlaanderen.be" class="button button--alt button--small button--block"><i class="vi vi-mail"></i> Contacteer dossierbehandelaar</button>
 				</div>
 			</div>
 		</div>
@@ -152,16 +152,20 @@
 						<div class="col--8-12 description-data__value">12.11.2020</div>
 					</div>
 					<div class="grid description-data u-spacer--tiny">
-						<div class="col--4-12 description-data__label">Reeks <span class="text-fade">(duidelijker in lijst)</span></div>
+						<div class="col--4-12 description-data__label">Reeks</div>
 						<div class="col--8-12 description-data__value">Kwartaal 1 2019</div>
 					</div>
 					<div class="grid description-data u-spacer--tiny">
-						<div class="col--4-12 description-data__label">Maatregel <span class="text-fade">(duidelijker in lijst)</span></div>
+						<div class="col--4-12 description-data__label">Maatregel</div>
 						<div class="col--8-12 description-data__value">Slim in de stad</div>
 					</div>
 					<div class="grid description-data u-spacer--tiny">
-						<div class="col--4-12 description-data__label">Wettelijk kader <span class="text-fade">(regelgeving URI)</span></div>
+						<div class="col--4-12 description-data__label">Wettelijk kader</div>
 						<div class="col--8-12 description-data__value">Decreet, beslissing Minister, subsidiegids</div>
+					</div>
+					<div class="grid description-data u-spacer--tiny">
+						<div class="col--4-12 description-data__label">Dossiernummer</div>
+						<div class="col--8-12 description-data__value">SUB2019.000591</div>
 					</div>
 				</div>
 			</div>
@@ -184,7 +188,6 @@
               {{input
                 type="text"
                 disabled=true
-                key-up=(perform search)
                 value="IBAN"
                 class="input-field input-field--block"
               }}
@@ -192,7 +195,6 @@
 						<div class="col--6-12">
               {{input
                 type="text"
-                key-up=(perform search)
                 value=searchData
                 class="input-field input-field--block u-spacer--tiny"
               }}
@@ -209,8 +211,6 @@
 	              {{input
 	                  type="text"
 	                  placeholder=""
-	                  key-up=(perform search)
-	                  value=searchData
 	                  class="input-field input-field--block"
 	              }}
 	              <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
@@ -252,8 +252,6 @@
 			        {{input
 			            type="text"
 			            placeholder=""
-			            key-up=(perform search)
-			            value=searchData
 			            class="input-field input-field--block"
 			        }}
 	          </div>
@@ -262,8 +260,6 @@
 			        {{input
 			            type="text"
 			            placeholder=""
-			            key-up=(perform search)
-			            value=searchData
 			            class="input-field input-field--block"
 			        }}
 	          </div>
@@ -274,7 +270,6 @@
 						<div class="col--7-12">
               {{input
                 type="text"
-                key-up=(perform search)
                 value=searchData
                 class="input-field input-field--block u-spacer--tiny"
               }}
@@ -287,7 +282,6 @@
 						<div class="col--7-12">
               {{input
                 type="text"
-                key-up=(perform search)
                 value=searchData
                 class="input-field input-field--block u-spacer--tiny"
               }}
@@ -317,8 +311,6 @@
 			        {{input
 			            type="text"
 			            placeholder=""
-			            key-up=(perform search)
-			            value=searchData
 			            class="input-field input-field--block"
 			        }}
 	          </div>
@@ -327,8 +319,6 @@
 			        {{input
 			            type="text"
 			            placeholder=""
-			            key-up=(perform search)
-			            value=searchData
 			            class="input-field input-field--block"
 			        }}
 	          </div>
@@ -339,7 +329,6 @@
 						<div class="col--7-12">
               {{input
                 type="text"
-                key-up=(perform search)
                 value=searchData
                 class="input-field input-field--block u-spacer--tiny"
               }}
@@ -351,7 +340,6 @@
 						<div class="col--7-12">
               {{input
                 type="text"
-                key-up=(perform search)
                 value=searchData
                 class="input-field input-field--block u-spacer--tiny"
               }}

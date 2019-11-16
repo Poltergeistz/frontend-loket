@@ -28,7 +28,8 @@
 						</ul>
 					</div>
 					<button class="button button--alt button--narrow">Bewaar concept</button>
-					<button class="button button--narrow">Aanvraag indienen</button>
+					{{!-- <button class="button button--narrow">Aanvraag indienen</button> --}}
+		    	{{#link-to "subsidiebeheer.subsidies.disabled" class="button button--narrow"}}Aanvraag indienen{{/link-to}}
 					{{!-- <button class="button button--narrow button--disabled">Aanvraag indienen <span class="button__info button__info--below">Mogelijk vanaf 12.11.2019</span></button> --}}
 				</div>
 			</div>
@@ -62,9 +63,9 @@
 								</div>
 							</nav>
 						</div>
-{{!-- 							<div class="sidebar__footer u-align-center">
-							<button href="#" class="button button--alt button--small button--block u-align-left">Contacteer<br>dossierbehandelaar</button>
-						</div> --}}
+							<div class="sidebar__footer u-align-center">
+							<button href="mailto:abb@vlaanderen.be" class="button button--alt button--small button--block"><i class="vi vi-mail"></i> Contacteer dossierbehandelaar</button>
+						</div>
 					</div>
 				</div>
 			</div>
