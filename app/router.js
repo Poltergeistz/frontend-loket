@@ -69,6 +69,7 @@ Router.map(function() {
       });
       this.route('edit');
       this.route('new-dossier');
+      this.route('disabled');
     });
     this.route('subsidies-beschikbaar', function() {
       this.route('view');
