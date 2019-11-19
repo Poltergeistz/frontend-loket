@@ -42,7 +42,17 @@
 								<li class="side-navigation__item">
 									{{#link-to "subsidiebeheer.subsidies.edit" class="active"}}
 										<div class="grid">
-											<div class="col--8-12">Overzicht aanvraag</div>
+											<div class="col--8-12">Details subsidies subsidiereeks</div>
+											<div class="col--4-12 u-align-right">
+												<i class="fa fa-check u-padding--right--tiny"></i>
+											</div>
+										</div>
+									{{/link-to}}
+								</li>
+								<li class="side-navigation__item">
+									{{#link-to "subsidiebeheer.subsidies.new.contactgegevens"}}
+										<div class="grid">
+											<div class="col--8-12">Contactgegevens</div>
 											<div class="col--4-12 u-align-right">
 												<i class="fa fa-check u-padding--right--tiny"></i>
 											</div>
@@ -52,7 +62,7 @@
 								<li class="side-navigation__item">
 									{{#link-to "subsidiebeheer.subsidies.new.dossier"}}
 										<div class="grid">
-											<div class="col--8-12">Subsidiedossier</div>
+											<div class="col--8-12">Korte samenvatting</div>
 											<div class="col--4-12 u-align-right">
 												<i class="fa fa-check u-padding--right--tiny"></i>
 											</div>
@@ -60,9 +70,9 @@
 									{{/link-to}}
 								</li>
 								<li class="side-navigation__item">
-									{{#link-to "subsidiebeheer.subsidies.new.timing-financials"}}
+									{{#link-to "subsidiebeheer.subsidies.new.financien"}}
 										<div class="grid">
-											<div class="col--8-12">Timing en  financiële details</div>
+											<div class="col--8-12">Financiën</div>
 											<div class="col--4-12 u-align-right">
 												<i class="fa fa-check u-padding--right--tiny"></i>
 											</div>
@@ -70,9 +80,9 @@
 									{{/link-to}}
 								</li>
 								<li class="side-navigation__item">
-									{{#link-to "subsidiebeheer.subsidies.new.vision-planning"}}
+									{{#link-to "subsidiebeheer.subsidies.new.aanvraagformulier"}}
 										<div class="grid">
-											<div class="col--8-12">Visie en planning</div>
+											<div class="col--8-12">Aanvraagformulier</div>
 											<div class="col--4-12 u-align-right">
 												<i class="fa fa-check u-padding--right--tiny"></i>
 											</div>
@@ -80,7 +90,7 @@
 									{{/link-to}}
 								</li>
 								<li class="side-navigation__item">
-									{{#link-to "subsidiebeheer.subsidies.new.decision"}}
+									{{#link-to "subsidiebeheer.subsidies.new.beslissing"}}
 										<div class="grid">
 											<div class="col--8-12">Beslissing</div>
 											<div class="col--4-12 u-align-right">
@@ -136,7 +146,7 @@
 				</div>
 			</div>
 
-			<label class="form__label u-spacer--tiny">Details subsidiereeks</label>
+			<label class="form__label u-spacer--tiny">Details subsidie</label>
 			<div class="u-padding--round--small u-background--gray-lightest u-spacer">
 				<div class="u-spacer">
 					<div class="grid description-data u-spacer--tiny">

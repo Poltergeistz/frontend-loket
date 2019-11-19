@@ -45,19 +45,22 @@
 								<div class="side-navigation__content">
 									<ul class="side-navigation__group">
 										<li class="side-navigation__item">
-											{{#link-to "subsidiebeheer.subsidies.disabled"}}Overzicht aanvraag{{/link-to}}
+											{{#link-to "subsidiebeheer.subsidies.disabled"}}Details subsidie{{/link-to}}
 										</li>
 										<li class="side-navigation__item">
-											{{#link-to "subsidiebeheer.subsidies.new.dossier"}}Subsidiedossier{{/link-to}}
+											{{#link-to "subsidiebeheer.subsidies.new.contactgegevens"}}Contactgegevens{{/link-to}}
 										</li>
 										<li class="side-navigation__item">
-											{{#link-to "subsidiebeheer.subsidies.new.timing-financials"}}Timing en  financiële details{{/link-to}}
+											{{#link-to "subsidiebeheer.subsidies.new.dossier"}}Korte samenvatting{{/link-to}}
 										</li>
 										<li class="side-navigation__item">
-											{{#link-to "subsidiebeheer.subsidies.new.vision-planning"}}Visie en planning{{/link-to}}
+											{{#link-to "subsidiebeheer.subsidies.new.financien"}}Financiën{{/link-to}}
 										</li>
 										<li class="side-navigation__item">
-											{{#link-to "subsidiebeheer.subsidies.new.decision"}}Beslissing{{/link-to}}
+											{{#link-to "subsidiebeheer.subsidies.new.aanvraagformulier"}}Aanvraagformulier{{/link-to}}
+										</li>
+										<li class="side-navigation__item">
+											{{#link-to "subsidiebeheer.subsidies.new.beslissing"}}Beslissing{{/link-to}}
 										</li>
 									</ul>
 								</div>
@@ -76,11 +79,11 @@
 					  <div class="alert__icon" aria-hidden="true"></div>
 				    <div class="alert__title">Ingediend op 23-12-2019</div>
 						<div class="alert__message">
-							<p>U ontvangt de beslissing over uw subsidieaanvraag binnen een termijn van ## dagen, per post.<br>U kan het dossier niet aanpassen in deze status. Voor vragen, <a href="#" class="link--dark">neem contact op met de dossierbehandelaar</a>.</p>
+							<p>U ontvangt de beslissing over uw subsidieaanvraag zo snel mogelijkt. U kan het dossier niet aanpassen. Voor vragen, <a href="#" class="link--dark">neem contact op met de dossierbehandelaar</a>.</p>
 						</div>
 					</div>
 
-					<label class="form__label u-spacer--tiny">Details subsidiereeks</label>
+					<label class="form__label u-spacer--tiny">Details subsidie</label>
 					<div class="u-padding--round--small u-background--gray-lightest u-spacer">
 						<div class="u-spacer">
 							<div class="grid description-data u-spacer--tiny">
@@ -111,201 +114,6 @@
 								<div class="col--4-12 description-data__label">Dossiernummer</div>
 								<div class="col--8-12 description-data__value">SUB2019.000591</div>
 							</div>
-						</div>
-					</div>
-
-					<label class="form__label u-spacer--tiny">Details aanvrager</label>
-					<div class="u-padding--round--small u-background--gray-lightest u-spacer">
-						<div class="grid description-data u-spacer--tiny">
-							<div class="col--4-12 description-data__label">Organisatie</div>
-							<div class="col--4-12 description-data__value">
-								<p>Gemeente Gent</p>
-								<p class="text-fade">Geen co-aanvragers.</p>
-								{{!-- <p><a class="smaller" href="#"><i class="fa fa-plus"></i> Voeg co-aanvrager toe</a></p> --}}
-							</div>
-						</div>
-						<div class="u-hr u-spacer--tb"></div>
-
-						<div class="form__row">
-							<label class="form__label">Rekeningnummer voor deze aanvraag</label>
-							<div class="grid grid--collapse">
-								<div class="col--1-12 col--3-12--s col--2-12--m">
-		              {{input
-		                type="text"
-		                disabled=true
-		                value="IBAN"
-		                class="input-field input-field--block"
-		              }}
-		            </div>
-								<div class="col--6-12">
-		              {{input
-		                type="text"
-		                value="BE00 0000 0000 0000"
-		                disabled=true
-		                class="input-field input-field--block u-spacer--tiny"
-		              }}
-		            </div>
-		          </div>
-		          <p class="smaller text-fade">IBAN: BE00 0000 0000 0000</p>
-		        </div>
-
-						<div class="form__row">
-							<label class="form__label">Correspondentieadres</label>
-							<div class="grid grid--collapse">
-								<div class="col--7-12">
-			            <div class="input-field-icon-container--block input-field-icon-container--right">
-			              {{input
-			                  type="text"
-			                  placeholder=""
-			                  value="Herfststraat 21, 9000 Gent"
-				                disabled=true
-			                  class="input-field input-field--block"
-			              }}
-			              <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
-			            </div>
-			            <p class="smaller text-fade">Typ om te zoeken</p>
-			          </div>
-			        </div>
-						</div>
-						<div class="u-hr u-spacer--tb"></div>
-
-						<div class="form__row">
-							<div class="grid u-spacer">
-								<div class="col--6-12">
-									<h2>Contactgegevens</h2>
-								</div>
-								<div class="col--6-12 u-align-right">
-									{{!-- <button class="button button--link button--narrow" href="#"><i class="fa fa-plus"></i> Voeg contactpersoon toe</button> --}}
-								</div>
-							</div>
-						</div>
-
-						<div class="form__row">
-							<div class="u-spacer">
-								<div class="grid grid--collapse u-border--fat--bottom">
-									<div class="col--6-12">
-										<h3 class="h6 text-fade uppercase smaller">Contactpersoon 1</h3>
-									</div>
-									<div class="col--6-12 u-align-right">
-										<span class="pill pill--small u-spacer--tiny">Projectleider en contactpersoon</span>
-									</div>
-								</div>
-								<p class="smaller text-fade">Met deze persoon zal per mail en/of per brief contact opgenomen worden.</p>
-							</div>
-
-							<div class="grid u-spacer">
-								<div class="col--6-12">
-
-									<label class="form__label">Voornaam</label>
-					        {{input
-					            type="text"
-					            placeholder=""
-					            value="Barbara"
-			                disabled=true
-					            class="input-field input-field--block"
-					        }}
-			          </div>
-								<div class="col--6-12">
-									<label class="form__label">Familienaam</label>
-					        {{input
-					            type="text"
-					            placeholder=""
-					            value="Put"
-			                disabled=true
-					            class="input-field input-field--block"
-					        }}
-			          </div>
-			        </div>
-
-							<label class="form__label">Mailadres</label>
-							<div class="grid grid--collapse">
-								<div class="col--7-12">
-		              {{input
-		                type="text"
-		                value="barbara.put1@stad.gent"
-		                disabled=true
-		                class="input-field input-field--block u-spacer--tiny"
-		              }}
-		            </div>
-		          </div>
-
-							<label class="form__label">Telefoonnummer</label>
-							<div class="grid grid--collapse">
-								<div class="col--7-12">
-		              {{input
-		                type="text"
-		                disabled=true
-		                value="+32 11 21 14 30"
-		                class="input-field input-field--block u-spacer--tiny"
-		              }}
-
-					        <p class="smaller text-fade">Formaat: +32 11 21 14 30</p>
-		            </div>
-		          </div>
-
-						</div>
-
-						<div class="form__row">
-							<div class="u-spacer">
-								<div class="grid grid--collapse u-border--fat--bottom">
-									<div class="col--6-12">
-										<h3 class="h6 text-fade uppercase smaller">Contactpersoon 2</h3>
-									</div>
-									<div class="col--6-12 u-align-right">
-										<p class="smaller u-spacer--tiny"><a>Maak projectleider en contactpersoon</a></p>
-									</div>
-								</div>
-							</div>
-
-							<div class="grid u-spacer">
-								<div class="col--6-12">
-
-									<label class="form__label">Voornaam</label>
-					        {{input
-					            type="text"
-					            placeholder=""
-					            value="Max"
-					            disabled=true
-					            class="input-field input-field--block"
-					        }}
-			          </div>
-								<div class="col--6-12">
-									<label class="form__label">Familienaam</label>
-					        {{input
-					            type="text"
-					            placeholder=""
-					            value="Voltar"
-					            disabled=true
-					            class="input-field input-field--block"
-					        }}
-			          </div>
-			        </div>
-
-							<label class="form__label">Mailadres</label>
-							<div class="grid grid--collapse">
-								<div class="col--7-12">
-		              {{input
-		                type="text"
-		                value="max.voltar@stad.gent"
-		                disabled=true
-		                class="input-field input-field--block u-spacer--tiny"
-		              }}
-		            </div>
-		          </div>
-
-							<label class="form__label">Telefoonnummer</label>
-							<div class="grid grid--collapse">
-								<div class="col--7-12">
-		              {{input
-		                type="text"
-		                value="+32 11 21 14 30"
-		                disabled=true
-		                class="input-field input-field--block u-spacer--tiny"
-		              }}
-					        <p class="smaller text-fade">Formaat: +32 11 21 14 30</p>
-		            </div>
-		          </div>
-
 						</div>
 					</div>
 

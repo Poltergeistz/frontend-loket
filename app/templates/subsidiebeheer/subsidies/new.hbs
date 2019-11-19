@@ -45,19 +45,22 @@
 								<div class="side-navigation__content">
 									<ul class="side-navigation__group">
 										<li class="side-navigation__item">
-											{{#link-to "subsidiebeheer.subsidies.new.index"}}Overzicht aanvraag{{/link-to}}
+											{{#link-to "subsidiebeheer.subsidies.new.index"}}Details subsidie{{/link-to}}
 										</li>
 										<li class="side-navigation__item">
-											{{#link-to "subsidiebeheer.subsidies.new.dossier"}}Subsidiedossier{{/link-to}}
+											{{#link-to "subsidiebeheer.subsidies.new.contactgegevens"}}Contactgegevens{{/link-to}}
 										</li>
 										<li class="side-navigation__item">
-											{{#link-to "subsidiebeheer.subsidies.new.timing-financials"}}Timing en  financiële details{{/link-to}}
+											{{#link-to "subsidiebeheer.subsidies.new.dossier"}}Korte samenvatting{{/link-to}}
 										</li>
 										<li class="side-navigation__item">
-											{{#link-to "subsidiebeheer.subsidies.new.vision-planning"}}Visie en planning{{/link-to}}
+											{{#link-to "subsidiebeheer.subsidies.new.financien"}}Financiën{{/link-to}}
 										</li>
 										<li class="side-navigation__item">
-											{{#link-to "subsidiebeheer.subsidies.new.decision"}}Beslissing{{/link-to}}
+											{{#link-to "subsidiebeheer.subsidies.new.aanvraagformulier"}}Aanvraagformulier{{/link-to}}
+										</li>
+										<li class="side-navigation__item">
+											{{#link-to "subsidiebeheer.subsidies.new.beslissing"}}Beslissing{{/link-to}}
 										</li>
 									</ul>
 								</div>
@@ -72,7 +75,6 @@
 			<div class="col--9-12 col--8-12--m u-hidden--s">
 				<div class="container-flex--scroll u-padding--round">
 					{{outlet}}
-
 				</div>
 			</div>
 		</div>

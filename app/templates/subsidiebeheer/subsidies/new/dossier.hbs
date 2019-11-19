@@ -1,3 +1,5 @@
+<h2 class="u-spacer--tiny">Korte samenvatting</h2>
+
 <div class="grid grid--collapse">
 	<div class="col--10-12">
 		<div class="form__row">
@@ -6,16 +8,53 @@
         type="text"
         key-up=(perform search)
         value=searchData
-        class="input-field input-field--block u-spacer--tiny"
+        class="input-field input-field--block u-spacer--tinier"
       }}
       <p class="smaller text-fade">0/75 karakters</p>
     </div>
 
 		<div class="form__row">
+			<div class="grid">
+				<div class="col--6-12">
+					<div class="form__row">
+						<label class="form__label u-spacer--small">Begindatum project</label>
+						{{wu-datepicker
+						  placeholder=placeholder
+						  class="date-range__datepicker datepicker datepicker--block"
+						  value=internalValue
+						  dateFormat=dateFormat
+						  disabled=disabled
+						  autocomplete="off"
+						}}
+					</div>
+				</div>
+				<div class="col--6-12">
+					<div class="form__row">
+						<label class="form__label u-spacer--small">Begindatum project</label>
+						{{wu-datepicker
+						  placeholder=placeholder
+						  class="date-range__datepicker datepicker datepicker--block"
+						  value=internalValue
+						  dateFormat=dateFormat
+						  disabled=disabled
+						  autocomplete="off"
+						}}
+					</div>
+				</div>
+			</div>
+			<div class="grid">
+				<div class="col--8-12">
+					<p class="smaller text-fade u-spacer">Indien u niet zeker weet wat de einddatum is, vul hem toch in ter indicatie. U kan de effectieve einddatum achteraf nog per mail communiceren.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="form__row">
 			<label class="form__label">Kernboodschap</label>
       {{textarea
-        class="textarea textarea--block u-spacer--tiny"
+        class="textarea textarea--block u-spacer--tinier"
         rows="4"
+        autocomplete="off"
       }}
       <p class="smaller text-fade">0/280 karakters</p>
     </div>
@@ -23,20 +62,21 @@
 		<div class="form__row">
 			<label class="form__label">Beschrijving</label>
       {{textarea
-        class="textarea textarea--block u-spacer--tiny"
+        class="textarea textarea--block u-spacer--tinier"
         rows="20"
+        autocomplete="off"
       }}
       <p class="smaller text-fade">Maximum 4000 karakters. 0/4000 karakters gebruikt.</p>
     </div>
 
-		<div class="form__row">
+{{!-- 		<div class="form__row">
 			<label class="form__label">Wat als het project minder of geen subsidie ontvangt?</label>
       {{textarea
-        class="textarea textarea--block u-spacer--tiny"
+        class="textarea textarea--block u-spacer--tinier"
         rows="20"
       }}
       <p class="smaller text-fade">Maximum 4000 karakters. 0/4000 karakters gebruikt.</p>
-    </div>
+    </div> --}}
   </div>
 </div>
 {{outlet}}

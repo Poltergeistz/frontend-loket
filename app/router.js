@@ -63,9 +63,10 @@ Router.map(function() {
     this.route('subsidies', function() {
       this.route('new', function() {
         this.route('dossier');
-        this.route('decision');
-        this.route('timing-financials');
-        this.route('vision-planning');
+        this.route('contactgegevens');
+        this.route('aanvraagformulier');
+        this.route('financien');
+        this.route('beslissing');
       });
       this.route('edit');
       this.route('new-dossier');
