@@ -1,16 +1,16 @@
-{{title "Beschikbare subsidies"}}
+{{title "Beschikbare subsidiemaatregelen"}}
 <div class="grid grid--collapse">
 	<div class="col--7-12 container-flex--contain u-border--light--right">
     <div class="u-border--light--bottom loket-onderdeel__header">
       <div class="u-padding--round--small">
-      	<h1 class="h4 u-spacer--none">Beschikbare subsidies</h1>
-      	<p class="smaller u-spacer--tiny">Kies een van de subsidies om een nieuwe subsidieaanvraag te starten.</p>
+      	<h1 class="h4 u-spacer--none">Beschikbare subsidiemaatregelen</h1>
+      	<p class="smaller u-spacer--tiny">Kies een van de subsidiemaatregelen om een nieuwe aanvraag te starten.</p>
         <div class="grid">
           <div class="col--6-12 col--1-1--s">
             <div class="input-field-icon-container--right">
               {{input
                   type="text"
-                  placeholder="Zoek subsidie"
+                  placeholder="Zoek subsidiemaatregel"
                   key-up=(perform search)
                   value=searchData
                   class="input-field input-field--block"
@@ -30,7 +30,7 @@
       <table class="data-table data-table--nowrap">
         <thead>
           <tr class="data-table__header">
-            <th><a class="data-table__header-title--sortable">Subsidie</a> <i class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi"></i></th>
+            <th><a class="data-table__header-title--sortable">Subsidiemaatregel</a> <i class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi"></i></th>
             <th style="min-width: 10rem;"><a class="data-table__header-title--sortable">Termijn</a></th>
             <th></th>
           </tr>
@@ -38,38 +38,38 @@
         <tbody>
 
 		    	<tr>
-		    		<td>Slim in de Stad 2019 - 13 centrumsteden en de Vlaamse Gemeenschapscommissie</td>
+		    		<td>Slim in de Stad 2019 {{!-- Titel: subsidiemaatregel aanbod titel + reeks --}}</td>
 		    		<td>6-12-2019 - 23-11-2020</td>
 		    		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
 		    	</tr>
 {{!--         	<tr>
         		<td class="u-align-center u-padding--round--small" colspan="5">
-        			<p class="text-fade u-spacer--tiny">Geen beschikbare subsidies.</p>
+        			<p class="text-fade u-spacer--tiny">Geen Beschikbare subsidiemaatregelen.</p>
         			<p class="text-fade">Subsidies waarvan u al gestart bent met de aanvraag, kan u vinden in het {{#link-to "subsidiebeheer.subsidies"}}overzicht{{/link-to}}.</p>
 						</td>
         	</tr>
         	<tr>
-        		<td>Gesubs Infra - Investeringssubsidie gebouwen erediensten en niet confessionele dienstverlening</td>
+        		<td>Slim in de Stad 2019</td>
         		<td>27-12-2019 -<br>23-11-2020</td>
         		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
         	</tr>
         	<tr>
-        		<td>GK - Projectsubsidie Gelijke kansen</td>
+        		<td>Projectsubsidie Gelijke kansen</td>
         		<td>27-12-2019 -<br>23-11-2020</td>
         		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
         	</tr>
         	<tr>
-        		<td>Brussel - Subsidie Projecten voor Brussel (Subsidiegids)</td>
+        		<td>Subsidie Projecten voor Brussel (Subsidiegids)</td>
         		<td>27-12-2019 -<br>23-11-2020</td>
         		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
         	</tr>
         	<tr>
-        		<td>Brussel - Ad nominatim subsidie Brussel</td>
+        		<td>Ad nominatim subsidie Brussel</td>
         		<td>27-12-2019 -<br>23-11-2020</td>
         		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
         	</tr>
         	<tr>
-        		<td>Vlaamse Rand - Facultatieve subsidie faciliteitengemeenten</td>
+        		<td>Facultatieve subsidie faciliteitengemeenten</td>
         		<td>27-12-2019 -<br>23-11-2020</td>
         		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
         	</tr> --}}
@@ -93,7 +93,7 @@
   		<div class="grid">
   			<div class="col--9-12">
   				{{!-- <label class="u-spacer--small pill">Dossiernummer: SUB2019.000591</label> --}}
-  				<h2 class="h6 u-spacer--tiny">Gesubs Infra - Investeringssubsidie gebouwen erediensten en niet confessionele dienstverlening</h2>
+  				<h2 class="h6 u-spacer--tiny">Slim in de Stad 2019 {{!-- Titel: subsidiemaatregel aanbod titel + reeks --}}</h2>
   				<p class="u-spacer--small small text-fade">Termijn: van 6-12-2019 tot 20-12-2019</p>
   			</div>
   			<div class="col--3-12 u-align--right">
@@ -107,16 +107,12 @@
 		<div class="u-padding--round--small container-flex--scroll">
 			<div class="u-spacer">
 				<div class="description-data u-spacer--tiny">
-					<div class="description-data__label">Projectinformatie</div>
+					<div class="description-data__label">Informatie subsdiemaatregel</div>
 					<div class="description-data__value"><a href="http://www.stedenbeleid.vlaanderen.be/projectoproep-slim-in-de-stad-2018" target="_blank">http://www.stedenbeleid.vlaanderen.be/projectoproep-slim-in-de-stad-2019</a></div>
 				</div>
 				<div class="description-data u-spacer--tiny">
 					<div class="description-data__label">Reeks</div>
 					<div class="description-data__value">2019</div>
-				</div>
-				<div class="description-data u-spacer--tiny">
-					<div class="description-data__label">Maatregel</div>
-					<div class="description-data__value">Slim in de stad</div>
 				</div>
 				<div class="description-data u-spacer--tiny">
 					<div class="description-data__label">Wettelijk kader</div>

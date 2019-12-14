@@ -1,19 +1,31 @@
-<h2 class="u-spacer--tiny">Contactgegevens</h2>
-
-<label class="form__label u-spacer--tiny">Gegevens aanvragende organisatie</label>
+<h2 class="h5 u-spacer--tiny">Contactinformatie</h2>
+<label class="form__label u-spacer--tiny">Informatie aanvragende bestuurseenheid</label>
 
 <div class="u-padding--round--small u-background--gray-lightest u-spacer">
 	<div class="grid description-data u-spacer--tiny">
-		<div class="col--4-12 description-data__label">Organisatie</div>
+		<div class="col--4-12 description-data__label">Bestuurseenheid</div>
 		<div class="col--4-12 description-data__value">
 			<p>Gemeente Gent</p>
-			<p><a class="smaller" href="#"><i class="fa fa-plus"></i> Voeg co-aanvrager toe</a></p>
+			<p>{{#link-to "subsidiebeheer.subsidies.new.coaanvrager" class="smaller"}}<i class="fa fa-plus"></i> Voeg co-aanvrager toe{{/link-to}}</p>
+
+			<div class="u-spacer--top--small">
+				<label class="form__label">Co-aanvrager</label>
+	      <div class="input-field-icon-container--block input-field-icon-container--right">
+	        {{input
+	          type="text"
+	          class="input-field input-field--block"
+	          name="street-address"
+	        }}
+	        <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
+	      </div>
+	      <p class="smaller text-fade">Typ om te zoeken</p>
+	    </div>
 		</div>
 	</div>
 	<div class="u-hr u-spacer--tb"></div>
 
 	<div class="form__row">
-		<label class="form__label">Correspondentieadres {{!-- (geen ter attentie van "dienst" nodig?) --}}</label>
+		<label class="form__label">Volledig adres (correspondentieadres) {{!-- (geen ter attentie van "dienst" nodig?) --}}</label>
 		<div class="grid grid--collapse">
 			<div class="col--7-12">
         <div class="input-field-icon-container--block input-field-icon-container--right">
@@ -24,8 +36,30 @@
           }}
           <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
         </div>
-        <p class="smaller text-fade">Typ om te zoeken</p>
+        <p class="smaller text-fade u-spacer--tiny">Typ om te zoeken</p>
+
+         {{!-- Verchijnt enkel wanneer er een busnummer is! --}}
+				<label class="form__label">Busnummer</label>
+				<div class="is-optional">
+		      {{#power-select
+		         allowClear=true
+		         disabled=true
+		         search=(perform search)
+		         selected=addressSuggestion
+		         onchange=(perform selectSuggestion)
+		         placeholder="Geen busnummer beschikbaar bij dit adres."
+		         loadingMessage="Aan het laden..."
+		         noMatchesMessage="Geen resultaten"
+		         searchMessage="Typ om te zoeken"
+		         as |suggestion|}}
+		        {{suggestion.fullAddress}}
+		      {{/power-select}}
+		    </div>
+	      <p class="smaller text-fade">Staat het correcte busnummer niet in de lijst? <a href="mailto:LoketLokaalBestuur@vlaanderen.be">Mail ons</a></p>
+
       </div>
+
+
     </div>
 	</div>
 
@@ -96,7 +130,7 @@
       </div>
     </div>
 
-		<label class="form__label">Mailadres</label>
+		<label class="form__label">E-mailadres</label>
 		<div class="grid grid--collapse">
 			<div class="col--7-12">
         {{input
@@ -104,7 +138,7 @@
           name="email"
           class="input-field input-field--block u-spacer--tiny"
         }}
-        {{!-- <p class="form__error">Gelieve een valide mailadres op te geven.</p> --}}
+        {{!-- <p class="form__error">Gelieve een valide e-mailadres op te geven.</p> --}}
       </div>
     </div>
 
@@ -154,7 +188,7 @@
       </div>
     </div>
 
-		<label class="form__label">Mailadres</label>
+		<label class="form__label">E-mailadres</label>
 		<div class="grid grid--collapse">
 			<div class="col--7-12">
         {{input

@@ -1,0 +1,203 @@
+<h2 class="h5 u-spacer--tiny">Contactinformatie</h2>
+<label class="form__label u-spacer--tiny">Informatie aanvragende bestuurseenheid</label>
+
+<div class="u-padding--round--small u-background--gray-lightest u-spacer">
+	<div class="grid description-data u-spacer--tiny">
+		<div class="col--4-12 description-data__label">Bestuurseenheid</div>
+		<div class="col--4-12 description-data__value">
+			<p>Gemeente Gent</p>
+			<p>{{#link-to "subsidiebeheer.subsidies.new.coaanvrager" class="smaller"}}<i class="fa fa-plus"></i> Voeg co-aanvrager toe{{/link-to}}</p>
+		</div>
+	</div>
+	<div class="u-hr u-spacer--tb"></div>
+
+	<div class="form__row">
+		<label class="form__label">Volledig adres (correspondentieadres) {{!-- (geen ter attentie van "dienst" nodig?) --}}</label>
+		<div class="grid grid--collapse">
+			<div class="col--7-12">
+        <div class="input-field-icon-container--block input-field-icon-container--right">
+          {{input
+            type="text"
+            class="input-field input-field--block"
+            name="street-address"
+          }}
+          <i class="input-field__icon vi vi-magnifier" aria-hidden="true"></i>
+        </div>
+        <p class="smaller text-fade u-spacer--tiny">Typ om te zoeken</p>
+
+         {{!-- Verchijnt enkel wanneer er een busnummer is! --}}
+				<label class="form__label">Busnummer</label>
+				<div class="is-optional">
+		      {{#power-select
+		         allowClear=true
+		         disabled=true
+		         search=(perform search)
+		         selected=addressSuggestion
+		         onchange=(perform selectSuggestion)
+		         placeholder="Geen busnummer beschikbaar bij dit adres."
+		         loadingMessage="Aan het laden..."
+		         noMatchesMessage="Geen resultaten"
+		         searchMessage="Typ om te zoeken"
+		         as |suggestion|}}
+		        {{suggestion.fullAddress}}
+		      {{/power-select}}
+		    </div>
+	      <p class="smaller text-fade">Staat het correcte busnummer niet in de lijst? <a href="mailto:LoketLokaalBestuur@vlaanderen.be">Mail ons</a></p>
+
+      </div>
+
+
+    </div>
+	</div>
+
+	<div class="form__row">
+		<label class="form__label">Rekeningnummer voor deze aanvraag</label>
+		<div class="grid grid--collapse">
+			<div class="col--1-12 col--3-12--s col--2-12--m">
+        {{input
+          type="text"
+          disabled=true
+          value="IBAN"
+          class="input-field input-field--block"
+          name="cc-number"
+        }}
+      </div>
+			<div class="col--6-12">
+        {{input
+          type="text"
+          class="input-field input-field--block u-spacer--tiny"
+        }}
+      </div>
+    </div>
+    <p class="smaller text-fade">IBAN: BE00 0000 0000 0000</p>
+  </div>
+</div>
+
+
+
+<div class="grid">
+	<div class="col--6-12">
+		<label class="form__label u-spacer--tiny">Contactpersonen</label>
+	</div>
+	<div class="col--6-12 u-align-right">
+		<button class="button button--link button--narrow" href="#"><i class="fa fa-plus"></i> Voeg contactpersoon toe</button>
+	</div>
+</div>
+
+<div class="u-padding--round--small u-background--gray-lightest u-spacer">
+	<div class="form__row">
+		<div class="u-spacer">
+			<div class="grid grid--collapse u-border--fat--bottom">
+				<div class="col--7-12">
+					<h3 class="h6 text-fade uppercase smaller">Contactpersoon 1</h3>
+				</div>
+				<div class="col--5-12 u-align-right">
+					<span class="pill pill--small u-spacer--tiny">Projectleider en contactpersoon</span>
+				</div>
+			</div>
+			<p class="smaller text-fade">Met deze persoon zal per mail en/of per brief contact opgenomen worden.</p>
+		</div>
+
+		<div class="grid u-spacer">
+			<div class="col--6-12">
+				<label class="form__label">Voornaam</label>
+        {{input
+          type="text"
+          name="given-name"
+          class="input-field input-field--block"
+        }}
+      </div>
+			<div class="col--6-12">
+				<label class="form__label">Familienaam</label>
+        {{input
+          type="text"
+          name="family-name"
+          class="input-field input-field--block"
+        }}
+      </div>
+    </div>
+
+		<label class="form__label">E-mailadres</label>
+		<div class="grid grid--collapse">
+			<div class="col--7-12">
+        {{input
+          type="email"
+          name="email"
+          class="input-field input-field--block u-spacer--tiny"
+        }}
+        {{!-- <p class="form__error">Gelieve een valide e-mailadres op te geven.</p> --}}
+      </div>
+    </div>
+
+		<div class="u-spacer">
+			<label class="form__label">Telefoonnummer</label>
+			<div class="grid grid--collapse">
+				<div class="col--7-12">
+	        {{input
+	          type="text"
+	          name="tel"
+	          class="input-field input-field--block u-spacer--tiny"
+	        }}
+	        <p class="smaller text-fade">Formaat: +32 11 21 14 30</p>
+	      </div>
+	    </div>
+    </div>
+	</div>
+
+	<div class="form__row">
+		<div class="u-spacer">
+			<div class="grid grid--collapse u-border--fat--bottom">
+				<div class="col--6-12">
+					<h3 class="h6 text-fade uppercase smaller">Contactpersoon 2</h3>
+				</div>
+				<div class="col--6-12 u-align-right">
+					<p class="smaller u-spacer--tiny"><a>Maak projectleider en contactpersoon</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid u-spacer">
+			<div class="col--6-12">
+				<label class="form__label">Voornaam</label>
+        {{input
+          type="text"
+          name="given-name"
+          class="input-field input-field--block"
+        }}
+      </div>
+			<div class="col--6-12">
+				<label class="form__label">Familienaam</label>
+        {{input
+          type="text"
+          name="family-name"
+          class="input-field input-field--block"
+        }}
+      </div>
+    </div>
+
+		<label class="form__label">E-mailadres</label>
+		<div class="grid grid--collapse">
+			<div class="col--7-12">
+        {{input
+          type="email"
+          class="input-field input-field--block u-spacer--tiny"
+        }}
+      </div>
+    </div>
+
+		<div class="u-spacer">
+			<label class="form__label">Telefoonnummer</label>
+			<div class="grid grid--collapse">
+				<div class="col--7-12">
+	        {{input
+	          type="text"
+	          name="tel"
+	          class="input-field input-field--block u-spacer--tiny"
+	        }}
+	        <p class="smaller text-fade">Formaat: +32 11 21 14 30</p>
+	      </div>
+	    </div>
+    </div>
+
+	</div>
+</div>

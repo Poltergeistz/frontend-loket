@@ -1,13 +1,13 @@
 {{title "Subsidies"}}
 <div class="u-border--light--bottom loket-onderdeel__header">
   <div class="u-padding--round--small">
-  	<h1 class="h4 u-spacer--tiny">Lopende subsidieaanvragen</h1>
+  	<h1 class="h4 u-spacer--tiny">Lopende aanvragen voor subsidiemaatregelen</h1>
     <div class="grid">
       <div class="col--6-12 col--1-1--s">
         <div class="input-field-icon-container--right">
           {{input
               type="text"
-              placeholder="Zoek subsidie"
+              placeholder="Zoek subsidiemaatregel"
               key-up=(perform search)
               value=searchData
               class="input-field input-field--block"
@@ -18,7 +18,7 @@
       <div class="col--6-12 col--1-1--s u-align-right--tablet-portrait-up">
       	<div class="button-group">
       		{{#link-to "subsidiebeheer.subsidies-archief" class="button button--narrow button--alt u-spacer--none"}}Archief{{/link-to}}
-      		{{#link-to "subsidiebeheer.subsidies-beschikbaar" class="button button--narrow u-spacer--none"}}Nieuwe subsidieaanvraag{{/link-to}}
+      		{{#link-to "subsidiebeheer.subsidies-beschikbaar" class="button button--narrow u-spacer--none"}}Nieuwe aanvraag{{/link-to}}
         </div>
       </div>
     </div>
@@ -28,9 +28,8 @@
   <table class="data-table data-table--nowrap">
     <thead>
       <tr class="data-table__header">
-        <th><a class="data-table__header-title--sortable">Subsidie</a> <i class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi"></i></th>
+        <th><a class="data-table__header-title--sortable">Subsidiemaatregel</a> <i class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi"></i></th>
         <th><a class="data-table__header-title--sortable">Reeks</a></th>
-        <th><a class="data-table__header-title--sortable">Maatregel</a></th>
         <th><a class="data-table__header-title--sortable">Einde termijn</a></th>
         <th><a class="data-table__header-title--sortable">Status</a></th>
         {{!-- <th><a class="data-table__header-title--sortable">Beslissing</a></th> --}}
@@ -41,9 +40,9 @@
     </thead>
     <tbody>
     	<tr>
-    		<td class="u-align-center u-padding--round--small" colspan="8">
-    			<p class="text-fade u-spacer--tinier">U heeft nog geen subsidie aangevraagd.</p>
-      		{{#link-to "subsidiebeheer.subsidies-beschikbaar" class="button button--link"}}Nieuwe subsidieaanvraag{{/link-to}}
+    		<td class="u-align-center u-padding--round--small" colspan="7">
+    			<p class="text-fade u-spacer--tinier">U heeft nog geen subsidiemaatregel aangevraagd.</p>
+      		{{#link-to "subsidiebeheer.subsidies-beschikbaar" class="button button--link"}}Nieuwe aanvraag{{/link-to}}
 				</td>
     	</tr>
     </tbody>

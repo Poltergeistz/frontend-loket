@@ -1,14 +1,14 @@
-{{title "Beschikbare subsidies"}}
+{{title "Beschikbare subsidiemaatregelen"}}
 <div class="u-border--light--bottom loket-onderdeel__header">
   <div class="u-padding--round--small">
-  	<h1 class="h4 u-spacer--none">Beschikbare subsidies</h1>
-  	<p class="smaller u-spacer--tiny">Kies een van de subsidies om een nieuwe subsidieaanvraag te starten.</p>
+  	<h1 class="h4 u-spacer--none">Beschikbare subsidiemaatregelen</h1>
+  	<p class="smaller u-spacer--tiny">Kies een van de subsidiemaatregelen om een nieuwe aanvraag te starten.</p>
     <div class="grid">
       <div class="col--6-12 col--1-1--s">
         <div class="input-field-icon-container--right">
           {{input
               type="text"
-              placeholder="Zoek subsidie"
+              placeholder="Zoek subsidiemaatregel"
               key-up=(perform search)
               value=searchData
               class="input-field input-field--block"
@@ -28,10 +28,9 @@
   <table class="data-table data-table--nowrap">
     <thead>
       <tr class="data-table__header">
-        <th><a class="data-table__header-title--sortable">Subsidie</a> <i class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi"></i></th>
+        <th><a class="data-table__header-title--sortable">Subsidiemaatregel</a> <i class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi"></i></th>
         <th><a class="data-table__header-title--sortable">Reeks</a></th>
-        <th><a class="data-table__header-title--sortable">Maatregel</a></th>
-        <th><a class="data-table__header-title--sortable">Projectinformatie</a></th>
+        <th><a class="data-table__header-title--sortable">Informatie subsdiemaatregel</a></th>
         <th><a class="data-table__header-title--sortable">Start termijn</a></th>
         <th><a class="data-table__header-title--sortable">Einde termijn</a></th>
         <th></th>
@@ -39,15 +38,14 @@
     </thead>
     <tbody>
 {{!--     	<tr>
-    		<td class="u-align-center u-padding--round--small" colspan="7">
-    			<p class="text-fade u-spacer--tiny">Geen beschikbare subsidies.</p>
-    			<p class="text-fade">Subsidies waarvan u al gestart bent met de aanvraag, kan u vinden in het {{#link-to "subsidiebeheer.subsidies"}}overzicht{{/link-to}}.</p>
+    		<td class="u-align-center u-padding--round--small" colspan="6">
+    			<p class="text-fade u-spacer--tiny">Geen beschikbare subsidiemaatregelen.</p>
+    			<p class="text-fade">Subsidiemaatregelen waarvan u al gestart bent met de aanvraag, kan u vinden in het {{#link-to "subsidiebeheer.subsidies"}}overzicht{{/link-to}}.</p>
 				</td>
     	</tr> --}}
     	<tr>
-    		<td>Slim in de Stad 2019 - 13 centrumsteden en de Vlaamse Gemeenschapscommissie</td>
+    		<td>Slim in de Stad 2019 {{!-- Titel: subsidiemaatregel aanbod titel + reeks --}}</td>
     		<td>2019</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>
     			<a href="http://www.stedenbeleid.vlaanderen.be/projectoproep-slim-in-de-stad-2018" target="_blank">http://www.stedenbeleid.vlaanderen.be/projectoproep-slim-in-de-stad-2019</a>
     			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>
@@ -58,9 +56,8 @@
     	</tr>
 
 {{!--     	<tr>
-    		<td>Gesubs Infra - Investeringssubsidie gebouwen erediensten en niet confessionele dienstverlening</td>
+    		<td>Slim in de Stad 2019</td>
     		<td>Kwartaal&nbsp;1&nbsp;2019</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>
     			<a href="https://lokaalbestuur.vlaanderen.be/node/1891" target="_blank">https://lokaalbestuur.vlaanderen.be/node/1891</a>
     			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>
@@ -70,9 +67,8 @@
     		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
     	</tr>
     	<tr>
-    		<td>GK - Projectsubsidie Gelijke kansen</td>
+    		<td>Projectsubsidie Gelijke kansen</td>
     		<td>Kwartaal&nbsp;1&nbsp;2019</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>
     			<a href="http://www.gelijkekansen.be/Portals/Gelijke Kansen/subsidies/Subsidiegids2015-2019.pdf" target="_blank">http://www.gelijkekansen.be/Portals/Gelijke Kansen/subsidies/Subsidiegids2015-2019.pdf</a>
     			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>
@@ -82,9 +78,8 @@
     		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
     	</tr>
     	<tr>
-    		<td>Brussel - Subsidie Projecten voor Brussel (Subsidiegids)</td>
+    		<td>Subsidie Projecten voor Brussel (Subsidiegids)</td>
     		<td>Kwartaal&nbsp;1&nbsp;2019</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>
     			<a href="http://brussel.vlaanderen.be/subsidiegids.html" target="_blank">http://brussel.vlaanderen.be/subsidiegids.html</a>
     			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>
@@ -94,9 +89,8 @@
     		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
     	</tr>
     	<tr>
-    		<td>Brussel - Ad nominatim subsidie Brussel</td>
+    		<td>Ad nominatim subsidie Brussel</td>
     		<td>Kwartaal&nbsp;1&nbsp;2019</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>
     			<a href="http://brussel.vlaanderen.be/subsidies-info.html" target="_blank">http://brussel.vlaanderen.be/subsidies-info.html</a>
     			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>
@@ -106,9 +100,8 @@
     		<td>{{#link-to "subsidiebeheer.subsidies-beschikbaar.view"}}Bekijk{{/link-to}}</td>
     	</tr>
     	<tr>
-    		<td>Vlaamse Rand - Facultatieve subsidie faciliteitengemeenten</td>
+    		<td>Facultatieve subsidie faciliteitengemeenten</td>
     		<td>Kwartaal&nbsp;1&nbsp;2019</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>
     			<a href="http://vlaamserand.be/subsidies/subsidie-faciliteitengemeente" target="_blank">http://vlaamserand.be/subsidies/subsidie-faciliteitengemeente</a>
     			<p class="text-fade smaller u-spacer--top--tiny"><i class="fa fa-external-link"></i> Externe link</p>

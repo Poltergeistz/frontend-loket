@@ -1,13 +1,13 @@
 {{title "Subsidies"}}
 <div class="u-border--light--bottom loket-onderdeel__header">
   <div class="u-padding--round--small">
-  	<h1 class="h4 u-spacer--tiny">Lopende subsidieaanvragen</h1>
+  	<h1 class="h4 u-spacer--tiny">Lopende aanvragen voor subsidiemaatregelen</h1>
     <div class="grid">
       <div class="col--6-12 col--1-1--s">
         <div class="input-field-icon-container--right">
           {{input
               type="text"
-              placeholder="Zoek subsidie"
+              placeholder="Zoek subsidiemaatregel"
               key-up=(perform search)
               value=searchData
               class="input-field input-field--block"
@@ -18,7 +18,7 @@
       <div class="col--6-12 col--1-1--s u-align-right--tablet-portrait-up">
       	<div class="button-group">
       		{{#link-to "subsidiebeheer.subsidies-archief" class="button button--narrow button--alt u-spacer--none"}}Archief{{/link-to}}
-      		{{#link-to "subsidiebeheer.subsidies-beschikbaar" class="button button--narrow u-spacer--none"}}Nieuwe subsidieaanvraag{{/link-to}}
+      		{{#link-to "subsidiebeheer.subsidies-beschikbaar" class="button button--narrow u-spacer--none"}}Nieuwe aanvraag{{/link-to}}
         </div>
       </div>
     </div>
@@ -28,9 +28,8 @@
   <table class="data-table data-table--nowrap">
     <thead>
       <tr class="data-table__header">
-        <th><a class="data-table__header-title--sortable">Subsidie</a> <i class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi"></i></th>
+        <th><a class="data-table__header-title--sortable">Subsidiemaatregel</a> <i class="data-table__header-title__sort-icon vi-u-link-after vi-long-arrow vi"></i></th>
         <th><a class="data-table__header-title--sortable">Reeks</a></th>
-        <th><a class="data-table__header-title--sortable">Maatregel</a></th>
         <th><a class="data-table__header-title--sortable">Einde termijn</a></th>
         <th><a class="data-table__header-title--sortable">Status</a></th>
         {{!-- <th><a class="data-table__header-title--sortable">Beslissing</a></th> --}}
@@ -41,9 +40,8 @@
     </thead>
     <tbody>
     	<tr>
-    		<td>Gesubs Infra - Investeringssubsidie gebouwen erediensten en niet confessionele dienstverlening</td>
+    		<td>Slim in de Stad 2019 {{!-- Titel: subsidiemaatregel aanbod titel + reeks --}}</td>
     		<td>2019</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>20/03/2020</td>
     		<td><span class="pill pill--gray-light">Concept</span></td>
     		{{!-- <td><span class="text-fade">Nog niet ingediend</span></td> --}}
@@ -52,9 +50,8 @@
     		<td>{{#link-to "subsidiebeheer.subsidies.new"}}Bewerk{{/link-to}}</td>
     	</tr>
 {{!--     	<tr>
-    		<td>GK - Projectsubsidie Gelijke kansen</td>
+    		<td>Projectsubsidie Gelijke kansen</td>
     		<td>Kwartaal&nbsp;1&nbsp;2019</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>20/03/2020</td>
     		<td><span class="pill pill--primary-yellow">In&nbsp;behandeling</span></td>
     		<td><span class="pill pill--gray-light">Concept</span></td>
@@ -64,9 +61,8 @@
     		<td>{{#link-to "subsidiebeheer.subsidies.new"}}Bewerk{{/link-to}}</td>
     	</tr> --}}
     	<tr>
-    		<td>Brussel - Subsidie Projecten voor Brussel (Subsidiegids)</td>
+    		<td>Subsidie Projecten voor Brussel (Subsidiegids)</td>
     		<td>2018</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>20/03/2020</td>
     		{{!-- <td><span class="pill pill--primary-blue">Behandeld</span></td> --}}
 				<td><span class="pill pill--primary-blue">Ingediend</span></td>
@@ -76,9 +72,8 @@
     		<td>{{#link-to "subsidiebeheer.subsidies.disabled"}}Bekijk{{/link-to}}</td>
     	</tr>
 {{!--     	<tr>
-    		<td>Brussel - Ad nominatim subsidie Brussel</td>
+    		<td>Ad nominatim subsidie Brussel</td>
     		<td>Kwartaal&nbsp;1&nbsp;2019</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>20/03/2020</td>
     		<td><span class="pill pill--primary-blue">Behandeld</span></td>
 				<td><span class="pill pill--primary-blue">Ingediend</span></td>
@@ -88,9 +83,8 @@
     		<td>{{#link-to "subsidiebeheer.subsidies.disabled"}}Bekijk{{/link-to}}</td>
     	</tr>
     	<tr>
-    		<td>Vlaamse Rand - Facultatieve subsidie faciliteitengemeenten</td>
+    		<td>Facultatieve subsidie faciliteitengemeenten</td>
     		<td>Kwartaal&nbsp;1&nbsp;2019</td>
-    		<td>Slim&nbsp;in&nbsp;de&nbsp;stad</td>
     		<td>20/03/2020</td>
     		<td><span class="pill pill--primary-blue">Behandeld</span></td>
 				<td><span class="pill pill--primary-blue">Ingediend</span></td>
