@@ -1,0 +1,5 @@
+<th style="max-width: 12rem;">Totaal</th>
+{{#each cells as |cell|}}
+  <th colspan={{cell.colspan}}>{{cell.total}} {{cell.label}}</th>
+{{/each}}
+<th><strong>{{total}}</strong></th>
