@@ -29,7 +29,24 @@
   <div class="container-flex--scroll u-padding--round">
     {{#each model.datasets as |dataset|}}
       <div class="u-spacer">
-        {{personeelsdatabank/employee-dataset-overview-card dataset=dataset}}
+        <div class="u-padding--tb--small u-border--light--bottom">
+          <div class="grid">
+            <div class="col--8-12 col--1-1--m">
+              <h2 class="h5 u-spacer--tiny">{{dataset.title}}</h2>
+              {{personeelsdatabank/employee-dataset-summary dataset=dataset}}
+            </div>
+            <div class="col--4-12 col--1-1--m u-align-right--tablet-portrait-up">
+              {{#link-to "personeelsdatabank.personeelsaantallen.latest" dataset.id  class="button button--small button--narrow u-spacer--tiny"}}<i class="vi vi-arrow button__icon">&nbsp;</i>Bekijk en bewerk details{{/link-to}}
+              <p class="text-fade smaller">
+                {{#if dataset.modified}}
+                  <span> Laatst aangepast op {{moment-format dataset.modified}} </span>
+                {{else}}
+                  <label class="pill pill--primary-yellow">Aantallen niet actueel</label>
+                {{/if}}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     {{/each}}
   </div>
