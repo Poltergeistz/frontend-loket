@@ -8,5 +8,10 @@ export default Route.extend(AuthenticatedRouteMixin, {
   beforeModel() {
     if (!this.currentSession.canAccessPersoneelsbeheer)
       this.transitionTo('index');
+  },
+
+  model(){
+    return this.get('currentSession.group'); // bestuurseenheid
   }
+
 });

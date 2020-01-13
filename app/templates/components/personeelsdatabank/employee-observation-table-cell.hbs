@@ -1,0 +1,7 @@
+<td>
+  {{#if observation}}
+    {{input class="input-field input-field--block" type="number" value=(mut observation.value) name="quantity"}}
+  {{else}}
+    Not found
+  {{/if}}
+</td>

@@ -63,10 +63,11 @@ Router.map(function() {
 
   this.route('personeelsdatabank', function() {
     this.route('personeelsaantallen', function() {
-      this.route('periodes', { path: '/periodes/:employee_period_slice_id'});
+      this.route('latest', { path: '/:dataset_id/latest' });
+      this.route('periodes', { path: '/:dataset_id/periodes' }, function() {
+        this.route('edit', { path: '/:period_id' });
+      });
     });
-    this.route('voltijdsequivalenten');
-    this.route('aantalwerknemers');
   });
 
   this.route('route-not-found', {

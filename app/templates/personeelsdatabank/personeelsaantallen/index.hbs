@@ -36,7 +36,7 @@
               {{personeelsdatabank/employee-dataset-summary dataset=dataset}}
             </div>
             <div class="col--4-12 col--1-1--m u-align-right--tablet-portrait-up">
-              {{#link-to "personeelsdatabank.personeelsaantallen.latest" dataset.id  class="button button--small button--narrow u-spacer--tiny"}}<i class="vi vi-arrow button__icon">&nbsp;</i>Bekijk en bewerk details{{/link-to}}
+              {{#link-to "personeelsdatabank.personeelsaantallen.latest" dataset.id class="button button--small button--narrow u-spacer--tiny"}}<i class="vi vi-arrow button__icon">&nbsp;</i>Bekijk en bewerk details{{/link-to}}
               <p class="text-fade smaller">
                 {{#if dataset.modified}}
                   <span> Laatst aangepast op {{moment-format dataset.modified}} </span>
