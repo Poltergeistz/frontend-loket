@@ -64,7 +64,6 @@ Router.map(function() {
   this.route('personeelsdatabank', function() {
     this.route('personeelsaantallen', function() {
       this.route('periodes', { path: '/periodes/:employee_period_slice_id'});
-      this.route('overzicht');
     });
     this.route('voltijdsequivalenten');
     this.route('aantalwerknemers');

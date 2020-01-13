@@ -10,7 +10,6 @@ export default Route.extend({
       include: 'periods,bestuurseenheid,subjects,periods.time-period',
       'filter[bestuurseenheid][id]': bestuurseenheid.id
     });
-    //TODO: what does subjects mean here?
     return { bestuurseenheid, datasets };
   }
 });
