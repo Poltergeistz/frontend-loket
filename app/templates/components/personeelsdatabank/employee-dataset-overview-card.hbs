@@ -1,0 +1,19 @@
+<div class="u-padding--tb--small u-border--light--bottom">
+  <div class="grid">
+    <div class="col--8-12 col--1-1--m">
+      <h2 class="h5 u-spacer--tiny">{{this.subjectsString}}</h2>
+      {{personeelsdatabank/employee-period-slice-summary period=latestPeriod}}
+    </div>
+    <div class="col--4-12 col--1-1--m u-align-right--tablet-portrait-up">
+      {{#link-to "personeelsdatabank.personeelsaantallen.periodes" latestPeriod.id  class="button button--small button--narrow u-spacer--tiny"}}<i class="vi vi-arrow button__icon">&nbsp;</i>Bekijk en bewerk details{{/link-to}}
+      <p class="text-fade smaller">
+        {{#if this.employeeDataset.modified}}
+          <span> Laatst aangepast op {{moment-format this.employeeDataset.modified}} </span>
+        {{/if}}
+        {{!-- TODO: what does this mean?
+        <label class="pill pill--primary-yellow">Aantallen niet actueel</label>
+        --}}
+      </p>
+    </div>
+  </div>
+</div>

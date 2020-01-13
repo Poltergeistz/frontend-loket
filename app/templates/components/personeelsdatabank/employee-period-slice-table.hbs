@@ -1,0 +1,35 @@
+
+  <thead>
+    <tr>
+      <th rowspan="3" style="max-width: 12rem;">Niveau</th>
+      <th colspan="4">Voltijds</th>
+      <th colspan="4">Deeltijds</th>
+      <th rowspan="2"></th>
+    </tr>
+    <tr>
+      <th colspan="2">Vastbenoemd</th>
+      <th colspan="2">Contractueel</th>
+      <th colspan="2">Vastbenoemd</th>
+      <th colspan="2">Contractueel</th>
+    </tr>
+    <tr>
+      <th><i class="fa fa-male"></i> Mannen</th>
+      <th><i class="fa fa-female"></i> Vrouwen</th>
+      <th><i class="fa fa-male"></i> Mannen</th>
+      <th><i class="fa fa-female"></i> Vrouwen</th>
+      <th><i class="fa fa-male"></i> Mannen</th>
+      <th><i class="fa fa-female"></i> Vrouwen</th>
+      <th><i class="fa fa-male"></i> Mannen</th>
+      <th><i class="fa fa-female"></i> Vrouwen</th>
+      <th>Totaal<br>VTE's</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each rows as |row|}}
+      {{personeelsdatabank/employee-period-slice-table-row row=row}}
+    {{/each}}
+
+    {{#each subTotalRows as |row|}}
+      {{personeelsdatabank/employee-period-slice-table-subtotal-row row=row}}
+    {{/each}}
+  </tbody>

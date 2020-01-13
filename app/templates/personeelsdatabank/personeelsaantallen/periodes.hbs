@@ -1,0 +1,65 @@
+<div class="container-flex--contain">
+  <div class="u-border--light--bottom">
+    <ul class="inline-list inline-list--bordered smaller u-background--gray-lightest u-padding--rl--small u-padding--tb--tiny">
+      <li>
+        {{#link-to "personeelsdatabank.personeelsaantallen.overzicht"}}
+        Personeelsbeheer {{this.model.periode.dataset.bestuurseenheid.classificatie.label}} {{this.model.periode.dataset.bestuurseenheid.naam}}
+        {{/link-to}}
+      </li>
+      <li>{{this.model.periode.dataset.title}}</li>
+    </ul>
+  </div>
+  <div class="u-border--light--bottom">
+    <div class="u-padding--round--small">
+      <div class="grid">
+        <div class="col--6-12 col--1-1--s">
+          <h1 class="h4 u-spacer--tiny">
+            {{this.model.periode.dataset.bestuurseenheid.classificatie.label}}
+            {{this.model.periode.dataset.bestuurseenheid.naam}}
+            {{this.model.periode.dataset.title}}
+          </h1>
+          <p class="text-light">{{this.model.periode.dataset.description}}</p>
+        </div>
+        <div class="col--6-12 col--1-1--s u-align-right--tablet-portrait-up">
+          <div class="button-group">
+            <button class="button button--alt button--narrow" {{action "cancel" this.model}}>Verwerp wijzigingen</button>
+            <button class="button button--narrow" {{action "save" this.model}}>Bewaar</button>
+          </div>
+          <p class="text-fade smaller">
+            {{#if this.model.periode.dataset.modified}}
+              <span> Laatst aangepast op {{moment-format this.model.periode.dataset.modified}} </span>
+            {{/if}}
+            {{!-- <label class="pill pill--primary-yellow">Aantallen niet actueel</label> --}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{#if isBusy}}
+    <div class="loader-wrapper"> <div class="loader"></div></div>
+  {{else}}
+    <div class="container-flex--scroll u-padding--round--small">
+
+      <div class="u-spacer">
+        <div class="grid">
+          <div class="col--8-12">
+            <div class="alert alert--small">
+              <div class="alert__message">
+                {{!-- TODO: refactor --}}
+                {{#if requiresFTEMsg}}
+                  <p>Iedere tewerkstelling moet uitgedrukt worden in een percentage van een voltijds tewerkgesteld personeelslid. Eén VTE is een voltijds equivalent of tewerkgesteld volgens een regime van 38/38sten.  Wie minder dan voltijds tewerkgesteld is wordt pro rato meegerekend wat de VTE betreft. Bijvoorbeeld een personeelslid dat 4/5den werkt of 30,4 uur werkt in de 38-uren werkweek zal worden meegeteld als 0,8 VTE.</p>
+                {{else}}
+                  <p>Een personeelslid dat voltijds of deeltijds aan de slag is bij het lokaal bestuur wordt als  1 kop meegeteld. Elke afzonderlijke juridische band (door middel van een vaste benoeming of arbeidsovereenkomst) wordt afzonderlijk geteld. Meerdere aanstellingen/contracten voor één persoon worden geteld als meerdere koppen.</p>
+                  <br>
+                  <p>De aantallen mogen geen kommagetallen bevatten.</p>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {{personeelsdatabank/employee-period-slice-table data=model class="data-table data-table--matrix data-table--lined data-table--zebra"}}
+      </div>
+    </div>
+  {{/if}}
+</div>
