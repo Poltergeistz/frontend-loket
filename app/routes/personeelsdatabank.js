@@ -8,6 +8,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
   beforeModel() {
     if (!this.currentSession.canAccessPersoneelsbeheer)
       this.transitionTo('index');
+    else
+      this.transitionTo('personeelsdatabank.personeelsaantallen.index');
   },
 
   model(){

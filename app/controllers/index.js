@@ -23,7 +23,7 @@ export default Controller.extend({
 			this.transitionToRoute('leidinggevendenbeheer.bestuursfuncties');
 		},
 		goToPersoneelsdatabank() {
-			this.transitionToRoute('personeelsdatabank.personeelsaantallen.overzicht');
+			this.transitionToRoute('personeelsdatabank.personeelsaantallen.index');
 		}
 	}
 });
