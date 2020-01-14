@@ -1,7 +1,12 @@
 import Component from '@ember/component';
+import { reads } from '@ember/object/computed';
+import { conditional, raw } from 'ember-awesome-macros';
 
 export default Component.extend({
   tagName: '',
+
+  isFloat: reads('observation.unitMeasure.isFTE'),
+  step: conditional('isFloat', raw(0.01), raw(1)),
 
   didReceiveAttrs() {
     this._super(...arguments);
@@ -12,6 +17,17 @@ export default Component.extend({
                                                  && obs.legalStatus.get('uri') == this.legalStatus.get('uri')
                                                  && obs.sex.get('uri') == this.sex.get('uri'));
       this.set('observation', observation);
+    }
+  },
+
+  actions: {
+    setValue(value) {
+      if (this.isFloat) {
+        this.observation.set('value', value);
+      } else {
+        const int = Math.ceil(value);
+        this.observation.set('value', int);
+      }
     }
   }
 });

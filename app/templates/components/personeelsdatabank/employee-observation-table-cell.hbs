@@ -1,7 +1,7 @@
 <td>
   {{#if observation}}
-    {{input class="input-field input-field--block" type="number" value=(mut observation.value) name="quantity"}}
+    {{input class="input-field input-field--block" type="number" step=step value=observation.value focus-out=(action "setValue") name="quantity"}}
   {{else}}
-    Not found
+    {{!-- No observation found --}}
   {{/if}}
 </td>
