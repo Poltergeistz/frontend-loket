@@ -10,11 +10,13 @@
 	        <h1 class="h4 u-spacer--tb--tinier">BBC DR</h1>
         </div>
         <div class="col--6-12 col--1-1--s u-align-right--tablet-portrait-up">
-          {{wu-button
-              label="Lever nieuw rapport aan"
-              onClick=(action "createNewReport")
-              isNarrow=true
-              data-test-loket='bbcdr-create-report-btn'}}
+          <WuButtonGroup>
+            {{wu-button
+                label="Lever nieuw rapport aan"
+                onClick=(action "createNewReport")
+                isNarrow=true
+                data-test-loket='bbcdr-create-report-btn'}}
+          </WuButtonGroup>
         </div>
       </div>
     </div>
@@ -25,3 +27,4 @@
     }}
   </div>
 </div>
+{{outlet}}
