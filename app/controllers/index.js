@@ -24,6 +24,9 @@ export default Controller.extend({
 		},
 		goToSubsidiebeheer() {
 			this.transitionToRoute('subsidiebeheer.subsidies');
+		},
+		goToPersoneelsbeheer() {
+			this.transitionToRoute('personeelsbeheer.personeelsaantallen.index');
 		}
 	}
 });

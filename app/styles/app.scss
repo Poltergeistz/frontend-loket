@@ -4,7 +4,7 @@
 
 @import 'document-status-pills';
 @import 'generated-forms';
-@import 'user-toggle';
+@import 'subbar-navigation';
 
 .data-table__actions { // reformat
   padding: 0;
@@ -14,6 +14,7 @@
 .loket-onderdeel__header .h4 {
 	font-weight: 400;
 }
+
 sup {
 	line-height: 0.5;
 	vertical-align: text-top;

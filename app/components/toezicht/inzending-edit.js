@@ -5,7 +5,7 @@ import { task } from 'ember-concurrency';
 import { and, not, or } from 'ember-awesome-macros';
 
 export default Component.extend({
-  classNames: ['container-flex--contain'],
+  classNames: ['col--12-12 container-flex--contain'],
   router: service(),
   store: service(),
   currentSession: service(),

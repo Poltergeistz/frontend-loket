@@ -6,8 +6,7 @@ import { A } from '@ember/array';
 import { all } from 'rsvp';
 
 export default Component.extend({
-  classNames: ['col--5-12 col--1-1--m container-flex--contain'],
-  router: service(),
+  classNames: ['col--4-12 col--12-12--m container-flex--contain'],
   store: service(),
   readyForTmpSave: gte('reportFiles.length', 1),
   readyToSend: equal('reportFiles.length', 2),
