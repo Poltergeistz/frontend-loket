@@ -1,15 +1,22 @@
-<div class="modal-dialog modal-dialog--sectioned">
+<div class="modal-dialog modal-dialog--wide modal-dialog--sectioned" style="height:80vh;">
   <div class="modal-dialog__header">
     <div class="grid">
       <div class="col--10-12">
-        <h2 class="h3">Configureer berichtencentrum</h2>
+        <h2 class="h3">Configureer notificaties</h2>
       </div>
       <div class="col--2-12 u-align-right"><button class="link--icon--close modal-overlay-configure-berichtencentrum u-hidden"><span class="u-visually-hidden">Venster sluiten</span></button></div>
     </div>
   </div>
-  <div class="modal-dialog__content">
-    <h3 class="h4 u-spacer--small">Mail instellingen</h3>
-    <div class="form__row">
+  <div class="modal-dialog__content" style="max-height:none;height:65vh;">
+    <h3 class="h4 u-spacer--small">Mail instellingen algemeen</h3>
+      <div class="form__row u-spacer--bottom--tiny">
+        <div class="form__label">
+          <label>Mailadres interne beheerder loket</label>
+          {{input class="input-field input-field--block input--error" placeholder="mail@adres.com" value=emailAddress}}
+          <p class="input--error__text">Mailadres niet ingesteld.</p>
+        </div>
+      </div>
+{{!--     <div class="form__row">
       <div class="form__label">
         <label class="checkbox checkbox--block">
           {{input class="checkbox__toggle" type="checkbox" checked=wilMailOntvangen}}
@@ -17,20 +24,40 @@
           <span>Ontvang mails bij nieuwe berichten</span>
         </label>
       </div>
-    </div>
-    {{#if wilMailOntvangen}}
+    </div> --}}
+    {{!-- {{#if wilMailOntvangen}} --}}
+    <h3 class="h4 u-spacer--bottom--small">Mail instellingen specifiek</h3>
       <div class="form__row u-spacer--bottom--tiny">
         <div class="form__label">
-          <label>Mailadres</label>
-          {{input class="input-field input-field--block" placeholder="mail@adres.com" value=emailAddress}}
+          <label>Mailadres voor berichten over subsidies</label>
+          {{input class="input-field input-field--block" placeholder="mail@adres.com" value="mail@address.com"}}
         </div>
       </div>
-    {{/if}}
+      <div class="form__row u-spacer--bottom--tiny">
+        <div class="form__label">
+          <label>Mailadres voor berichten over BBC-DR</label>
+          {{input class="input-field input-field--block" placeholder="mail@adres.com" value="mail@address.com"}}
+        </div>
+      </div>
+      <div class="form__row u-spacer--bottom--tiny">
+        <div class="form__label">
+          <label>Mailadres voor berichten over toezicht</label>
+          {{input class="input-field input-field--block" placeholder="mail@adres.com" value="mail@address.com"}}
+        </div>
+      </div>
+      <div class="form__row u-spacer--bottom--tiny">
+        <div class="form__label">
+          <label>Mailadres voor berichten over klacht</label>
+          {{input class="input-field input-field--block input--error" placeholder="mail@adres.com" value=emailAddress}}
+          <p class="input--error__text">Mailadres niet ingesteld.</p>
+        </div>
+      </div>
+    {{!-- {{/if}} --}}
   </div>
   <div class="modal-dialog__footer">
-  	<div class="button-group u-spacer--bottom--tiny">
-	    {{wu-button label="Bewaar" onClick=(action "commit") isAlt=false}}
-	    {{wu-button label="Sluit venster" onClick=close isAlt=true command='Verwerp wijzigingen' commandLocation='below'}}
-	  </div>
+    <div class="button-group u-spacer--bottom--tiny">
+      {{wu-button label="Bewaar" onClick=(action "commit") isAlt=false}}
+      {{wu-button label="Sluit venster" onClick=close isAlt=true command='Verwerp wijzigingen' commandLocation='below'}}
+    </div>
   </div>
 </div>

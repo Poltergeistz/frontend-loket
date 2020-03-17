@@ -1,1 +1,47 @@
-{{outlet}}
+<div class="col--2-12 u-visible--tablet-landscape-up">
+  <div class="container-flex--contain">
+    <div class="sidebar">
+      <div class="sidebar__content">
+        <nav class="side-navigation">
+          <div class="side-navigation__content">
+            <ul class="side-navigation__group">
+              <li class="side-navigation__item">
+                {{#link-to "berichtencentrum.berichten"}}<i class="fa fa-inbox"></i> Inbox{{/link-to}}
+              </li>
+              <li class="side-navigation__item">
+                <a href="#"><i class="fa fa-tag"></i> Toezicht</a>
+              </li>
+              <li class="side-navigation__item">
+                <a href="#"><i class="fa fa-tag"></i> Subsidies</a>
+              </li>
+              <li class="side-navigation__item">
+                <a href="#"><i class="fa fa-tag"></i> BBC-DR</a>
+              </li>
+              <li class="side-navigation__item">
+                <a href="#"><i class="fa fa-envelope"></i> Alle berichten</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="sidebar_footer">
+        <div class="u-padding--round--small">
+          <button class="button--tiny button--small button--link--dark button--alt button button--narrow" data-test-loket="berichtencentrum-setting-email-button" {{action 'showPreferences'}}>
+            <i class="fa fa-cog u-spacer--right--tinier"></i>Configureer notificaties
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col--10-12 u-visible--tablet-landscape-up">
+  {{outlet}}
+</div>
+
+{{#if showPreferences}}
+  <div class="modal-overlay modal-overlay-configure-berichtencentrum">
+    {{berichtencentrum/bericht-notificatie-voorkeuren
+      close=(action "hidePreferences")
+      data-test-loket="setting-email-component"}}
+  </div>
+{{/if}}

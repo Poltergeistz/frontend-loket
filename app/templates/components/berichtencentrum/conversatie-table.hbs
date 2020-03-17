@@ -21,7 +21,7 @@
       <th><!-- Actions --></th>
     {{/c.header}}
     {{#c.body data-test-loket="berichtencentrum-body" as |row|}}
-      <td>{{row.betreft}}</td>
+      <td>{{row.betreft}} <br> <strong>7 berichten</strong> </td>
       <td>{{row.laatsteBericht.typeCommunicatie}}</td>
       <td class="u-hidden-mobile word-break--break-word">{{row.dossiernummer}}</td>
       {{#unless renderSmallTable}}

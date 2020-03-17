@@ -8,7 +8,7 @@
         Reactietermijn: {{berichtencentrum/display-moment-indays conversatie.reactietermijn}} dagen
       </label>
     {{/if}} --}}
-    <h2 class="h3" data-test-loket="berichtencentrum-header-type-communicatie">{{conversatie.typeCommunicatie}}</h2>
+    <h2 class="h5 u-spacer--tiny" data-test-loket="berichtencentrum-header-type-communicatie">{{conversatie.currentTypeCommunicatie}}</h2>
   </div>
 
   <div class="col--3-12 u-align--right">
@@ -16,13 +16,17 @@
       <span class="u-visually-hidden">Venster sluiten</span>
     </button>
   </div>
-
-  <div class="grid u-spacer--small">
-    <div class="col--12-12">
-      <div class="description-data__label" data-test-loket="berichtencentrum-header-betreft">
-        {{conversatie.betreft}}
-      </div>
+  {{yield}}
+</div>
+<div class="grid u-spacer--small">
+  <div class="col--6-12">
+    <div class="description-data__label" data-test-loket="berichtencentrum-header-betreft">
+      {{conversatie.betreft}}
     </div>
   </div>
-  {{yield}}
+  <div class="col--6-12 u-align--right">
+    <div class="description-data__label">
+      7 berichten
+    </div>
+  </div>
 </div>
