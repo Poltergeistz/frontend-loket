@@ -22,7 +22,7 @@
     <AuButton {{action "cancel"}} @skin="secondary">
       Annuleer
     </AuButton>
-    <AuButton {{action "save"}} @disabled="{{not isValid}}">
+    <AuButton {{action "save"}} @disabled={{not isValid}}>
       Bewaar
     </AuButton>
   </AuButtonGroup>

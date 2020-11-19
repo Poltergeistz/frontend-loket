@@ -58,7 +58,7 @@
         <div>
           <div class="au-o-grid au-o-grid--tiny">
             <div class="au-o-grid__item au-u-1-2">
-              <AuLabel @error="{{if this.startDateError 'true'}}" for="datepicker-from">Start</AuLabel>
+              <AuLabel @error={{if this.startDateError true}} for="datepicker-from">Start</AuLabel>
               {{wu-datepicker
                 placeholder="01-01-2018"
                 class=(with-error-class startDateError "date-range__datepicker datepicker datepicker--block")
@@ -66,11 +66,11 @@
                 dateFormat=dateFormat
               }}
               {{#if startDateError}}
-                <AuHelpText @error="true">{{startDateError}}</AuHelpText>
+                <AuHelpText @error={{true}}>{{startDateError}}</AuHelpText>
               {{/if}}
             </div>
             <div class="au-o-grid__item au-u-1-2">
-              <AuLabel @error="{{if this.endDateError 'true'}}" for="datepicker-to">Einde</AuLabel>
+              <AuLabel @error={{if this.endDateError true}} for="datepicker-to">Einde</AuLabel>
               {{wu-datepicker
                 placeholder="01-01-2019"
                 class=(with-error-class endDateError "date-range__datepicker datepicker datepicker--block")
@@ -78,7 +78,7 @@
                 dateFormat=dateFormat
               }}
               {{#if endDateError}}
-                <AuHelpText @error="true">{{endDateError}}</AuHelpText>
+                <AuHelpText @error={{true}}>{{endDateError}}</AuHelpText>
               {{/if}}
             </div>
           </div>
@@ -226,7 +226,7 @@
         <div>
           <div class="au-o-grid au-o-grid--tiny">
             <div class="au-o-grid__item au-u-1-2">
-              <AuLabel @error="{{if this.startDateError 'true'}}" for="datepicker-from">Start</AuLabel>
+              <AuLabel @error={{if this.startDateError true}} for="datepicker-from">Start</AuLabel>
               {{wu-datepicker
                 placeholder="01-01-2018"
                 class=(with-error-class startDateError "date-range__datepicker datepicker datepicker--block")
@@ -234,11 +234,11 @@
                 dateFormat=dateFormat
               }}
               {{#if startDateError}}
-                <AuHelpText @error="true">{{startDateError}}</AuHelpText>
+                <AuHelpText @error={{true}}>{{startDateError}}</AuHelpText>
               {{/if}}
             </div>
             <div class="au-o-grid__item au-u-1-2">
-              <AuLabel @error="{{if this.endDateError 'true'}}" for="datepicker-to">Einde</AuLabel>
+              <AuLabel @error={{if this.endDateError true}} for="datepicker-to">Einde</AuLabel>
               {{wu-datepicker
                 placeholder="01-01-2019"
                 class=(with-error-class endDateError "date-range__datepicker datepicker datepicker--block")
@@ -246,7 +246,7 @@
                 dateFormat=dateFormat
               }}
               {{#if endDateError}}
-                <AuHelpText @error="true">{{endDateError}}</AuHelpText>
+                <AuHelpText @error={{true}}>{{endDateError}}</AuHelpText>
               {{/if}}
             </div>
           </div>

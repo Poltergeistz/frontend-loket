@@ -72,12 +72,12 @@
   {{/if}}
   <AuToolbarGroup>
     {{#unless this.model.submitted}}
-      <AuButton @disabled={{if (or this.save.isRunning this.submit.isRunning this.delete.isRunning) "true"}}
-                @loading={{if this.submit.isRunning "true"}}
+      <AuButton @disabled={{if (or this.save.isRunning this.submit.isRunning this.delete.isRunning) true}}
+                @loading={{if this.submit.isRunning true}}
                 {{on "click" (perform this.submit)}}>Verzend naar Vlaamse overheid</AuButton>
-      <AuButton @disabled={{if (or this.save.isRunning this.submit.isRunning this.delete.isRunning) "true"}}
-                @loading={{if this.save.isRunning "true"}}
-                @skin={{"secondary"}}
+      <AuButton @disabled={{if (or this.save.isRunning this.submit.isRunning this.delete.isRunning) true}}
+                @loading={{if this.save.isRunning true}}
+                @skin="secondary"
                 {{on "click" (perform this.save)}}>Bewaar</AuButton>
       <AuLink @linkRoute="supervision.submissions.index" @skin="secondary">Annuleer</AuLink>
     {{else}}
@@ -87,10 +87,10 @@
 
   {{#unless this.model.submitted}}
   <AuToolbarGroup>
-    <AuButton @disabled={{if (or this.save.isRunning this.submit.isRunning this.delete.isRunning) "true"}}
-              @loading={{if this.delete.isRunning "true"}}
-              @skin={{"tertiary"}}
-              @alert={{"true"}}
+    <AuButton @disabled={{if (or this.save.isRunning this.submit.isRunning this.delete.isRunning) true}}
+              @loading={{if this.delete.isRunning true}}
+              @skin="tertiary"
+              @alert={{true}}
               {{on "click" (perform this.delete)}}>
       <AuIcon @icon="bin" @alignment="left" /> Verwijder dossier
     </AuButton>

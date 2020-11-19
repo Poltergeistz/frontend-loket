@@ -29,17 +29,17 @@
         as |isValid|}}
     <AuToolbar @border="top" @size="large">
       <AuToolbarGroup>
-        <AuButton {{action "goBackToSearch"}} @skin="tertiary" @disabled="{{save.isRunning}}">
+        <AuButton {{action "goBackToSearch"}} @skin="tertiary" @disabled={{save.isRunning}}>
           <AuIcon @icon="arrow-left" @alignment="left" />
           Vorige stap
         </AuButton>
       </AuToolbarGroup>
       <AuToolbarGroup>
         <AuButtonGroup>
-          <AuButton @skin="secondary" @disabled="{{save.isRunning}}" {{action "cancel"}}>
+          <AuButton @skin="secondary" @disabled={{save.isRunning}} {{action "cancel"}}>
             Annuleer
           </AuButton>
-          <AuButton @disabled="{{if (or (not isValid) save.isRunning) "true"}}" {{on "click" (perform save)}}>
+          <AuButton @disabled={{if (or (not isValid) save.isRunning) true}} {{on "click" (perform save)}}>
             Voeg aanstellingsperiode toe
           </AuButton>
         </AuButtonGroup>

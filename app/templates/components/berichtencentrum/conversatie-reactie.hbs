@@ -48,7 +48,7 @@
     </div>
 
     <AuButtonGroup>
-      <AuButton {{action 'verstuurBericht'}} @disabled="{{cantSend}}" class="js-accordion__toggle js-accordion-bound">
+      <AuButton {{action 'verstuurBericht'}} @disabled={{cantSend}} class="js-accordion__toggle js-accordion-bound">
         Verstuur bericht
       </AuButton>
       <AuButton {{action 'collapseMe'}} @skin="secondary" class="js-accordion__toggle js-accordion-bound">

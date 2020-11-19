@@ -8,24 +8,12 @@
     model=model
     as |isValid|
 }}
-  <div class="au-o-box">
-    <AuAlert @alertIcon="info-circle">
-      <AuContent @skin="small">
-        <p>Hou de <strong>historiek</strong> van afgelopen aanstellingsperiodes bij.</p>
-        <ul>
-          <li>Nieuwe aanstellingsperiode of status: &nbsp;<AuLink @linkRoute="leidinggevendenbeheer.bestuursfuncties.bestuursfunctie.functionarissen">voeg een nieuwe aanstellingsperiode toe</AuLink>.</li>
-          <li>Aanstellingsperiode verwijderen: &nbsp;<a href="mailto:LoketLokaalBestuur@vlaanderen.be?subject=Leidinggevendenbeheer - Loket Lokaal Bestuur" class="au-c-link">neem contact op met ons</a>.</li>
-        </ul>
-      </AuContent>
-    </AuAlert>
-  </div>
-
-  <AuToolbar @border="top" @size="large">
+  <AuToolbar @border="top" @size="large" @nowrap={{true}}>
     <AuToolbarGroup>
       <AuButtonGroup>
         <AuButton
-          @disabled="{{not isValid}}"
-          @loading="{{this.save.isRunning}}"
+          @disabled={{not isValid}}
+          @loading={{this.save.isRunning}}
           {{on "click" (perform save)}}
         >
           Corrigeer aanstellingsperiode
@@ -34,6 +22,18 @@
           Annuleer
         </AuButton>
       </AuButtonGroup>
+    </AuToolbarGroup>
+    <AuToolbarGroup>
+
+        <AuAlert @alertIcon="info-circle" @alertsize="small">
+          <AuContent @skin="small">
+            <p>Hou de <strong>historiek</strong> van afgelopen aanstellingsperiodes bij.</p>
+            <ul>
+              <li>Nieuwe aanstellingsperiode of status: &nbsp;<AuLink @linkRoute="leidinggevendenbeheer.bestuursfuncties.bestuursfunctie.functionarissen">voeg een nieuwe aanstellingsperiode toe</AuLink>.</li>
+              <li>Aanstellingsperiode verwijderen: &nbsp;<a href="mailto:LoketLokaalBestuur@vlaanderen.be?subject=Leidinggevendenbeheer - Loket Lokaal Bestuur" class="au-c-link">neem contact op met ons</a>.</li>
+            </ul>
+          </AuContent>
+        </AuAlert>
     </AuToolbarGroup>
   </AuToolbar>
 {{/leidinggevendenbeheer/functionaris-form}}

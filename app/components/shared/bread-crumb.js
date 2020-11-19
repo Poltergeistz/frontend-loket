@@ -64,7 +64,7 @@ export default class SharedBreadCrumbComponent extends Component {
     },
     {
       route: 'leidinggevendenbeheer.bestuursfuncties.bestuursfunctie.functionarissen.edit',
-      crumbs: [{label: 'Leidinggevendenbeheer',link: 'leidinggevendenbeheer.bestuursfuncties'},{label: 'Bewerk functionaris'}]
+      crumbs: [{label: 'Leidinggevendenbeheer',link: 'leidinggevendenbeheer.bestuursfuncties'},{label: 'Corrigeer of beëindig aanstellingsperiode functionaris'}]
     },
     {
       route: 'leidinggevendenbeheer.bestuursfuncties.bestuursfunctie.functionarissen.new.index',

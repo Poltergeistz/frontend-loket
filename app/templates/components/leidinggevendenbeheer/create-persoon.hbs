@@ -4,17 +4,17 @@
       <div>
         <div class="au-o-grid au-o-grid--tiny">
           <div class="au-o-grid__item au-u-1-2">
-            <AuLabel @error="{{if this.voornaamError 'true'}}" for="mandataris-naam">Voornaam</AuLabel>
+            <AuLabel @error={{if this.voornaamError true}} for="mandataris-naam">Voornaam</AuLabel>
             {{input class=(with-error-class voornaamError "au-c-input au-c-input--block js-js-input-pattern-bound") id="mandataris-naam" name="mandataris-naam" value=(mut voornaam)}}
             {{#if voornaamError}}
-              <AuHelpText @error="true">{{voornaamError}}</AuHelpText>
+              <AuHelpText @error={{true}}>{{voornaamError}}</AuHelpText>
             {{/if}}
           </div>
           <div class="au-o-grid__item au-u-1-2">
-            <AuLabel @error="{{if this.familienaamError 'true'}}" for="mandataris-familienaam">Familienaam</AuLabel>
+            <AuLabel @error={{if this.familienaamError true}} for="mandataris-familienaam">Familienaam</AuLabel>
             {{input class=(with-error-class familienaamError "au-c-input au-c-input--block js-js-input-pattern-bound") id="mandataris-familienaam" name="mandataris-familienaam" value=(mut familienaam)}}
             {{#if familienaamError}}
-              <AuHelpText @error="true">{{familienaamError}}</AuHelpText>
+              <AuHelpText @error={{true}}>{{familienaamError}}</AuHelpText>
             {{/if}}
           </div>
         </div>
@@ -24,10 +24,10 @@
         {{input class="au-c-input au-c-input--block js-js-input-pattern-bound" id="mandataris-roepnaam" name="mandataris-roepnaam" placeholder="Jos" value=(mut roepnaam)}}
       </div>
       <div>
-        <AuLabel @error="{{if this.rijksregisternummerError 'true'}}"  for="mandataris-rijksregister">Rijksregisternummer</AuLabel>
+        <AuLabel @error={{if this.rijksregisternummerError true}}  for="mandataris-rijksregister">Rijksregisternummer</AuLabel>
         {{one-way-input-mask rijksregisternummer mask='99.99.99-999.99' class=(with-error-class rijksregisternummerError "au-c-input au-c-input--block au-c-input--uppercase js-js-input-pattern-bound") placeholder="00.00.00-000.00" update=(action (mut rijksregisternummer)) id="mandataris-rijksregister" }}
         {{#if rijksregisternummerError}}
-          <AuHelpText @error="true">{{rijksregisternummerError}}</AuHelpText>
+          <AuHelpText @error={{true}}>{{rijksregisternummerError}}</AuHelpText>
         {{/if}}
       </div>
       <div>
@@ -44,17 +44,17 @@
 </div>
 <AuToolbar @border="top" @size="large">
   <AuToolbarGroup>
-    <AuButton {{on "click" (action gotoPreviousStep)}} @skin="tertiary" @disabled="{{save.isRunning}}">
+    <AuButton {{on "click" (action gotoPreviousStep)}} @skin="tertiary" @disabled={{save.isRunning}}>
       <AuIcon @icon="arrow-left" @alignment="left" />
       Vorige stap
     </AuButton>
   </AuToolbarGroup>
   <AuToolbarGroup>
     <AuButtonGroup>
-      <AuButton class="toggle-person-new" @skin="secondary" @disabled="{{save.isRunning}}" {{on "click" (action onCancel)}}>
+      <AuButton class="toggle-person-new" @skin="secondary" @disabled={{save.isRunning}} {{on "click" (action onCancel)}}>
         Annuleer
       </AuButton>
-      <AuButton @loading="{{save.isRunning}}" {{on "click" (perform save)}}>
+      <AuButton @loading={{save.isRunning}} {{on "click" (perform save)}}>
         Voeg nieuwe functionaris toe
       </AuButton>
     </AuButtonGroup>
