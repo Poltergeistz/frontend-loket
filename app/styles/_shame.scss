@@ -472,19 +472,6 @@ $au-non-editable-background    : $au-gray-100 !default;
   }
 }
 
-// Input icon
-.au-c-input-wrapper {
-  position: relative;
-}
-
-.au-c-input-wrapper__icon {
-  position: absolute;
-  top: 50%;
-  right: $au-unit-small;
-  transform: translateY(-50%);
-}
-
-
 // ---
 // Deprecated after appuniversum 0.14 upgrade
 // ---
