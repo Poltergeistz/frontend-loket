@@ -86,6 +86,8 @@ Router.map(function() {
     this.route('subsidies', function() {
       this.route('ingediend');
       this.route('concept');
+      this.route('nieuw');
+      this.route('nieuw-2');
     });
   });
 });

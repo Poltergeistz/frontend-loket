@@ -80,7 +80,7 @@
               </AuLabel>
               <div id="select-ember349" class="ember-view ember-basic-dropdown-trigger ember-basic-dropdown-trigger--above  ember-power-select-trigger" role="button" tabindex="0" data-ebd-id="ember350-trigger" aria-owns="ember-basic-dropdown-content-ember350" aria-expanded="false" style="width:500px;">
                 <span class="ember-power-select-selected-item">
-                  Herfstvakantie
+                  Herfstvakantie (9 november 2020 &mdash; 13 november 2020)
                 </span>
                 <span class="ember-power-select-clear-btn">×</span>
                 <span class="ember-power-select-status-icon"></span>
@@ -105,30 +105,22 @@
             </div>
 
             <div class="au-o-grid__item au-u-1-1">
-              <AuHeading @skin="3" class="">Contactgegevens</AuHeading>
+              <AuHeading @skin="3" class="">Contactgegevens contactpersoon</AuHeading>
             </div>
             <div class="au-o-grid__item au-u-1-1">
-
-              <div class="au-o-grid au-o-grid--small">
-                <div class="au-o-grid__item au-u-1-2">
-                  <p>
-                    <AuLabel for="input-regular-name">Voornaam contactpersoon</AuLabel>
-                    <AuInput id="input-regular-name" @width="block" />
-                  </p>
-                </div>
-
-                <div class="au-o-grid__item au-u-1-2">
-                  <p>
-                    <AuLabel for="input-regular-last-name">Achternaam contactpersoon</AuLabel>
-                    <AuInput id="input-regular-last-name" @width="block" />
-                  </p>
-                </div>
-              </div>
-              <p>
+              <p class="au-u-margin-bottom-small">
+                <AuLabel for="input-regular-name">Voornaam</AuLabel>
+                <AuInput id="input-regular-name" />
+              </p>
+              <p class="au-u-margin-bottom">
+                <AuLabel for="input-regular-last-name">Achternaam</AuLabel>
+                <AuInput id="input-regular-last-name" />
+              </p>
+              <p class="au-u-margin-bottom-small">
                 <AuLabel for="input-regular-last-name">Telefoonnummer</AuLabel>
                 <AuInput id="input-regular-last-name" />
               </p>
-              <p>
+              <p class="au-u-margin-bottom-small">
                 <AuLabel for="input-regular-last-name">Mailadres</AuLabel>
                 <AuInput id="input-regular-last-name" />
               </p>
@@ -140,11 +132,59 @@
 
             <div class="au-o-grid__item au-u-1-1">
               <AuHeading @skin="3" class="">Betaling</AuHeading>
-              <p class="au-u-margin-bottom-small">Mag de subsidie uitbetaald worden op het bankrekeningnummer waarop het aandeel in het Gemeentefonds wordt gestort?</p>
+{{!--               <p class="au-u-margin-bottom-small">Mag de subsidie uitbetaald worden op het bankrekeningnummer waarop het aandeel in het Gemeentefonds wordt gestort?</p> --}}
 
               <div class="au-o-grid">
                 <div class="au-o-grid__item au-u-1-1">
-                  <ul>
+{{!--                   <div class="checkbox--switch__wrapper">
+                    <div id="ember117" class="checkbox-switch__wrapper ember-view">
+                      <input name="switch" id="ember117-input" class="checkbox--switch ember-checkbox ember-view" type="checkbox">
+                      <label class="checkbox--switch__label" for="ember117-input"></label>
+                      <span>Gebruik bankrekeningnummer waarop het aandeel in het Gemeentefonds gestort wordt.</span>
+                    </div>
+                  </div>   --}}
+
+                  <AuLabel>
+                    Mag de subsidie uitbetaald worden op het bankrekeningnummer <br>waarop het aandeel in het Gemeentefonds wordt gestort?
+                  </AuLabel>
+                  <div id="select-ember349" class="ember-view ember-basic-dropdown-trigger ember-basic-dropdown-trigger--above  ember-power-select-trigger au-u-margin-bottom" role="button" tabindex="0" data-ebd-id="ember350-trigger" aria-owns="ember-basic-dropdown-content-ember350" aria-expanded="false" style="width:500px;">
+                    <span class="ember-power-select-selected-item">
+                      Nee, gebruik een alternatief bankrekeningnummer
+                    </span>
+                    {{!-- <span class="ember-power-select-clear-btn">×</span> --}}
+                    <span class="ember-power-select-status-icon"></span>
+                  </div>
+
+                  <div class="au-u-margin-left">
+                    <div class="au-o-grid">
+                      <div class="au-o-grid__item au-u-1-1">
+                        <div class="au-u-margin-bottom-small">
+                          <AuLabel>Alternatief rekeningnummer uitbetaling</AuLabel>
+                          <AuInput id="input-bank" type="number" @width="block"/>
+                          <AuHelpText>IBAN: BE00 0000 0000 0000</AuHelpText>
+                        </div>
+
+                        <label class="au-c-label " for="files-ember219">Voeg een bevestingsbrief dat dit rekeningnummer gebruikt mag worden toe, ondertekend door de burgemeester en medeondertekend door de financieel directeur.</label>
+                        <div data-upload-allow-drop="" id="files-ember219" class="upload js-upload js-upload-bound ember-view" role="button">
+                          <div id="ember221" class="au-c-upload ember-view">
+                            <label for="file-input-a4b56" id="ember222" class="file-upload ember-view">
+                              <input id="file-input-a4b56" multiple="" hidden="" type="file">
+                              <span class="au-c-upload-label">
+                                <span class="au-c-upload-label__title">
+                                  <svg role="img" class="au-c-icon au-c-icon--attachment au-c-icon--left " aria-hidden="true">
+                                    <use xlink:href="/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#attachment"></use>
+                                  </svg>
+                                  Bestanden toevoegen
+                                </span>
+                                <small class="au-c-small-text">Sleep de bestanden naar hier om toe te voegen</small>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+{{!--                   <ul>
                     <li>
                       <AuControlRadio @label="Ja"/>
                     </li>
@@ -152,21 +192,9 @@
                       <AuControlRadio @label="Nee" @checked="true" />
                       <div class="au-u-margin-left">
 
-                        <div class="au-o-grid">
-                          <div class="au-o-grid__item au-u-1-1">
-                            <AuLabel>Alternatief rekeningnummer uitbetaling</AuLabel>
-                            <AuInput id="input-bank" type="number" @width="block"/>
-                            <AuHelpText>IBAN: BE00 0000 0000 0000</AuHelpText>
-                          </div>
-
-                          <div class="au-o-grid__item au-u-1-1">
-                            <AuLabel>Voeg een bevestingsbrief dat dit rekeningnummer gebruikt mag worden toe, ondertekend door de burgemeester en medeondertekend door de financieel directeur.</AuLabel>
-                            <input type="file">
-                          </div>
-                        </div>
                       </div>
                     </li>
-                  </ul>
+                  </ul> --}}
                 </div>
               </div>
             </div>
@@ -192,6 +220,8 @@
                       <br>(10 euro per kind)</th>
                     <th>Aantal kinderen per infrastructuur
                       <br>(10 euro per kind)</th>
+                    <th>Aantal unieke kinderen</th>
+                    <th>Aantal georganiseerde opvangdagen</th>
                     <th>Totaal bedrag</th>
                     <th>&nbsp;</th>
                   </tr>
@@ -213,6 +243,14 @@
                     <td>
                       <AuLabel for="input-kinderen-infrastructuur" class="au-u-hidden">Kinderen per infrastructuur</AuLabel>
                       <AuInput id="input-kinderen-infrastructuur" @width="block" type="number" value="10" />
+                    </td>
+                    <td>
+                      <AuLabel for="2-input-kinderen-dag" class="au-u-hidden">Aantal unieke kinderen</AuLabel>
+                      <AuInput id="2-input-kinderen-dag" @width="block" type="number" value="10" />
+                    </td>
+                    <td>
+                      <AuLabel for="2-input-kinderen-dag" class="au-u-hidden">Aantal georganiseerde opvangdagen</AuLabel>
+                      <AuInput id="2-input-kinderen-dag" @width="block" type="number" value="10" />
                     </td>
                     <td>
                       400 euro
@@ -239,6 +277,14 @@
                       <AuInput id="2-input-kinderen-infrastructuur" @width="block" type="number" />
                     </td>
                     <td>
+                      <AuLabel for="2-input-kinderen-dag" class="au-u-hidden">Aantal unieke kinderen</AuLabel>
+                      <AuInput id="2-input-kinderen-dag" @width="block" type="number" />
+                    </td>
+                    <td>
+                      <AuLabel for="2-input-kinderen-dag" class="au-u-hidden">Aantal georganiseerde opvangdagen</AuLabel>
+                      <AuInput id="2-input-kinderen-dag" @width="block" type="number" />
+                    </td>
+                    <td>
                       -
                     </td>
                     <td>
@@ -246,15 +292,12 @@
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="6" class="data-table__add-row u-align-center">
+                    <td colspan="8" class="data-table__add-row u-align-center">
                       <AuButton @iconAlignment="left" @icon="add">Voeg actor toe</AuButton>
                     </td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-            <div class="au-o-grid__item au-u-1-1">
-              <p><a href="">Link overzichtspagina</a></p>
             </div>
           </div>
         </div>
