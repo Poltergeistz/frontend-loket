@@ -10,15 +10,7 @@
   </div>
   <AuModalBody>
     <AuHeading @level="2" @skin="4">Mail instellingen</AuHeading>
-    <div class="form__row au-u-margin-top-small">
-      <div class="form__label">
-        <label class="checkbox checkbox--block">
-          <Input class="checkbox__toggle" @type="checkbox" @checked={{this.wilMailOntvangen}} />
-          <span></span>
-          <span>Ontvang mails bij nieuwe berichten</span>
-        </label>
-      </div>
-    </div>
+    <AuControlCheckbox @label="Ontvang mails bij nieuwe berichten" @checked={{this.wilMailOntvangen}} />
     {{#if this.wilMailOntvangen}}
     <div class="form__row">
       <AuLabel for="voorkeurenmailadres">Mailadres</AuLabel>
