@@ -11,9 +11,9 @@
         <AcmidmSwitch @tagName="button" class="au-c-button au-c-button--tertiary" role="menuitem">
           <AuIcon @icon="switch" @alignment="left" />Wissel van bestuurseenheid
         </AcmidmSwitch>
-        <AcmidmLogout @tagName="button" class="au-c-button au-c-button--tertiary" role="menuitem">
-          <AuIcon @icon="logout" @alignment="left" />Afmelden
-        </AcmidmLogout>
+        <AuButton @icon="logout" @iconAlignment="left" @skin="tertiary" role="menuitem" {{on "click" this.logout}}>
+          Afmelden
+        </AuButton>
       </AuDropdown>
     {{else}}
       <AcmidmLoginCompact role="menuitem" @styles="au-c-button au-c-button--tertiary">
