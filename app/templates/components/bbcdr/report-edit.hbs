@@ -7,6 +7,7 @@
       <p>
         <AuLabel for="bestanden">Upload één XML en één XBRLfile</AuLabel>
       </p>
+      {{log this.reportFiles @files}}
       {{#each this.reportFiles as |file|}}
       <VoMuFileCard @file={{file}} @onDelete={{fn this.deleteFile file}} @active={{not @report.status.isVerstuurd}}
         data-test-loket='bbcdr-file-card' />

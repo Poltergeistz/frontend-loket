@@ -6,6 +6,10 @@ export default class BbcdrRapportenNewRoute extends Route {
       filter: { ':uri:': 'http://data.lblod.info/document-statuses/concept' }
     })).firstObject;
 
-    return this.store.createRecord('bbcdr-report', {status});
+    let report = this.store.createRecord('bbcdr-report', {status});
+    return {
+      report,
+      files: await report.files,
+    };
   }
 }

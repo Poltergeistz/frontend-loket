@@ -19,10 +19,14 @@ export default class BbcdrReportEditComponent extends Component {
 
   constructor(){
     super(...arguments);
-    if(this.args.report.get('files')){
-      this.reportFiles = this.args.report.get('files');
+    if(this.args.files?.length > 0) {
+      this.reportFiles.pushObjects(this.args.files.toArray());
     }
   }
+
+  // get reportFiles() {
+  //   return this.args.files;
+  // }
 
   get readyToSend() {
     return this.reportFiles.length == 2;
@@ -35,12 +39,11 @@ export default class BbcdrReportEditComponent extends Component {
   async updateReport() {
     this.args.report.set('files', this.reportFiles);
     this.args.report.set('modified', new Date());
-    return this.args.report.save();
+    return await this.args.report.save();
   }
 
   async deleteFilesAndReport(){
-    const files = await this.args.report.files;
-    await all(files.map(file => file.destroyRecord()));
+    await all(this.reportFiles.map(file => file.destroyRecord()));
     await this.args.report.destroyRecord();
   }
 

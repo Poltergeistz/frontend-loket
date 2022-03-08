@@ -32,7 +32,7 @@
         {{shared/document-status-pill row.status}}
       </td>
       <td data-test-loket='bbcdr-report-table-open-details-column'>
-        <LinkTo @route='bbcdr.rapporten.edit' @model={{row}} class="au-c-link">Bekijk</LinkTo>
+        <LinkTo @route='bbcdr.rapporten.edit' @model={{row.id}} class="au-c-link">Bekijk</LinkTo>
       </td>
     </c.body>
   </t.content>
