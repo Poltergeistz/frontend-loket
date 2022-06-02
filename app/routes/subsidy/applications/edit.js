@@ -16,6 +16,7 @@ import PlanLivingTogetherTableShowComponent from 'frontend-loket/components/rdf-
 import AccountabilityTableEditComponent from 'frontend-loket/components/rdf-form-fields/accountability-table/edit';
 import AccountabilityTableShowComponent from 'frontend-loket/components/rdf-form-fields/accountability-table/show';
 
+
 export default class SubsidyApplicationsEditRoute extends Route {
   @service store;
   @service currentSession;

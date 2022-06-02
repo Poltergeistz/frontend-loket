@@ -4,6 +4,20 @@ import loadInitializers from 'ember-load-initializers';
 import browserUpdate from 'browser-update';
 import config from './config/environment';
 import './config/custom-inflector-rules';
+import { registerFormFields } from '@lblod/ember-submission-form-fields';
+import RdfaEditorComponent from 'frontend-loket/components/rdf-form-fields/rdfa-editor';
+import RichTextComponent from 'frontend-loket/components/rdf-form-fields/rich-text';
+
+registerFormFields([
+  {
+    displayType: 'http://lblod.data.gift/display-types/richText',
+    edit: RichTextComponent,
+  },
+  {
+    displayType: 'http://lblod.data.gift/display-types/rdfaEditor',
+    edit: RdfaEditorComponent,
+  },
+]);
 
 export default class App extends Application {
   modulePrefix = config.modulePrefix;
