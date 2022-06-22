@@ -102,4 +102,12 @@ Router.map(function () {
     path: '/*wildcard',
   });
   this.route('help');
+
+  this.route('bedienarenbeheer', function () {
+    this.route('bedienaren', function () {
+      this.route('edit');
+      this.route('new-person');
+      this.route('new');
+    });
+  });
 });
