@@ -96,3 +96,6 @@ inflector.irregular(
   'subsidy-measure-consumption-status',
   'subsidy-measure-consumption-statuses'
 );
+
+// bedienarenbeheer
+inflector.irregular('agents-in-position', 'agents-in-position');
