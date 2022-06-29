@@ -9,7 +9,7 @@ export default class BedienarenbeheerBedienarenRoute extends Route.extend(
 
   mergeQueryOptions() {
     return {
-      include: ['is-bestuurlijke-alias-van', 'person', 'post'].join(','),
-    }
-  };
+      include: ['is-bestuurlijke-alias-van', 'person'].join(','),
+    };
+  }
 }
