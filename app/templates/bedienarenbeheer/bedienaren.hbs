@@ -1,5 +1,5 @@
 {{page-title "Bedienarenbeheer " this.bestuurseenheid.classificatie.label " " this.bestuurseenheid.naam}}
-<div class="au-c-body-container {{if this.hasActiveChildRoute "au-u-hidden"}}">
+<div class="au-c-body-container">
   <AuToolbar @size="large" @nowrap="true" class="au-u-padding-bottom-none">
     <AuToolbarGroup>
       <div class="au-o-flow">
@@ -9,45 +9,42 @@
 
     <AuToolbarGroup>
       <AuButtonGroup>
-        <AuButton {{on 'click' this.handleAddMandatarisClick}}>
+        <AuButton>
           Voeg bedienaar toe
         </AuButton>
       </AuButtonGroup>
     </AuToolbarGroup>
   </AuToolbar>
 
-  <AuToolbar @size="large">
-    <AuToolbarGroup>
-      <div class="">
-        <Mandatenbeheer::BestuursperiodenSelector
-          @options={{this.bestuursperioden}}
-          @selectedStartDate={{this.startDate}}
-          @onSelect={{this.selectPeriod}}/>
-      </div>
-    </AuToolbarGroup>
-    <AuToolbarGroup class="au-u-1-3@medium">
-      <AuInput
-        @value={{this.searchData}}
-        @icon="search"
-        @iconAlignment="left"
-        @width="block"
-        placeholder="Zoek bedienaar"
-        {{on "input" (perform this.search value="target.value")}}
-      />
-    </AuToolbarGroup>
-  </AuToolbar>
-
-  <Mandatenbeheer::MandatarisTable
-    class="au-c-body-container"
-    @content={{this.model}}
-    @isLoading={{this.isLoadingModel}}
-    @sort={{this.sort}}
-    @page={{this.page}}
-    @size={{this.size}}
-    @editRoute="bedienarenbeheer.bedienaren.edit"
-    @displaySubset={{this.hasActiveChildRoute}}
-  />
-
+  <AuDataTable @content={{this.model}} @isLoading={{this.model.isLoading}} @noDataMessage="Geen bedienaren gevonden"
+    @sort={{this.sort}} @page={{this.page}} @size={{this.size}} as |t|>
+    <t.content as |c|>
+      <c.header>
+        <AuDataTableThSortable @field='positie' @currentSorting={{this.sort}} @label='Positie' class="au-u-visible-small-up" />
+        <AuDataTableThSortable @field='voornaam' @currentSorting={{this.sort}} @label='Voornaam' class="au-u-visible-small-up" />
+        <AuDataTableThSortable @field='achternaam' @currentSorting={{this.sort}} @label='Achternaam' class="au-u-visible-small-up" />
+        <AuDataTableThSortable @field='startdatum' @currentSorting={{this.sort}} @label='Startdatum' class="au-u-visible-small-up" />
+        <AuDataTableThSortable @field='einddatum' @currentSorting={{this.sort}} @label='Einddatum' class="au-u-visible-small-up" />
+        <th></th>
+      </c.header>
+      <c.body data-test-loket="mandatarissen-body" as |row|>
+        <td>
+          {{row.heeftLidmaatschap}}
+        </td>
+        <td>
+          {{row.voornaam}}
+        </td>
+        <td>
+          {{row.achternaam}}
+        </td>
+        <td>
+          {{moment-format row.startDate 'DD-MM-YYYY'}}
+        </td>
+        <td>
+          {{moment-format row.endDate 'DD-MM-YYYY'}}
+        </td>
+        <td><LinkTo @route={{@editRoute}} @model={{row.isBestuurlijkeAliasVan.id}} class="au-c-link"> Bewerk </LinkTo></td>
+      </c.body>
+    </t.content>
+  </AuDataTable>
 </div>
-
-{{outlet}}
