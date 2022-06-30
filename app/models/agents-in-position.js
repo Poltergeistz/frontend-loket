@@ -7,16 +7,12 @@ export default class AgentsInPositionModel extends Model {
 
   @belongsTo('persoon') person;
   @belongsTo('persoon', { inverse: 'isAangesteldAls' }) isBestuurlijkeAliasVan;
-  @belongsTo('post') position;
+  @belongsTo('mandaat', { inverse: null }) bekleedt;
 
   @hasMany('contact-punt') contactinfo;
 
   get startDate() {
     return this.agentStartDate || this.start || null;
-  }
-
-  get persoon() {
-    return this.isBestuurlijkeAliasVan || null;
   }
 
   get voornaam() {
