@@ -9,7 +9,7 @@
         @options={{this.mandaten}}
         @selected={{this._mandaat}}
         @searchField="bestuursfunctie.label"
-        @onChange={{this.select}}
+        @onChange={{action "select"}}
         @triggerId="mandaat"
         as |mandaat|>
   {{mandaat.bestuursfunctie.label}}
