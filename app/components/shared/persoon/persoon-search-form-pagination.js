@@ -1,50 +1,71 @@
-/* eslint-disable ember/no-classic-components, ember/no-classic-classes, ember/require-tagless-components, ember/require-computed-property-dependencies, ember/no-get, ember/require-computed-macros, ember/no-actions-hash */
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+/* eslint-disable ember/require-computed-property-dependencies, ember/no-get, ember/require-computed-macros, ember/no-actions-hash */
+import Component from '@glimmer/component';
+import { computed, action, set } from '@ember/object';
 
-export default Component.extend({
-  classNames: ['data-table-pagination'],
-  currentPage: computed('page', {
-    get() {
-      return this.page ? parseInt(this.page) + 1 : 1;
-    },
-    set(key, value) {
-      this.set('page', value - 1);
-      return value;
-    },
-  }),
-  firstPage: computed('links', function () {
-    return this.get('links.first.number') || 1;
-  }),
-  lastPage: computed('links', function () {
-    const max = this.get('links.last.number') || -1;
+export default class PersoonSearchFormPagination extends Component {
+  classNames = ['data-table-pagination'];
+
+  constructor() {
+    super(...arguments);
+  }
+
+  @computed('page')
+  get currentPage() {
+    return this.args.page ? parseInt(this.args.page) + 1 : 1;
+  }
+
+  set currentPage(value) {
+    set(this, 'args.page', value - 1);
+    this.value = value;
+  }
+
+  @computed('links')
+  get firstPage() {
+    return this.args.links.first.number || 1;
+  }
+
+  @computed('links')
+  get lastPage() {
+    const max = this.args.links.last.number || -1;
     return max ? max + 1 : max;
-  }),
-  isFirstPage: computed('firstPage', 'currentPage', function () {
+  }
+
+  @computed('firstPage', 'currentPage')
+  get isFirstPage() {
     return this.firstPage == this.currentPage;
-  }),
-  isLastPage: computed('lastPage', 'currentPage', function () {
+  }
+
+  @computed('lastPage', 'currentPage')
+  get isLastPage() {
     return this.lastPage == this.currentPage;
-  }),
-  hasMultiplePages: computed('lastPage', function () {
+  }
+
+  @computed('lastPage')
+  get hasMultiplePages() {
     return this.lastPage > 0;
-  }),
-  startItem: computed('size', 'currentPage', function () {
-    return this.size * (this.currentPage - 1) + 1;
-  }),
-  endItem: computed('startItem', 'nbOfItems', function () {
-    return this.startItem + this.nbOfItems - 1;
-  }),
-  pageOptions: computed('firstPage', 'lastPage', function () {
+  }
+
+  @computed('size', 'currentPage')
+  get startItem() {
+    return this.args.size * (this.currentPage - 1) + 1;
+  }
+
+  @computed('startItem', 'nbOfItems')
+  get endItem() {
+    return this.startItem + this.args.nbOfItems - 1;
+  }
+
+  @computed('lastPage', 'firstPage')
+  get pageOptions() {
     const nbOfPages = this.lastPage - this.firstPage + 1;
     return Array.from(
       new Array(nbOfPages),
-      (val, index) => this.firstPage + index
+      (_val, index) => this.firstPage + index
     );
-  }),
-  actions: {
-    changePage(link) {
-      this.onSelectPage(link['number'] || 0);
-    },
-  },
-});
+  }
+
+  @action
+  changePage(link) {
+    this.args.onSelectPage(link['number'] || 0);
+  }
+}
