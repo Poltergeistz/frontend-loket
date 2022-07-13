@@ -10,7 +10,7 @@
         <th></th>
       </tr>
       <tr class="au-c-table__row-indent">
-        {{#each (repeat this.workingTimeCategories.length) as |i|}}
+        {{#each (repeat this.workingTimeCategories.length)}}
           {{#each this.legalStatuses as |status|}}
             <th colspan="2">{{status.label}}</th>
           {{/each}}
@@ -18,8 +18,8 @@
         <th></th>
       </tr>
       <tr class="au-c-table__row-indent">
-        {{#each (repeat this.workingTimeCategories.length) as |i|}}
-          {{#each (repeat this.legalStatuses.length) as |j|}}
+        {{#each (repeat this.workingTimeCategories.length)}}
+          {{#each (repeat this.legalStatuses.length)}}
             {{#each this.sexes as |sex|}}
               {{#if sex.isMale}}
                 <th>Mannen</th>
@@ -45,23 +45,23 @@
           {{#each this.workingTimeCategories as |category|}}
             {{#each this.legalStatuses as |status|}}
               {{#each this.sexes as |sex|}}
-                {{personeelsbeheer/employee-observation-table-cell
-                    observations=this.observations
-                    unitMeasure=this.unitMeasure
-                    educationalLevel=level
-                    workingTimeCategory=category
-                    legalStatus=status
-                    sex=sex
-                    onChange=this.onChangeObservation
-                }}
+                <Personeelsbeheer::EmployeeObservationTableCell
+                  @observations={{this.observations}}
+                  @unitMeasure={{this.unitMeasure}}
+                  @educationalLevel={{level}}
+                  @workingTimeCategory={{category}}
+                  @legalStatus={{status}}
+                  @sex={{sex}}
+                  @onChange={{this.onChangeObservation}}
+                />
               {{/each}}
             {{/each}}
           {{/each}}
           <td><strong>
-            {{personeelsbeheer/employee-observation-table-total
-                observations=this.observations
-                aggregations=(array (hash groupBy="educationalLevel" concept=level))
-            }}
+            <Personeelsbeheer::EmployeeObservationTableTotal
+              @observations={{this.observations}}
+              @aggregations={{array (hash groupBy="educationalLevel" concept=level)}}
+            />
           </strong></td>
         </tr>
       {{/each}}
@@ -72,10 +72,11 @@
           {{#each this.legalStatuses as |status|}}
             {{#each this.sexes as |sex|}}
               <th>
-                {{personeelsbeheer/employee-observation-table-total
-                    observations=this.observations
-                    aggregations=(array (hash groupBy="workingTimeCategory" concept=category) (hash groupBy="legalStatus" concept=status) (hash groupBy="sex" concept=sex))
-                }} {{#if sex.isMale}}Mannen{{else}}Vrouwen{{/if}}
+                <Personeelsbeheer::EmployeeObservationTableTotal
+                  @observations={{this.observations}}
+                  @aggregations={{array (hash groupBy="workingTimeCategory" concept=category) (hash groupBy="legalStatus" concept=status) (hash groupBy="sex" concept=sex)}}
+                />
+                {{#if sex.isMale}}Mannen{{else}}Vrouwen{{/if}}
               </th>
             {{/each}}
           {{/each}}
@@ -87,10 +88,11 @@
         {{#each this.workingTimeCategories as |category|}}
           {{#each this.legalStatuses as |status|}}
             <th colspan="2">
-              {{personeelsbeheer/employee-observation-table-total
-                  observations=this.observations
-                  aggregations=(array (hash groupBy="workingTimeCategory" concept=category) (hash groupBy="legalStatus" concept=status))
-              }} {{status.label}}
+              <Personeelsbeheer::EmployeeObservationTableTotal
+                @observations={{this.observations}}
+                @aggregations={{array (hash groupBy="workingTimeCategory" concept=category) (hash groupBy="legalStatus" concept=status)}}
+              />
+              {{status.label}}
             </th>
           {{/each}}
         {{/each}}
@@ -100,10 +102,11 @@
         <th style={{html-safe (concat "max-width: 12rem;")}}>Totaal</th>
         {{#each this.workingTimeCategories as |category|}}
           <th colspan="4">
-            {{personeelsbeheer/employee-observation-table-total
-                observations=this.observations
-                aggregations=(array (hash groupBy="workingTimeCategory" concept=category))
-            }} {{category.label}}
+            <Personeelsbeheer::EmployeeObservationTableTotal
+              @observations={{this.observations}}
+              @aggregations={{array (hash groupBy="workingTimeCategory" concept=category)}}
+            />
+            {{category.label}}
           </th>
         {{/each}}
         <th><strong>{{this.total}}</strong></th>
