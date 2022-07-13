@@ -1,49 +1,53 @@
-/* eslint-disable ember/no-classic-components, ember/no-classic-classes, ember/no-component-lifecycle-hooks, ember/no-actions-hash */
-import Component from '@ember/component';
+/* eslint-disable ember/no-computed-properties-in-native-classes */
+
+import Component from '@glimmer/component';
+import { action, set } from '@ember/object';
+// TODO : Fix computed linting error
 import { reads } from '@ember/object/computed';
 import { conditional, raw } from 'ember-awesome-macros';
 
-export default Component.extend({
-  tagName: '',
+export default class EmployeeObservationTableCell extends Component {
+  tagName = '';
 
-  isFloat: reads('observation.unitMeasure.isFTE'),
-  step: conditional('isFloat', raw(0.01), raw(1)),
+  isFloat = reads('observation.unitMeasure.isFTE');
+  step = conditional('isFloat', raw(0.01), raw(1));
 
-  didReceiveAttrs() {
-    this._super(...arguments);
+  constructor() {
+    super(...arguments);
     if (
-      this.observations &&
-      this.unitMeasure &&
-      this.educationalLevel &&
-      this.workingTimeCategory &&
-      this.legalStatus &&
-      this.sex
+      this.args.observations &&
+      this.args.unitMeasure &&
+      this.args.educationalLevel &&
+      this.args.workingTimeCategory &&
+      this.args.legalStatus &&
+      this.args.sex
     ) {
-      const observation = this.observations.find(
+      const observation = this.args.observations.find(
         (obs) =>
-          obs.unitMeasure.get('uri') == this.unitMeasure.get('uri') &&
-          obs.educationalLevel.get('uri') == this.educationalLevel.get('uri') &&
+          obs.unitMeasure.get('uri') == this.args.unitMeasure.get('uri') &&
+          obs.educationalLevel.get('uri') ==
+            this.args.educationalLevel.get('uri') &&
           obs.workingTimeCategory.get('uri') ==
-            this.workingTimeCategory.get('uri') &&
-          obs.legalStatus.get('uri') == this.legalStatus.get('uri') &&
-          obs.sex.get('uri') == this.sex.get('uri')
+            this.args.workingTimeCategory.get('uri') &&
+          obs.legalStatus.get('uri') == this.args.legalStatus.get('uri') &&
+          obs.sex.get('uri') == this.args.sex.get('uri')
       );
-      this.set('observation', observation);
+      set(this, 'observation', observation);
     }
-  },
+  }
 
-  actions: {
-    setValue(value) {
-      if (value < 0 || value === '') value = 0;
+  @action
+  setValue(event) {
+    if (event.target.value < 0 || event.target.value === '')
+      event.target.value = 0;
 
-      if (this.isFloat) {
-        const float = Number.parseFloat(value).toFixed(2);
-        this.observation.set('value', float);
-      } else {
-        const int = Math.ceil(value);
-        this.observation.set('value', int);
-      }
-      this.onChange(this.observation);
-    },
-  },
-});
+    if (this.isFloat) {
+      const float = Number.parseFloat(event.target.value).toFixed(2);
+      this.observation.set('value', float);
+    } else {
+      const int = Math.ceil(event.target.value);
+      this.observation.set('value', int);
+    }
+    this.args.onChange(this.observation);
+  }
+}
