@@ -1,4 +1,5 @@
 {{#unless this.initTable.isRunning}}
+{{!-- TODO : Fix table in desktop --}}
 <div class="au-c-table-wrapper">
   <table class="au-c-table au-c-table--zebra">
     <thead>
@@ -52,7 +53,7 @@
                   @workingTimeCategory={{category}}
                   @legalStatus={{status}}
                   @sex={{sex}}
-                  @onChange={{this.onChangeObservation}}
+                  @onChange={{@onChangeObservation}}
                 />
               {{/each}}
             {{/each}}
