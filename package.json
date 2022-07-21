@@ -26,6 +26,8 @@
     "test:ember": "ember test"
   },
   "overrides": {
+    "ember-style-modifier": "^0.8.0",
+    "ember-inputmask5": "^4.0.1",
     "@embroider/macros": "^1.0.0",
     "@embroider/util": "^1.0.0",
     "moment": "^2.29.1"
